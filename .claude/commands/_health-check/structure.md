@@ -34,4 +34,31 @@
   缺少：{缺少的檔案列表}
 ```
 
+---
+
+## Wiki 知識層結構驗證（若 wiki/ 存在）
+
+確認以下 wiki 層基礎架構存在：
+
+```
+必要（wiki 層已啟動的前提）：
+  [ ] wiki/hot.md
+  [ ] wiki/index.md
+  [ ] wiki/log.md
+
+知識層（有內容時應存在）：
+  [ ] wiki/concepts/_index.md
+  [ ] wiki/entities/_index.md
+  [ ] wiki/sources/_index.md
+  [ ] wiki/questions/_index.md
+  [ ] wiki/overview.md
+
+Obsidian 整合（選配）：
+  [ ] .obsidian/snippets/vault-colors.css
+  [ ] .raw/ 資料夾（原始文件存放區）
+  [ ] hooks/hooks.json（session 自動化）
+```
+
+若 wiki/ 不存在或為空 → 略過此段，只做工程層檢查。
+
 → 完成後讀取 `_health-check/schema.md`（若完整診斷模式）

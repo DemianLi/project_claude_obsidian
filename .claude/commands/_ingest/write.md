@@ -65,4 +65,36 @@
 > **⚠️ 版本更新**：{YYYY-MM-DD} 依 {文件名} 更新，原版本：{舊描述}
 ```
 
+## 3-4：矛盾偵測（wiki 層 + 工程層交叉）
+
+若本次解析內容與以下任一來源有**語意矛盾**：
+- `wiki/concepts/` 或 `wiki/entities/` 中的既有結論
+- `wiki/sources/` 中另一來源的描述
+
+→ 在**兩個頁面**均加入 `[!contradiction]` callout（不靜默覆寫）：
+
+```markdown
+> [!contradiction] 與 [[{另一頁面}]] 衝突
+> 本文說：{新來源的描述}
+> [[{另一頁面}]] 說：{既有記錄的描述}
+> 建議：確認哪個更新/更可靠後，手動更新並移除此 callout。
+```
+
+**矛盾判斷標準（只標記明確衝突，不標記「補充」）：**
+- 同一技術的版本號不同 → ✅ 矛盾
+- 同一 API 的行為描述相反 → ✅ 矛盾
+- 一個說「支援」一個說「不支援」→ ✅ 矛盾
+- 一個說「建議用 A」一個說「建議用 B」（同場景）→ ✅ 矛盾
+- 補充說明、不同面向的描述 → ❌ 不是矛盾
+
+## 3-5：更新 .raw/.manifest.json
+
+若本次來源來自 `.raw/`（URL 輸入或實體文件），
+在 `.manifest.json` 補填：
+```json
+"ingested_at": "{YYYY-MM-DD}",
+"pages_created": ["wiki/sources/{頁面}.md", ...],
+"pages_updated": ["wiki/index.md", ...]
+```
+
 → 完成後前往 `_ingest/report.md`（Phase 4）

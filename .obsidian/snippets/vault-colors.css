@@ -1,0 +1,71 @@
+/* ====================================================
+   claude-obsidian-engineering — Vault Color Scheme
+   工程知識庫 + Wiki 知識層 視覺配置
+   ==================================================== */
+
+/* --- 資料夾色彩（File Explorer） --- */
+.nav-folder-title[data-path="wiki"] { color: #4A9EFF; }
+.nav-folder-title[data-path="wiki/concepts"] { color: #6B9EFF; }
+.nav-folder-title[data-path="wiki/entities"] { color: #A78BFA; }
+.nav-folder-title[data-path="wiki/sources"] { color: #34D399; }
+.nav-folder-title[data-path="wiki/questions"] { color: #FCD34D; }
+.nav-folder-title[data-path="projects"] { color: #F97316; }
+.nav-folder-title[data-path="knowledge"] { color: #FB923C; }
+.nav-folder-title[data-path=".raw"] { color: #6B7280; }
+
+/* --- 自定義 Callout 樣式 --- */
+
+/* [!contradiction] — 紅棕，警告 */
+.callout[data-callout="contradiction"] {
+  --callout-color: 180, 60, 60;
+  --callout-icon: lucide-alert-triangle;
+}
+.callout[data-callout="contradiction"] .callout-title {
+  color: rgb(220, 80, 80);
+  font-weight: 700;
+}
+
+/* [!gap] — 橘黃，缺口 */
+.callout[data-callout="gap"] {
+  --callout-color: 200, 130, 40;
+  --callout-icon: lucide-help-circle;
+}
+.callout[data-callout="gap"] .callout-title {
+  color: rgb(220, 150, 50);
+  font-weight: 600;
+}
+
+/* [!key-insight] — 藍綠，重要 */
+.callout[data-callout="key-insight"] {
+  --callout-color: 20, 160, 160;
+  --callout-icon: lucide-zap;
+}
+.callout[data-callout="key-insight"] .callout-title {
+  color: rgb(30, 190, 190);
+  font-weight: 700;
+}
+
+/* [!stale] — 灰，過時 */
+.callout[data-callout="stale"] {
+  --callout-color: 120, 120, 120;
+  --callout-icon: lucide-clock;
+}
+.callout[data-callout="stale"] .callout-title {
+  color: rgb(150, 150, 150);
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* --- REQ 狀態色彩（在 functional.md 中的視覺提示） --- */
+.markdown-preview-view strong:has(+ span:contains("✅")) { color: #34D399; }
+.markdown-preview-view strong:has(+ span:contains("🕐")) { color: #FCD34D; }
+.markdown-preview-view strong:has(+ span:contains("❌")) { color: #F87171; }
+
+/* --- Graph View 節點色彩 --- */
+/* 在 Obsidian Graph View 設定中手動設定：
+   wiki/concepts → blue (#4A9EFF)
+   wiki/entities → purple (#A78BFA)
+   wiki/sources  → green (#34D399)
+   projects      → orange (#F97316)
+   knowledge     → amber (#FB923C)
+*/

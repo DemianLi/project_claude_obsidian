@@ -49,3 +49,56 @@
 | PAT 缺少 tags | 「要我根據模式內容自動推薦 tags 嗎？」 |
 
 append 記錄至 `wiki/log.md`。
+
+---
+
+## Wiki 層健康度（若 wiki/ 資料夾存在內容）
+
+### 孤兒頁面掃描
+
+掃描 `wiki/concepts/`、`wiki/entities/`、`wiki/sources/`、`wiki/questions/` 下所有 `.md`：
+找出沒有任何其他頁面 `[[wikilink]]` 指向它的頁面。
+
+```
+🔗 孤兒頁面（{N} 個，無人連結）：
+  wiki/entities/SomeService.md — 建議：從相關 project 或 knowledge/ 加連結
+```
+
+### 死連結掃描
+
+掃描所有 wiki 頁面中的 `[[頁面名稱]]` 連結，確認目標檔案存在。
+
+```
+💀 死連結（{N} 個）：
+  wiki/sources/SomeArticle.md → [[不存在的頁面]] — 建議：建立 stub 或移除連結
+```
+
+### 未解決矛盾掃描
+
+掃描所有 wiki 頁面中的 `[!contradiction]` callout，列出待解決的矛盾。
+
+```
+⚡ 未解決矛盾（{N} 個）：
+  wiki/entities/Redis.md + wiki/sources/SomeArticle.md — 發現日期：{YYYY-MM-DD}
+```
+
+### Dataview Dashboard（可選輸出）
+
+若使用者說 `--dashboard`，輸出此 markdown 區塊可貼入 `wiki/meta/dashboard.md`：
+
+````markdown
+## Wiki 最近活動
+```dataview
+TABLE type, status, updated FROM "wiki" SORT updated DESC LIMIT 15
+```
+
+## 待孵化頁面（seed 狀態）
+```dataview
+LIST FROM "wiki" WHERE status = "seed" SORT updated ASC
+```
+
+## 未解決矛盾
+```dataview
+LIST FROM "wiki" WHERE contains(file.content, "[!contradiction]")
+```
+````
