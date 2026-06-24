@@ -1,16 +1,16 @@
 ---
 type: hot-cache
-updated: 2026-06-22
+updated: 2026-06-23
 ---
 
 # 熱快取 — 最近工作脈絡
 
 ---
 
-## 🔄 最近工作（2026-06-22）
+## 🔄 最近工作（2026-06-23）
 
-**活躍專案**：知識庫系統本身（深度整合 claude-obsidian）
-**上次工作**：2026-06-22
+**活躍專案**：知識庫系統本身（端對端驗證完成）
+**上次工作**：2026-06-23
 
 ---
 
@@ -66,9 +66,14 @@ updated: 2026-06-22
 - .raw/ 下的原始文件**不可修改**，只有 .raw/.manifest.json 可由 /ingest 更新
 - wiki/questions/ 的歸檔是被動機制（/query 回答後主動詢問），不會自動觸發
 
+### 最新新增（2026-06-23）
+
+- `wiki/playbook.md` — 10 大高頻場景使用手冊（觸發情境/調用輸入/產出結果）
+  - 10 個場景於 eshop-sunrise 虛擬測試專案全部驗證通過
+  - 已登記至 wiki/index.md 快速導航
+
 ### 待辦（下次繼續）
 
-- [ ] 測試 hooks 是否在 Claude Code 環境中正確載入
-- [ ] 實際執行 `ingest [URL]` 測試完整 URL 流程
-- [ ] 開始第一個真實專案（`/project-init`）
-- [ ] 考慮是否需要 Obsidian Local REST API MCP（直接 API 讀寫 vs 現有 file tools）
+- [ ] 啟用真實專案（`/project-init`）
+- [ ] hooks/hooks.json 需在 Claude Code 設定中啟用
+- [ ] vault-colors.css 需在 Obsidian → Appearance → CSS Snippets 中啟用

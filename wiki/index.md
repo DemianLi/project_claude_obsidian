@@ -42,6 +42,7 @@ updated: 2026-06-22
 ### 工程層
 - [[wiki/hot]] — 最近工作脈絡
 - [[wiki/log]] — 操作日誌
+- [[wiki/playbook]] — 10 大場景使用手冊（遇到什麼情境用什麼指令）
 - [[knowledge/patterns/index]] — 設計模式庫
 - [[knowledge/lessons-learned/index]] — 教訓庫
 - [[knowledge/tech-stack/index]] — 技術棧筆記
