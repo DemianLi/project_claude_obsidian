@@ -7,7 +7,7 @@ Session 結束時儲存工作狀態、更新所有索引、確保下次載入脈
 
 | Phase | 讀取 | 說明 | 需要詢問使用者？ |
 |-------|------|------|-----------------|
-| 1 | `_save/gather.md` | 彙整 session 內容 + 建立 dev-notes + ADR | ✅ 工時 / ADR / 背景知識 / 教訓模式 |
+| 1 | `_save/gather.md` | 彙整 session 內容 + 建立 dev-notes + ADR + 協作鎖定更新 | ✅ 工時 / ADR / 背景知識 / 教訓模式 / 協作鎖定 |
 | 2 | `_save/index.md` | 更新 wiki + 維護所有薄索引 | 自動執行 |
 | 3 | `_save/report.md` | 完成回報 | 自動 |
 

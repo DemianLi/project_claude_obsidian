@@ -30,6 +30,11 @@
 | 現有系統新資訊（技術限制、整合點） | 「本次確認了 {技術細節}，要更新 existing-system.md？」 |
 | 領域知識（術語、業務規則、法規） | 「本次理解了 {概念}，要記錄至 domain-knowledge.md？」 |
 
+## Step 4：協作狀態更新（條件）
+
+若 `projects/{專案名稱}/.claude/collab.md` 存在 → 讀 `.claude/commands/_collab/update.md` 執行鎖定更新。
+若不存在 → 跳過。
+
 ## Step 7：掃描教訓、模式與第三方服務坑
 
 - 新教訓 → 詢問是否更新 `knowledge/lessons-learned/`

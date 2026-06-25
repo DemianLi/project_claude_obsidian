@@ -8,6 +8,7 @@
 ## [SESSION START]
 1. 讀 `wiki/hot.md` → 讀 `wiki/index.md`
 2. 若提及特定專案 → 讀 `projects/{名稱}/00-overview.md`
+   2a. 若存在 `projects/{名稱}/.claude/collab.md` → 讀取，顯示團隊鎖定狀況
 3. 一句話告知載入的上下文
 
 **知識路由（依問題類型）：**
@@ -32,6 +33,8 @@
 | ✅ 已確認甲方 | 繼續 |
 | 🕐 待確認 / 🔄 變更中 / ❌ 廢棄 | **停止**，回報 REQ-ID 與狀態 |
 | 🔍 INF-XXX / ❓ GAP-XXX | **停止**，讀 `.claude/protocols/stop-report.md` 展開完整格式 |
+
+**Stage 3.5（條件）** 若 `projects/{名稱}/.claude/collab.md` 存在 → 讀 `.claude/commands/_collab/check.md` 執行協作衝突偵測；有衝突 → 要求確認才繼續
 
 **Stage 4（0–2）** `_inferred.md` Quick Context → 阻塞模組與任務有交集才深讀
 
@@ -71,6 +74,7 @@ projects/{專案}/
   04-decisions/  ADR-index.md⚡  ADR-{ID}.md
   05-dev-notes/  _index.md⚡
   06-qa-testing/  bugs-active.md⚡  bugs.md
+  .claude/collab.md               （多工程師 REQ 鎖定狀態，選配）
 
 knowledge/  patterns/index.md⚡  lessons-learned/index.md⚡  tech-stack/index.md
 
