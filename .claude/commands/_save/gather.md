@@ -32,7 +32,7 @@
 
 ## Step 4：協作狀態更新（條件）
 
-若 `projects/{專案名稱}/.claude/collab.md` 存在 → 讀 `.claude/commands/_collab/update.md` 執行鎖定更新。
+若 `{KB_ROOT}/projects/{專案名稱}/.claude/collab/` 存在 → 讀 `{KB_ROOT}/.claude/commands/_collab/update.md` 執行鎖定更新。
 若不存在 → 跳過。
 
 ## Step 7：掃描教訓、模式與第三方服務坑

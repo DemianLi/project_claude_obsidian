@@ -85,20 +85,51 @@ updated: {YYYY-MM-DD}
 - `existing-system.md` 必填，越詳細越好
 - 建議立即執行 `/reverse-engineer` 填充 `_inferred.md`
 
-**4. 更新 wiki/index.md**
+**4. 更新 `{KB_ROOT}/wiki/index.md`**
 將新專案加入「進行中的專案」表格。
 
-**5. 更新 wiki/hot.md**
+**5. 更新 `{KB_ROOT}/wiki/hot/{engineer}.md`**
 記錄新專案已建立，設為當前活躍專案。
 
-**6. 完成回報**
+**6. 建立程式碼倉庫的薄 CLAUDE.md**
+
+詢問：「程式碼倉庫路徑？（預設：~/Projects_vibecoding/{project_name}）」
+
+在 `{CODE_ROOT}/CLAUDE.md` 建立以下內容：
+
+```markdown
+# {project_name} — 開發工作區
+
+## 路徑設定
+KB_ROOT: ~/Projects_vibecoding/claude_obsidien_setting
+CODE_ROOT: {使用者確認的路徑}
+PROJECT_NAME: {project_name}
+
+## 使用說明
+完整系統規則（BEFORE CODING、/save、所有指令）在 KB_ROOT 的 CLAUDE.md。
+SESSION START 時，先讀 `{KB_ROOT}/CLAUDE.md`，再讀 `{KB_ROOT}/wiki/hot/*.md`。
+
+## 本專案知識庫路徑
+需求 / 架構 / 決策：`{KB_ROOT}/projects/{project_name}/`
+程式碼（此目錄）：`{CODE_ROOT}/`
+
+## Git 規則
+- 程式碼改動 → git 操作在此目錄（CODE_ROOT）
+- 知識庫改動 → 切到 KB_ROOT 執行 git，或執行 /save 自動處理
+- 兩個 repo 不混用
+```
+
+若使用者未提供路徑，預設為 `~/Projects_vibecoding/{project_name}`；若路徑不存在則提醒需先建立目錄。
+
+**7. 完成回報**
 ```
 ✅ 專案 [{名稱}] 建立完成
 
-📂 結構：projects/{名稱}/
+📂 知識庫：{KB_ROOT}/projects/{名稱}/
+📂 程式碼：{CODE_ROOT}/（薄 CLAUDE.md 已產生）
 ⚡ 薄索引已建立：functional-index / arch-index / ADR-index / dev-notes/_index / bugs-active
 📋 下一步：
-  1. 將甲方文件放入 _inbox/，執行 /ingest 自動解析並填充 functional-index
-  2. 確認非功能需求：01-requirements/non-functional.md
+  1. 將甲方文件放入 {KB_ROOT}/_inbox/，執行 /ingest 自動解析並填充 functional-index
+  2. 確認非功能需求：{KB_ROOT}/projects/{名稱}/01-requirements/non-functional.md
   3. 若為擴充案：填寫 existing-system.md，執行 /reverse-engineer
 ```

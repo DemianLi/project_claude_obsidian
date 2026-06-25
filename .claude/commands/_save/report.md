@@ -16,6 +16,20 @@
 若本次有新的第三方服務踩坑但尚未記錄，附加提醒：
 ```
 ⚠️ 提醒：本次串接了 {服務名稱}，建議執行 /self-improve 或手動補充
-   knowledge/tech-stack/index.md 中的對應記錄，
+   {KB_ROOT}/knowledge/tech-stack/index.md 中的對應記錄，
    這類資訊跨專案最有價值。
+```
+
+---
+
+## Git 操作規則（雙 Repo 架構）
+
+```
+✅ /save 只操作知識庫 repo：
+   git -C {KB_ROOT} add -A
+   git -C {KB_ROOT} commit -m "session: {日期} {一句話摘要}"
+   git -C {KB_ROOT} push
+
+❌ 不操作程式碼 repo（{CODE_ROOT}）
+   程式碼的 git add / commit / push 由工程師自行執行
 ```
