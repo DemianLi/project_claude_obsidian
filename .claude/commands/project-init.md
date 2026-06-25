@@ -113,10 +113,9 @@ SESSION START 時，先讀 `{KB_ROOT}/CLAUDE.md`，再讀 `{KB_ROOT}/wiki/hot/*.
 需求 / 架構 / 決策：`{KB_ROOT}/projects/{project_name}/`
 程式碼（此目錄）：`{CODE_ROOT}/`
 
-## Git 規則
-- 程式碼改動 → git 操作在此目錄（CODE_ROOT）
-- 知識庫改動 → 切到 KB_ROOT 執行 git，或執行 /save 自動處理
-- 兩個 repo 不混用
+## 版控說明
+- 知識庫（KB_ROOT）→ Obsidian git 插件自動管理，無需手動操作
+- 程式碼（CODE_ROOT，此目錄）→ 工程師自行 git 管理
 ```
 
 若使用者未提供路徑，預設為 `~/Projects_vibecoding/{project_name}`；若路徑不存在則提醒需先建立目錄。

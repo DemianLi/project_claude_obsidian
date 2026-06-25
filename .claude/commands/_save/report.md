@@ -20,16 +20,3 @@
    這類資訊跨專案最有價值。
 ```
 
----
-
-## Git 操作規則（雙 Repo 架構）
-
-```
-✅ /save 只操作知識庫 repo：
-   git -C {KB_ROOT} add -A
-   git -C {KB_ROOT} commit -m "session: {日期} {一句話摘要}"
-   git -C {KB_ROOT} push
-
-❌ 不操作程式碼 repo（{CODE_ROOT}）
-   程式碼的 git add / commit / push 由工程師自行執行
-```

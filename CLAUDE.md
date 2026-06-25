@@ -6,7 +6,7 @@
 ## 路徑變數（雙 Repo 架構）
 - **KB_ROOT**：`~/Projects_vibecoding/claude_obsidien_setting`（知識庫根目錄，不含尾斜線）
 - **CODE_ROOT**：`~/Projects_vibecoding/{project_name}`（程式碼倉庫，各專案不同）
-- 知識庫與程式碼是**兩個獨立 git repo**。/save 只操作 KB_ROOT repo，CODE_ROOT 由工程師自行 git 管理。
+- 知識庫版控由 **Obsidian git 插件自動管理**，/save 不執行任何 git 操作。CODE_ROOT 的 git 由工程師自行管理。
 - **路徑慣例**：所有 `.claude/commands/` 內的路徑（如 `projects/{name}/...`、`wiki/...`、`knowledge/...`），除非明確標示 `{CODE_ROOT}`，否則均相對於 **KB_ROOT**。
 
 ---
@@ -94,7 +94,7 @@ wiki/  hot/{initials}.md⚡  index.md⚡  log.md  overview.md
 .raw/  — 不可修改的原始文件（/ingest 的輸入來源）
 _inbox/  _unassigned/
 
-【程式碼 — CODE_ROOT = ~/Projects_vibecoding/{project_name}】（獨立 git repo，知識庫不寫入）
+【程式碼 — CODE_ROOT = ~/Projects_vibecoding/{project_name}】（獨立 repo，工程師自行 git 管理）
   實際 source code、設定檔、CLAUDE.md（薄版，由 /project-init 產生）
 
 Obsidian 慣例：詳見 {KB_ROOT}/.claude/protocols/wiki-layer.md
