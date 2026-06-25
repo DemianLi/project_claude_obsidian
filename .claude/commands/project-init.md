@@ -32,8 +32,10 @@
   functional/
     README.md                     ← 說明三層讀取結構（L1模組→L2模組Quick Context→L3 REQ掃描表）
   non-functional.md               （空白模板）
-  _pending.md                     （含 Quick Context 優先級摘要頭）
-  _inferred.md                    （含 Quick Context 風險摘要頭）
+  _pending/
+    _index.md                     ← 薄索引（含 QUICK CONTEXT 頭）；各 PENDING 各自一檔
+  _inferred/
+    _index.md                     ← 薄索引（含 QUICK CONTEXT 頭）；各 INF/GAP 各自一檔
 02-architecture/
   arch-index.md                   ← 薄索引（元件地圖）
   system-design/
@@ -52,34 +54,32 @@
   _index.md                       ← 薄索引（空白模板）
 06-qa-testing/
   bugs-active.md                  ← 薄索引（空白模板）
+  bugs/                           ← 各 BUG 各自一檔（BUG-001.md, BUG-002.md...）
 CHANGELOG.md                      （初始版本）
 .claude/
-  collab.md                       ← 多工程師 REQ 鎖定狀態（選配，單人專案可留空）
+  collab/                         ← 各工程師各自一檔（DL.md, MC.md...），選配
 ```
 
-**collab.md 建立內容**（固定模板）：
+**collab/ 建立方式**（詢問後依人數建立）：
+
+詢問：「這個專案有多位工程師協作嗎？請提供成員縮寫列表（例如：DL, MC, YJ）」
+
+每位工程師建立 `.claude/collab/{initials}.md`：
 ```markdown
 ---
-type: collab-status
-project: {專案名稱}
+engineer: {initials}
+name: {姓名}
+role: {角色}
 updated: {YYYY-MM-DD}
 ---
 
-# 協作狀態 — {專案名稱}
+# 鎖定狀態 — {initials}
 
-## 成員
-
-| 名稱 | 縮寫 | 角色 |
-|------|------|------|
-| （請在此登記團隊成員） | — | — |
-
-## 目前鎖定（active_work）
-
-| 工程師 | 鎖定 REQ | 模組 | 鎖定日期 | 備注 |
-|--------|---------|------|---------|------|
-| （無） | — | — | — | — |
+| 鎖定 REQ | 模組 | 鎖定日期 | 備注 |
+|---------|------|---------|------|
+| （無） | — | — | — |
 ```
-詢問：「這個專案有多位工程師協作嗎？要現在填入成員名單嗎？（可後續再補）」
+單人專案可跳過此步驟（collab/ 資料夾不存在時所有協作機制自動停用）。
 
 各薄索引在建立時為空白模板；後續由 `/ingest`、`/bug`、`/save` 指令自動維護內容。若是「擴充案」（既有系統），特別提醒：
 - `existing-system.md` 必填，越詳細越好

@@ -45,18 +45,21 @@
 
 > ⚠️ 寫入前確認 `scope.md`：不在原始合約範圍 → 先執行 `/cr`。
 
-## 3-2：模糊需求 → `_pending.md`
+## 3-2：模糊需求 → `_pending/{PENDING-XXX}.md`（一條一檔）
+
+建立獨立檔案 `01-requirements/_pending/PENDING-{XXX}.md`：
 
 ```markdown
-## PENDING-{XXX}：{標題}
+# PENDING-{XXX}：{標題}
 **原文**：{原始文字}  **來源**：{文件} 第 X 頁
 **問題**：{缺少什麼}
 **建議問甲方**：
 > {可直接複製給甲方的問題}
 **狀態**：等待回覆
+**建立日期**：{YYYY-MM-DD}
 ```
 
-若 `_pending.md` 已存在 → **append**，不覆寫舊的。
+同時更新 `_pending/_index.md` QUICK CONTEXT 頭（總數 +1，阻塞數若有則 +1）。
 
 ## 3-3：衝突更新
 

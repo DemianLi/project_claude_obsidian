@@ -1,9 +1,12 @@
 # Phase 2：更新 wiki + 維護薄索引（自動執行）
 
-## Step 4：更新 wiki/hot.md（完整替換）
+## Step 4：更新 wiki/hot/{engineer}.md（完整替換自己的檔案）
+
+工程師縮寫從 `.claude/collab/{initials}.md` 讀取；若無 collab 資料則詢問縮寫或預設 `default`。
+每位工程師只替換自己的檔案，其他人的 hot 檔案不動。
 
 ```markdown
-## 🔄 最近工作（{日期}）
+## 🔄 最近工作（{日期}）｜{engineer}
 
 **活躍專案**：{專案名}
 **上次工作**：{YYYY-MM-DD}
@@ -41,6 +44,8 @@
 | `ADR-index.md` | Append 新 ADR 一行摘要 | 本次建立新 ADR |
 | `05-dev-notes/_index.md` | Append 今日 session 一行摘要（日期/REQ/工時/標籤） | 本次有 dev-notes |
 | `bugs-active.md` | 移除已關閉 bug；更新統計摘要 | 本次有關閉 bug |
+| `_pending/_index.md` | 更新 QUICK CONTEXT 頭（阻塞數/總數） | 本次有新增或解決 PENDING |
+| `_inferred/_index.md` | 更新 QUICK CONTEXT 頭（高風險數/GAP 數） | 本次有新增或升格 INF/GAP |
 | 各文件的 `## 📌 Quick Context` | 更新本次修改過文件的 Quick Context 區塊 | 文件內容有異動 |
 
 Quick Context 更新格式：

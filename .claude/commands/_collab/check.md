@@ -5,11 +5,11 @@
 
 ---
 
-## Step 1：讀取 collab.md
+## Step 1：讀取 collab/ 資料夾
 
-讀取 `projects/{專案名稱}/.claude/collab.md`，提取 `active_work` 表格。
+讀取 `projects/{專案名稱}/.claude/collab/*.md`（每位工程師一個檔案），合併所有人的鎖定清單。
 
-若檔案不存在 → 跳過此 Stage，繼續 Stage 4。
+若資料夾不存在或為空 → 跳過此 Stage，繼續 Stage 4。
 
 ## Step 2：比對目標 REQ
 

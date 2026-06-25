@@ -7,9 +7,9 @@
 
 ## Step 1：確認目前鎖定狀態
 
-讀取 `projects/{專案名稱}/.claude/collab.md`，顯示目前自己名下的 locked_reqs。
+讀取 `projects/{專案名稱}/.claude/collab/{initials}.md`（只讀自己的），顯示目前鎖定的 REQ。
 
-若 `collab.md` 不存在 → 跳過，繼續 `_save/index.md`。
+若 `collab/` 資料夾不存在 → 跳過，繼續 `_save/index.md`。
 
 ## Step 2：詢問新鎖定
 
@@ -48,12 +48,13 @@
 
 依選擇從 `active_work` 中移除對應條目。
 
-## Step 4：寫入 collab.md
+## Step 4：寫入 collab/{initials}.md（只寫自己的檔案）
 
-更新 `projects/{專案名稱}/.claude/collab.md`：
+完整替換 `projects/{專案名稱}/.claude/collab/{initials}.md`：
 - 新增鎖定條目（含今日日期）
 - 移除解鎖條目
 - 更新 `updated` 欄位為今日日期
+- **不觸碰其他工程師的檔案**（零衝突設計）
 
 ## Step 5：完成提示
 
