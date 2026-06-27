@@ -4,7 +4,7 @@
 > 每個場景包含：觸發情境、調用輸入、系統行為、產出結果。
 >
 > **測試環境**：eshop-sunrise（旭日貿易 B2B 電商平台）
-> **最後驗證**：2026-06-23（全部 10 場景通過）
+> **最後驗證**：2026-06-27（全部 10 場景通過，已更新為分檔索引架構；測試於臨時沙箱 `projects/_playbook-test/` 執行，完成後已刪除）
 
 ---
 
@@ -46,25 +46,35 @@
 projects/eshop-sunrise/
 ├── 00-overview.md              ← 專案基本資訊、技術棧
 ├── 01-requirements/
+│   ├── functional-index.md ⚡  ← 需求薄索引（L1 模組目錄）
+│   ├── functional/
+│   │   └── README.md           ← 說明三層讀取結構，各模組（M01、M02...）由 /ingest 建立
+│   ├── non-functional.md       ← 非功能需求（空白模板）
 │   ├── scope.md                ← 合約範疇（含 QUICK CONTEXT 頭）
-│   ├── functional-index.md ⚡  ← 需求薄索引
-│   ├── functional/             ← 各模組需求（M01、M02...）
-│   ├── _pending.md             ← 模糊需求暫存
-│   └── _inferred.md            ← 推測與缺口（含 QUICK CONTEXT 頭）
+│   ├── _pending/
+│   │   └── _index.md ⚡        ← 模糊需求薄索引；各 PENDING 各自一檔
+│   └── _inferred/
+│       └── _index.md ⚡        ← 推測與缺口薄索引（含 QUICK CONTEXT 頭）；各 INF/GAP 各自一檔
 ├── 02-architecture/
 │   ├── arch-index.md ⚡
-│   └── api-contracts/index.md ⚡
+│   ├── system-design/
+│   │   └── README.md           ← 說明元件分檔結構
+│   └── api-contracts/
+│       ├── index.md ⚡
+│       └── README.md           ← 說明端點群組結構
 ├── 03-client-context/
 │   ├── stakeholders.md         ← 關係人（含 QUICK CONTEXT 頭）
 │   ├── existing-system.md      ← 現有系統（含 QUICK CONTEXT 頭）
 │   └── domain-knowledge.md     ← 領域知識（含 QUICK CONTEXT 頭）
 ├── 04-decisions/
-│   └── ADR-index.md ⚡
+│   ├── ADR-index.md ⚡
+│   └── ADR-000-template.md
 ├── 05-dev-notes/
 │   └── _index.md ⚡
-└── 06-qa-testing/
-    ├── bugs-active.md ⚡
-    └── bugs.md
+├── 06-qa-testing/
+│   ├── bugs-active.md ⚡       ← 未關閉 bug 薄索引
+│   └── bugs/                   ← 各 BUG 各自一檔（BUG-001.md...），由 /bug 建立
+└── CHANGELOG.md
 ```
 
 ---
@@ -102,15 +112,15 @@ projects/eshop-sunrise/
 ```
 
 **Phase 3 — 寫入**：
-- 清晰需求 → `functional/M01-*.md`（狀態 ✅）
-- 模糊需求 → `_pending.md`（附可直接複製給甲方的問題文字）
+- 清晰需求 → 先依關鍵字比對 `functional-index.md` 找模組，寫入對應 `functional/M01-*.md`（狀態 ✅），無對應模組則新建並登記至 `functional-index.md`
+- 模糊需求 → 建立獨立檔案 `_pending/PENDING-{XXX}.md`（附可直接複製給甲方的問題文字），並登記至 `_pending/_index.md`
 - 若新內容與現有 ✅ REQ 矛盾 → **攔截，強制走 /cr**
 
 ### 產出結果
 | 類型 | 寫入位置 | 狀態標記 |
 |------|---------|---------|
-| 清晰需求 | `functional/M0X-*.md` | ✅ 已確認甲方 |
-| 模糊需求 | `_pending.md` | 🕐 等待回覆 |
+| 清晰需求 | `functional/M0X-*.md`（+ 登記 `functional-index.md`） | ✅ 已確認甲方 |
+| 模糊需求 | `_pending/PENDING-{XXX}.md`（+ 登記 `_pending/_index.md`） | 🕐 等待回覆 |
 | 與現有 REQ 衝突 | 攔截，不寫入 | → 跳至場景 10 |
 
 ---
@@ -233,21 +243,21 @@ Buffer 30%           +11.4h
 ## 場景 6：推測 / 缺口阻塞
 
 ### 觸發情境
-實作過程中，BEFORE CODING 漏斗掃描到 `_inferred.md` 有 INF 或 GAP 項目，且與當前任務有交集。
+實作過程中，BEFORE CODING 漏斗掃描到 `_inferred/_index.md` 有 INF 或 GAP 項目，且與當前任務有交集。
 
 ### 調用輸入
 ```
 「我要實作折扣計算 Service」
 ```
-（系統在 Stage 4 自動讀 _inferred.md Quick Context）
+（系統在 Stage 4 自動讀 _inferred/_index.md Quick Context）
 
 ### 系統行為
 ```
-Stage 4 — _inferred.md Quick Context 掃描：
+Stage 4 — _inferred/_index.md Quick Context 掃描：
   高風險推測：1 個（INF-001 — 阻塞訂單模組）
   GAP 缺口：1 個（GAP-001 — 阻塞折扣計算）← 命中！
 
-→ 讀 GAP-001 全文
+→ 讀 _inferred/GAP-001.md 全文
 → 展開 stop-report.md 格式
 ```
 
@@ -297,17 +307,17 @@ Stage 4 — _inferred.md Quick Context 掃描：
 ```
 
 ### 系統行為
-1. 自動比對 functional.md，找出關聯 REQ
+1. 先讀 `functional-index.md` 找到相關模組，再到對應 `functional/{module}.md` 找出關聯 REQ
 2. 分類根因類型（實作缺陷 / 需求不清 / 環境問題 / 設計衝突）
-3. 同步寫入兩個檔案（全文 + 薄索引）
+3. 寫入獨立檔案 `bugs/{BUG-ID}.md`（一 bug 一檔，零衝突），同步更新薄索引 `bugs-active.md`
 
 ### 產出結果
-**`bugs.md`（完整記錄）**：
+**`bugs/BUG-001.md`（獨立檔案）**：
 ```markdown
-## BUG-001：VIP 折扣未套用
+# BUG-001：VIP 折扣未套用
 - 狀態：🔴 未修復
 - 嚴重度：🔴 高（核心金流功能，VIP 客戶付全額）
-- 關聯需求：REQ-F001（VIP 享 9 折）
+- 關聯需求：REQ-F001（`functional/membership.md`）
 - 根因類型：🔧 實作缺陷
 - 描述：VIP 結帳時系統顯示原價而非折後金額
 - 重現步驟：
@@ -415,7 +425,7 @@ Stage 4 — _inferred.md Quick Context 掃描：
 ```
 今日共處理：2 個 REQ，1 個 CR，1 個 Bug，1 個 /impact
 待甲方回覆：GAP-001（折扣優先序）
-建議下次先查：_pending.md 是否有新回覆
+建議下次先查：_pending/_index.md 是否有新回覆
 ```
 
 ---
@@ -512,4 +522,4 @@ Stage 4 — _inferred.md Quick Context 掃描：
 
 ---
 
-*最後更新：2026-06-23 | 所有場景於 eshop-sunrise 測試環境驗證通過*
+*最後更新：2026-06-27 | 所有場景已對照分檔索引架構於臨時沙箱驗證通過*
