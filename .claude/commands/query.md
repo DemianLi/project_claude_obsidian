@@ -1,3 +1,6 @@
+---
+description: 查詢知識庫，三段深度：quick / standard / deep
+---
 # /query — 查詢知識庫
 
 ## 觸發方式

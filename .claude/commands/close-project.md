@@ -1,3 +1,6 @@
+---
+description: 專案收尾：快照、CHANGELOG、封存
+---
 # /close-project — 專案收尾與封存
 
 ## 觸發方式

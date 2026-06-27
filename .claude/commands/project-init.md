@@ -1,3 +1,6 @@
+---
+description: 初始化新專案，建立完整知識庫結構與薄 CLAUDE.md
+---
 # /project-init — 建立新專案
 
 ## 觸發方式

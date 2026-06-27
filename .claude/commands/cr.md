@@ -1,3 +1,6 @@
+---
+description: 提交或審核範疇變更請求（CR）
+---
 # /cr — 變更請求（Change Request）正式流程
 
 ## 觸發方式

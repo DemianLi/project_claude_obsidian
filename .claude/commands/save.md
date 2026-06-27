@@ -1,3 +1,6 @@
+---
+description: Session 結束：儲存工作狀態、更新索引、熱快取
+---
 # /save — 儲存 Session 並更新熱快取
 
 ## 目的

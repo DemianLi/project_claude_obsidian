@@ -1,3 +1,6 @@
+---
+description: 匯出甲方交付文件（--client / --api / --onboarding / --handover）
+---
 # /export — 交付文件生成
 
 ## 觸發方式

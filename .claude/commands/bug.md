@@ -1,3 +1,6 @@
+---
+description: 記錄 bug 或批次處理 UAT 回饋（--uat / --list / --close）
+---
 # /bug — 快速記錄 Bug
 
 ## 觸發方式

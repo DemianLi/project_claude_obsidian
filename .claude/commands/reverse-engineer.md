@@ -1,3 +1,6 @@
+---
+description: 逆向分析現有系統，推測並記錄隱性需求
+---
 # /reverse-engineer — 逆向分析現有系統
 
 ## 觸發方式

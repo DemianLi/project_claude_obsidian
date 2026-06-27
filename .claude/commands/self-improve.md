@@ -1,3 +1,6 @@
+---
+description: 從 session 模式學習，更新 patterns 與 lessons-learned
+---
 # /self-improve — 知識庫自我優化迴圈
 
 ## 觸發方式

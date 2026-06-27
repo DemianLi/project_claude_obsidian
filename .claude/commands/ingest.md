@@ -1,3 +1,6 @@
+---
+description: 解析甲方文件入庫（文字/URL/圖片/Excel，支援 --url --visual 等直接路由）
+---
 # /ingest — 解析甲方文件至知識庫
 
 ## 觸發

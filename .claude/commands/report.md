@@ -1,3 +1,6 @@
+---
+description: 產生專案進度報告（markdown 或甲方可讀格式）
+---
 # /report — 進度報告生成
 
 ## 觸發方式
