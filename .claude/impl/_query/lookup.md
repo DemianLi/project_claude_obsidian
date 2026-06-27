@@ -22,19 +22,32 @@
 
 ## Standard 模式（預設）
 
-### Step 1：問題層次判斷
+### Step 1：宣告 Routing 決策（不讀任何檔案）
 
-| 問題類型 | 優先讀取 |
+**先輸出以下宣告，等使用者確認後才讀檔：**
+
+```
+📍 Routing 決策
+問題類型：{類型}
+將讀取：{目標路徑}
+理由：{一句話}
+
+確認正確請按 Enter，或告訴我正確方向。
+```
+
+| 問題類型 | 目標路徑 |
 |----------|----------|
-| 「這個功能的需求是什麼？」 | `01-requirements/functional-index.md` → 對應 REQ |
-| 「甲方系統有什麼限制？」 | `03-client-context/existing-system.md` |
-| 「這個術語是什麼意思？」 | `03-client-context/domain-knowledge.md` + `wiki/concepts/` |
-| 「我們當初為什麼選 X？」 | `04-decisions/ADR-index.md` → 對應 ADR |
-| 「有沒有類似的解法？」 | `knowledge/patterns/index.md` |
-| 「這種情況之前踩過坑嗎？」 | `knowledge/lessons-learned/index.md` |
-| 「關於 {技術/服務} 的知識」 | `wiki/entities/_index.md` + `knowledge/tech-stack/index.md` |
-| 「{概念} 是什麼？」 | `wiki/concepts/_index.md` → 對應概念頁 |
-| 「以前研究過 {主題} 嗎？」 | `wiki/sources/_index.md` + `wiki/questions/_index.md` |
+| 功能需求 | `{KB_ROOT}/projects/{名稱}/01-requirements/functional-index.md` → 對應 REQ |
+| 甲方系統限制 | `{KB_ROOT}/projects/{名稱}/03-client-context/existing-system.md` |
+| 術語 / 領域知識 | `{KB_ROOT}/projects/{名稱}/03-client-context/domain-knowledge.md` + `{KB_ROOT}/wiki/concepts/` |
+| 技術決策原因 | `{KB_ROOT}/projects/{名稱}/04-decisions/ADR-index.md` → 對應 ADR |
+| 可複用解法 | `{KB_ROOT}/knowledge/patterns/index.md` |
+| 歷史踩坑 | `{KB_ROOT}/knowledge/lessons-learned/index.md` |
+| 技術 / 服務知識 | `{KB_ROOT}/wiki/entities/_index.md` + `{KB_ROOT}/knowledge/tech-stack/index.md` |
+| 概念定義 | `{KB_ROOT}/wiki/concepts/_index.md` → 對應概念頁 |
+| 過去研究 | `{KB_ROOT}/wiki/sources/_index.md` + `{KB_ROOT}/wiki/questions/_index.md` |
+
+若問題跨多類型，列出**所有**預計讀取路徑讓使用者確認，避免遺漏或多讀。
 
 ### Step 2：讀取並合成（最多 3-5 頁）
 
