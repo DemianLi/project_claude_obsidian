@@ -26,7 +26,7 @@ updated: 2026-06-21
 | `04-decisions/ADR-*.md` | **全體討論，主導人建立** | 🟡 中 | ADR 在 Slack/email 中討論後，才建立文件；建立者在 ADR 中記錄「參與討論者」 |
 | `05-dev-notes/YYYY-MM-DD-*.md` | **各自建立，不交叉** | 🟢 低 | 每人用自己的日期+主題命名，自然無衝突 |
 | `wiki/log.md` | 共用，**Append-only** | 🟢 低 | 只 append，Git merge 幾乎不會衝突 |
-| `wiki/hot.md` | **最後工作者更新** | 🟡 中 | 每次 `/save` 完整替換；若多人同天工作，各自追加一個 "## 工程師B 的更新" section |
+| `wiki/hot/{縮寫}.md` | **各自所有** | 🟢 低 | 每人各自一檔，`/save` 只替換自己的檔案，不會互相覆寫 |
 | `wiki/index.md` | 共用 | 🟡 中 | 狀態變更前先 `git pull` 同步 |
 | `02-architecture/*.md` | **主架構師主導** | 🔴 高 | 修改前開 branch，討論後合併 |
 | `03-client-context/*.md` | 共用 | 🟡 中 | 以 `/ingest` 走正式流程，不直接手動覆寫 |
@@ -66,8 +66,7 @@ git push origin feat/REQ-F001-login-flow
 | 衝突類型 | 解決方式 |
 |----------|----------|
 | `functional.md` 中同一條需求的衝突 | 主導工程師手動裁決，以較新日期版本為準，並記錄「為何以此版本為準」 |
-| `_pending.md` 條目重複 | 執行 `/reconcile` 合併，不手動刪除 |
-| `wiki/hot.md` 衝突 | 保留雙方內容，各自在對應「工程師」section 下；下次 /save 時整合 |
+| `_pending/` 條目重複 | 執行 `/reconcile` 合併，不手動刪除（各條目本就獨立檔案，git 層級不會衝突） |
 | `wiki/log.md` 衝突 | 兩段都保留（append-only 的天然特性） |
 | `knowledge/patterns/` 或 `lessons-learned/` 衝突 | 兩版本都保留，等下次 `/self-improve` 合併 |
 
@@ -81,7 +80,7 @@ git push origin feat/REQ-F001-login-flow
 git pull origin main
 ```
 
-讀取 `wiki/hot.md` → 了解其他工程師最近的工作狀態。
+讀取 `wiki/hot/*.md` → 了解其他工程師最近的工作狀態。
 若看到其他人正在處理相同的需求，**先溝通再動**。
 
 ### 需求鎖定機制
@@ -98,7 +97,7 @@ git pull origin main
 
 完成 `/save` 並 push 後，在團隊頻道簡短通報：
 ```
-[專案名] 已更新 hot.md — [一句話說明本次做了什麼]
+[專案名] 已更新 hot/{縮寫}.md — [一句話說明本次做了什麼]
 ```
 
 ---
@@ -110,7 +109,7 @@ git pull origin main
 | 情況 | Claude 的行為 |
 |------|--------------|
 | 要寫入 `functional.md` | 先確認：「此需求是否已由其他工程師鎖定（🔒）？」 |
-| 發現 hot.md 顯示多人最近有活動 | 提示：「近期有 {N} 位工程師工作記錄，建議先 `git pull` 再繼續」 |
+| 發現 `hot/*.md` 顯示多人最近有活動 | 提示：「近期有 {N} 位工程師工作記錄，建議先 `git pull` 再繼續」 |
 | 要建立 ADR | 提醒：「ADR 影響全體工程師，建議在建立前先在團隊中討論」 |
 | `/reconcile` 發現疑似衝突條目 | 標記「可能來自不同工程師的不同觀察，建議同步確認後再合併」 |
 

@@ -12,7 +12,7 @@
 
 ## Quick 模式
 
-1. 讀 `wiki/hot.md` → 若有答案，直接回覆，**停止**
+1. 讀 `wiki/hot/*.md` → 若有答案，直接回覆，**停止**
 2. 讀 `wiki/index.md` → 掃描描述，若找到答案，回覆，**停止**
 3. 若均無 → 回覆「Quick 快取沒有此資訊，要切換為 Standard 查詢嗎？」
 
@@ -52,7 +52,7 @@
 ### Step 2：讀取並合成（最多 3-5 頁）
 
 - 引用具體來源（「根據 REQ-F003」「根據 ADR-002」「根據 [[Redis 實體頁]]」）
-- 遵循熱快取讀取順序：hot.md → index → 目標頁（若 hot.md 有答案即停止）
+- 遵循熱快取讀取順序：hot/*.md → index → 目標頁（若 hot/*.md 有答案即停止）
 - 若知識庫無答案 → 明確說「知識庫沒有這方面記錄」，不憑空猜測
 
 ### Step 3：缺口揭露
@@ -94,7 +94,7 @@ sources:
 
 ## Deep 模式
 
-1. 讀 `wiki/hot.md` + `wiki/index.md`（建立全局視圖）
+1. 讀 `wiki/hot/*.md` + `wiki/index.md`（建立全局視圖）
 2. 識別所有相關節點（concepts/entities/sources/questions + projects/knowledge/）
 3. 開啟所有相關頁面，深讀，不設上限
 4. 若 wiki 覆蓋薄 → 詢問「要補充 web search 嗎？」（可銜接 `/research`）

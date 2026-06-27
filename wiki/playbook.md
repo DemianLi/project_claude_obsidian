@@ -352,7 +352,7 @@ Stage 4 — _inferred/_index.md Quick Context 掃描：
 
 ### 系統行為
 **Standard 模式**（預設）：
-1. 掃描 wiki/hot.md + wiki/index.md（判斷是否有快取）
+1. 掃描 wiki/hot/*.md + wiki/index.md（判斷是否有快取）
 2. 若命中 → 從 wiki 層回答
 3. 未命中 → 路由至 projects/ 相關檔案掃描
 4. 交叉參照所有相關資源（REQ + BUG + GAP + ADR）

@@ -37,7 +37,7 @@
 
 ━━━ 知識庫更新 ━━━
 ✅ wiki/index.md — 移至「已完成」
-✅ wiki/hot.md   — 移出活躍專案
+✅ wiki/hot/{自己的縮寫}.md — 移出活躍專案
 ✅ wiki/log.md   — 結案紀錄已寫入
 {若 --archive：✅ 專案已移至 _archive/{專案名稱}/}
 

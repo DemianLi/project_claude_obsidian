@@ -29,4 +29,4 @@ description: 從 session 模式學習，更新 patterns 與 lessons-learned
 
 ## 互動原則
 - 每個建議寫入動作都**必須詢問使用者確認**
-- 自動執行：Phase 4 的 wiki/hot.md 和 wiki/log.md 更新
+- 自動執行：Phase 4 的 wiki/hot/{自己的縮寫}.md 和 wiki/log.md 更新

@@ -62,7 +62,7 @@ related:
 
 - `wiki/index.md`：每次新增 wiki 頁面時更新（append 該頁摘要）
 - `wiki/log.md`：每次 ingest / 大量更新後 append（新條目置頂）
-- `wiki/hot.md`：Session 結束時完整替換（≤500 字）
+- `wiki/hot/{initials}.md`：Session 結束時完整替換自己的檔案（≤500 字），不動其他工程師的檔案
 - `.raw/`：**不可修改**，只讀——原始輸入文件保存處
 
 ---

@@ -42,7 +42,7 @@
 
 ```
 必要（wiki 層已啟動的前提）：
-  [ ] wiki/hot.md
+  [ ] wiki/hot/ 至少 1 個 {initials}.md
   [ ] wiki/index.md
   [ ] wiki/log.md
 

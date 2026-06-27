@@ -29,7 +29,7 @@
 
 | 可自主執行 | 必須等待使用者確認 |
 |-----------|-----------------|
-| 更新 `wiki/hot.md`、append `wiki/log.md` | 任何寫入 `functional/{module}.md` 的需求 |
+| 更新 `wiki/hot/{自己的縮寫}.md`、append `wiki/log.md` | 任何寫入 `functional/{module}.md` 的需求 |
 | 格式整理、摘要彙整 | 任何刪除或覆寫既有知識庫記錄 |
 | 識別衝突並回報 | 任何技術架構決策 |
 | 提出選項清單 | 推測業務邏輯為事實 |

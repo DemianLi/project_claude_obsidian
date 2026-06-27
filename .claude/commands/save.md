@@ -15,7 +15,7 @@ Session 結束時儲存工作狀態、更新所有索引、確保下次載入脈
 | 3 | `_save/report.md` | 完成回報 | 自動 |
 
 ## 自主執行（不需詢問）
-- Step 4 wiki/hot.md 更新（完整替換）
+- Step 4 wiki/hot/{自己的縮寫}.md 更新（完整替換自己的檔案，不動其他工程師的）
 - Step 5 wiki/log.md append
 - Step 8 所有薄索引維護（functional-index / ADR-index / dev-notes/_index / bugs-active / Quick Context）
 

@@ -13,7 +13,7 @@
 functional-index.md   → 更新模組目錄（若執行 --target=reqs）
 arch-index.md         → 更新元件地圖（若執行 --target=arch）
 api-contracts/index   → 確認群組索引完整（若執行 --target=api）
-wiki/hot.md           → 記錄本次遷移
+wiki/hot/{自己的縮寫}.md → 記錄本次遷移
 wiki/log.md           → append 遷移記錄
 ```
 
