@@ -139,44 +139,55 @@ Claude 會自動查閱知識庫，確認需求狀態後再開始實作。
 
 ## 指令速查
 
-| 指令 | 說明 |
-|------|------|
-| `/project-init` | 建立新專案資料夾結構 |
-| `/ingest` | 解析甲方文件，三階段確認後寫入知識庫 |
-| `/reverse-engineer` | 逆向分析舊系統程式碼/DB，區分事實、推測、邏輯缺口 |
-| `/query [問題]` | 查詢知識庫中的記錄 |
-| `/query --verify` | 驗證 Claude 對術語和需求的理解是否正確 |
-| `/research [主題]` | 帶著專案約束條件搜索網路，驗證解方相容性 |
-| `/reconcile` | 清理已解決的待釐清項目，合併重複條目 |
-| `/save` | 儲存 session，更新熱快取 |
-| `/self-improve` | 從開發筆記提煉模式與教訓，優化知識庫 |
+| 分類 | 指令 | 說明 |
+|------|------|------|
+| 需求管理 | `/project-init` | 建立新專案資料夾結構 |
+| | `/ingest` | 解析甲方文件，三階段確認後寫入知識庫 |
+| | `/reverse-engineer` | 逆向分析舊系統程式碼/DB，區分事實、推測、邏輯缺口 |
+| | `/query [問題]` / `--verify` | 查詢知識庫記錄 / 驗證 Claude 對術語需求的理解是否正確 |
+| | `/reconcile` | 清理已解決的待釐清項目，合併重複條目 |
+| | `/health-check` | 檢查知識庫結構完整性與索引一致性 |
+| 範疇變更 | `/cr` | 登記變更請求（超出合約範疇的新需求） |
+| | `/impact` | 分析需求/架構變更的影響範疇與工時 |
+| 開發輔助 | `/research [主題]` | 帶著專案約束條件搜索網路，驗證解方相容性 |
+| | `/test-plan` | 從已確認需求自動產生測試計畫 |
+| | `/bug` | 記錄 bug 或批次處理 UAT 回饋 |
+| 報告交付 | `/report` | 產生甲方可讀的進度報告 |
+| | `/export` | 匯出交付文件（甲方版/技術交接版/新人導覽版） |
+| 收尾 | `/close-project` | 專案收尾：快照、CHANGELOG、封存 |
+| Session | `/save` | 儲存 session，更新熱快取 |
+| | `/self-improve` | 從開發筆記提煉模式與教訓，優化知識庫 |
+| | `/migrate-kb` | 將舊格式（扁平檔）專案遷移為分檔索引格式 |
 
 ---
 
 ## 知識庫結構
 
+知識庫（KB_ROOT）和程式碼是分開的兩個 repo：知識庫放需求/架構/決策，程式碼放在各專案自己的資料夾（`~/Projects_vibecoding/{project_name}`），執行 `/project-init` 時會問你程式碼路徑並自動產生薄版 `CLAUDE.md` 連接兩者。
+
 ```
-claude_obsidien_setting/
+claude_obsidien_setting/          ← KB_ROOT
 ├── CLAUDE.md                    # Claude 自動讀取的協作指引（核心）
 ├── README.md                    # 本文件
 ├── _inbox/                      # 甲方文件丟放區
 │   └── _unassigned/             # 尚未確認歸屬的文件暫存
 ├── _templates/                  # Obsidian 筆記模板
 ├── wiki/
-│   ├── hot.md                   # 最近工作脈絡（每次 session 自動更新）
+│   ├── hot/{工程師縮寫}.md      # 各工程師最近工作脈絡（/save 自動更新）
 │   ├── index.md                 # 所有專案目錄與狀態
 │   └── log.md                   # Append-only 操作日誌
 ├── projects/
 │   └── {專案名}/
 │       ├── 00-overview.md       # 專案總覽
 │       ├── 01-requirements/
-│       │   ├── functional.md    # ✅ 已確認需求（唯一可實作的來源）
-│       │   ├── _pending.md      # 🕐 待甲方澄清
-│       │   └── _inferred.md     # 🔍 逆向推測 + ❓ 邏輯缺口
+│       │   ├── functional-index.md  # ⚡ 需求薄索引 → functional/{module}.md（各模組詳細需求，✅ 才可實作）
+│       │   ├── scope.md             # 合約範疇邊界
+│       │   ├── _pending/_index.md   # ⚡ 🕐 待甲方澄清（各條一檔）
+│       │   └── _inferred/_index.md  # ⚡ 🔍 推測 + ❓ 邏輯缺口（各條一檔，禁止作為實作依據）
 │       ├── 02-architecture/
-│       │   ├── system-design.md
-│       │   ├── api-contracts.md
-│       │   └── _legacy-analysis.md  # 逆向工程結構性事實
+│       │   ├── arch-index.md        # ⚡ 元件地圖 → system-design/{component}.md
+│       │   ├── api-contracts/index.md  # ⚡ → api-contracts/{group}.md
+│       │   └── _legacy-analysis.md  # 逆向工程結構性事實（選配）
 │       ├── 03-client-context/
 │       │   ├── stakeholders.md
 │       │   ├── existing-system.md
@@ -184,12 +195,16 @@ claude_obsidien_setting/
 │       ├── 04-decisions/        # Architecture Decision Records
 │       ├── 05-dev-notes/        # 每次 session 的開發筆記
 │       ├── 06-qa-testing/
+│       │   ├── bugs-active.md   # ⚡ 未關閉 bug 薄索引 → bugs/{BUG-ID}.md
+│       │   └── bugs/
 │       └── CHANGELOG.md
 └── knowledge/
     ├── patterns/index.md        # 跨專案可複用的設計模式
     ├── tech-stack/index.md      # 技術棧心得與踩坑記錄
     └── lessons-learned/index.md # 教訓清單
 ```
+
+> ⚡ 標記的是「薄索引」——Claude 永遠先讀這些，再依交集深讀對應的個別檔案，避免整份知識庫被讀進 context。
 
 ---
 
@@ -200,9 +215,9 @@ claude_obsidien_setting/
 
 **三層需求隔離：**
 ```
-functional.md（✅ 確認）→ 可實作
-_pending.md（🕐 待確認）→ 禁止實作
-_inferred.md（🔍 推測）→ 禁止實作，必須驗證後升格
+functional/{module}.md（✅ 確認）→ 可實作
+_pending/{ID}.md（🕐 待確認）→ 禁止實作
+_inferred/{ID}.md（🔍 推測）→ 禁止實作，必須驗證後升格
 ```
 
 **知識複利：** 每個 session 的 dev-notes 透過 `/self-improve` 提煉為跨專案的 patterns 和 lessons，下個專案直接複用。
@@ -218,15 +233,10 @@ _inferred.md（🔍 推測）→ 禁止實作，必須驗證後升格
 Claude Code 可以直接讀寫你電腦上的檔案，並執行 slash commands（`/ingest`、`/save` 等）。網頁版的 Claude 無法直接操作本地檔案。
 
 **Q：知識庫可以多人共用嗎？**
-可以。用 Git 版本控制，把 repo push 到 GitHub，團隊成員各自 clone，透過 git merge 同步知識庫更新。建議將 `wiki/hot.md` 加入 `.gitignore` 或約定誰負責維護。
+可以，且是設計上就支援的。每位工程師有自己的 `wiki/hot/{縮寫}.md`，`/save` 只替換自己的檔案；專案內 `.claude/collab/{縮寫}.md` 記錄各自鎖定的 REQ，BEFORE CODING 會自動偵測鎖定衝突；bug、待澄清項目、推測/缺口都是一條一檔（`bugs/{ID}.md`、`_pending/{ID}.md`、`_inferred/{ID}.md`），多人同時新增不會互相衝突。
 
 **Q：如何備份？**
-```bash
-git add .
-git commit -m "save: {日期} {專案} session"
-git push
-```
-建議在每次 `/save` 後執行。
+知識庫（KB_ROOT）的版控由 **Obsidian git 插件自動管理**，不需要手動 commit/push。程式碼倉庫（CODE_ROOT）則由工程師自行 git 管理。
 
 ---
 

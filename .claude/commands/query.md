@@ -5,7 +5,9 @@ description: 查詢知識庫，三段深度：quick / standard / deep
 
 ## 觸發方式
 ```
-/query [問題]          （查詢知識庫中的既有記錄）
+/query [問題]          （查詢知識庫中的既有記錄，預設 Standard 深度）
+/query quick: [問題]   （只讀 hot.md + index.md，極速，不開個別頁面）
+/query deep: [問題]    （全庫掃描 + 可補 web search，answer 強制歸檔）
 /query --verify        （驗證 Claude 對當前專案的理解是否正確）
 /query --verify [主題] （針對特定主題驗證理解）
 ```
