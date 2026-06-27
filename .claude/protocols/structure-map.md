@@ -5,15 +5,16 @@
 
 projects/{專案}/
   00-overview.md
-  01-requirements/  functional-index.md⚡  functional/{m}.md  _pending/_index.md⚡（QC頭）+ _pending/{ID}.md  _inferred/_index.md⚡（QC頭）+ _inferred/{ID}.md
+  01-requirements/  functional-index.md⚡  functional/{m}.md  scope.md（BEFORE CODING/`/cr` 依賴）  non-functional.md  _pending/_index.md⚡（QC頭）+ _pending/{ID}.md  _inferred/_index.md⚡（QC頭）+ _inferred/{ID}.md
   02-architecture/  arch-index.md⚡  system-design/{c}.md  api-contracts/index.md⚡  api-contracts/{g}.md
   03-client-context/  stakeholders.md（QC頭）  existing-system.md（QC頭）  domain-knowledge.md（QC頭）
   04-decisions/  ADR-index.md⚡  ADR-{ID}.md
   05-dev-notes/  _index.md⚡
   06-qa-testing/  bugs-active.md⚡  bugs/{BUG-ID}.md
+  CHANGELOG.md
   collab/{initials}.md           （各工程師鎖定狀態：REQ/元件/API群組，選配）
 
-knowledge/  patterns/index.md⚡  lessons-learned/index.md⚡  tech-stack/index.md
+knowledge/  patterns/index.md⚡  lessons-learned/index.md⚡  tech-stack/index.md⚡
 
 wiki/  hot/{initials}.md⚡  index.md⚡  log.md  overview.md
   concepts/_index.md⚡   — 概念、框架、設計模式

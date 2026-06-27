@@ -35,7 +35,7 @@ wiki/questions/  → 有價值的問答歸檔
 
 ```
 收到資料   → /ingest → 解析→確認→寫入 projects/ 或 wiki/sources/
-開始實作   → BEFORE CODING 漏斗（6 步驟，細節見 CLAUDE.md）
+開始實作   → BEFORE CODING 漏斗（6 步驟，細節見 `.claude/protocols/before-coding.md`）
 知識問題   → /query [quick/standard/deep]
 累積知識   → /self-improve → patterns + lessons-learned
 結束工程   → /save → hot/{縮寫}.md + log.md + 索引更新
