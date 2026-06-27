@@ -16,7 +16,7 @@ coverage: {N}/{Total} 個需求
 # 測試計畫 — {專案名}
 
 > 生成日期：{YYYY-MM-DD}
-> 需求來源：functional.md（更新於 {日期}）
+> 需求來源：functional/{module}.md（更新於 {日期}）
 > 覆蓋需求：{N} 條
 
 ## 測試範圍
@@ -54,6 +54,6 @@ coverage: {N}/{Total} 個需求
 
 📌 建議：
 - 執行測試時，在對應 TC 行更新狀態（✅/❌）
-- 發現 bug 時執行 /bug [TC-ID] 記錄到 bugs.md
+- 發現 bug 時執行 /bug [TC-ID] 記錄到 bugs/{BUG-ID}.md
 - 所有需求通過後，執行 /export 生成交付文件
 ```

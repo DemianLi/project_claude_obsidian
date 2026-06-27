@@ -10,7 +10,7 @@
 
 依據 `[主題]`（若有指定）或當前活躍專案，讀取：
 - `03-client-context/domain-knowledge.md`
-- `01-requirements/functional.md`（相關需求）
+- `01-requirements/functional-index.md` → 相關 `functional/{module}.md`（相關需求）
 - `03-client-context/existing-system.md`（若涉及技術）
 
 ## Step 2：輸出理解聲明
@@ -38,7 +38,7 @@ REQ-F{N}：「{需求名稱}」
 
 **使用者說「正確」** → 繼續，不更新知識庫
 
-**使用者糾正某條理解** → 立即更新 `domain-knowledge.md` 或 `functional.md`：
+**使用者糾正某條理解** → 立即更新 `domain-knowledge.md` 或對應 `functional/{module}.md`：
 ```markdown
 > ⚠️ 理解更新：{YYYY-MM-DD}
 > 舊理解：{錯誤理解}
@@ -46,7 +46,7 @@ REQ-F{N}：「{需求名稱}」
 > 來源：/query --verify
 ```
 
-**使用者澄清了模糊點** → 若是需求，走 `/ingest` 確認流程寫入 `functional.md`
+**使用者澄清了模糊點** → 若是需求，走 `/ingest` 確認流程寫入對應 `functional/{module}.md`
 
 ## Step 4：驗證完成回報
 

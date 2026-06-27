@@ -6,7 +6,7 @@
 ## [{最終版本}] — {YYYY-MM-DD}（專案收尾）
 
 ### 交付項目
-{從 functional.md 列出所有已完成需求}
+{從各 functional/{module}.md 列出所有已完成需求}
 - ✅ {REQ-ID}：{需求名稱}
 
 ### 已知問題（遺留至結案）

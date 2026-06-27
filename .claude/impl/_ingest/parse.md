@@ -17,7 +17,7 @@
 
 | 類別 | 判斷標準 | 寫入目標 |
 |------|----------|---------|
-| 📋 功能需求 | 系統「要做什麼」、使用者操作行為 | `functional.md` |
+| 📋 功能需求 | 系統「要做什麼」、使用者操作行為 | `functional/{module}.md` |
 | ⚙️ 非功能需求 | 效能、安全、相容性等品質指標 | `non-functional.md` |
 | 👥 關係人資訊 | 姓名、職稱、聯絡方式、決策權 | `stakeholders.md` |
 | 🖥️ 現有系統 | 甲方目前的技術、架構、資料庫、整合點 | `existing-system.md` |
@@ -33,7 +33,7 @@
 
 ## 1-3：矛盾偵測
 
-讀取 `projects/{專案}/01-requirements/functional.md`，比對新內容與現有確認需求：
+讀取 `projects/{專案}/01-requirements/functional-index.md` 找到相關模組，再讀對應 `functional/{module}.md`，比對新內容與現有確認需求：
 
 ```
 若發現衝突 → 記錄：

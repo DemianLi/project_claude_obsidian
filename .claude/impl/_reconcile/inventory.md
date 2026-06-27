@@ -3,9 +3,9 @@
 讀取以下檔案，建立待對帳清單：
 
 ```
-functional.md     → {N} 條已確認需求（以此為對照基準）
-_pending.md       → {N} 條待甲方澄清（含日期，標記滯留天數）
-_inferred.md      → {N} 條推測 + {N} 個邏輯缺口
+functional-index.md（彙總各 functional/{module}.md）→ {N} 條已確認需求（以此為對照基準）
+_pending/_index.md（彙總各 _pending/{ID}.md）       → {N} 條待甲方澄清（含日期，標記滯留天數）
+_inferred/_index.md（彙總各 _inferred/{ID}.md）      → {N} 條推測 + {N} 個邏輯缺口
 ```
 
 標記**高風險項目**：
@@ -14,15 +14,15 @@ _inferred.md      → {N} 條推測 + {N} 個邏輯缺口
 |----------|----------|
 | 🟠 可能被遺忘 | 待釐清超過 30 天的條目 |
 | 🟡 可能重複 | 多條描述相似主題的條目 |
-| 🔴 最可能有遺留衝突 | functional.md 有新增項目但 _pending 未清理 |
+| 🔴 最可能有遺留衝突 | functional/ 有新增項目但 _pending/ 未清理 |
 
 輸出格式：
 ```
 清點結果｜{專案名稱}
 
-functional.md：{N} 條已確認需求
-_pending.md：{N} 條待澄清（其中 {N} 條超過 30 天）
-_inferred.md：{N} 條推測 + {N} 個缺口
+functional/：{N} 條已確認需求
+_pending/：{N} 條待澄清（其中 {N} 條超過 30 天）
+_inferred/：{N} 條推測 + {N} 個缺口
 
 ⚠️ 高風險標記：
   - 30 天以上未釐清：{N} 條

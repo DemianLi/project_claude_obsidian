@@ -4,8 +4,8 @@
 
 ```
 1. wiki/log.md                              → 指定期間內的操作紀錄
-2. {專案}/01-requirements/functional.md    → 需求完成狀態
-3. {專案}/01-requirements/_pending.md      → 待甲方回覆（即將成為 blockers）
+2. {專案}/01-requirements/functional-index.md → 模組索引，再讀相關 functional/{module}.md 取得需求完成狀態
+3. {專案}/01-requirements/_pending/_index.md  → 待甲方回覆（即將成為 blockers）
 4. {專案}/00-overview.md                   → 專案里程碑與時程（若有）
 5. {專案}/05-dev-notes/                    → 指定期間的開發筆記（掃描日期前綴）
 6. {專案}/01-requirements/scope.md         → CR 追加狀態

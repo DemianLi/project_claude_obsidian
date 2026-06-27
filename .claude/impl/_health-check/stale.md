@@ -1,6 +1,6 @@
 # Phase 3：孤立與過期項目掃描
 
-## 3-1. _pending.md 項目年齡分析
+## 3-1. _pending/ 項目年齡分析（逐個 _pending/{ID}.md）
 ```
 對每條 PENDING-XXX：
   - 計算「最後更新日期」距今天數
@@ -9,7 +9,7 @@
   - 「阻塞性：是」且逾期 → 最高優先警示
 ```
 
-## 3-2. _inferred.md 高風險推測
+## 3-2. _inferred/ 高風險推測（逐個 _inferred/{ID}.md）
 ```
 對每條 INF-XXX / GAP-XXX：
   - 信心度 🔴 低 → 標記為高風險
@@ -26,7 +26,7 @@
 
 ## 3-4. Bug 老化掃描
 ```
-對 06-qa-testing/bugs.md 中每條 BUG：
+對 06-qa-testing/bugs-active.md 中每條未關閉 BUG（逐個確認對應 bugs/{BUG-ID}.md 的發現日期）：
   - 未關閉且超過 14 天 → 標記 ⚠️
   - 未關閉且「優先級：🔴 高」超過 7 天 → 標記 🔴
 ```

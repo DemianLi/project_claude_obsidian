@@ -14,11 +14,11 @@ description: 記錄 bug 或批次處理 UAT 回饋（--uat / --list / --close）
 
 ## 前置條件
 ```
-[ ] projects/{專案}/06-qa-testing/bugs.md 存在
-     （若不存在：詢問「bugs.md 不存在，要現在建立嗎？」）
-[ ] projects/{專案}/01-requirements/functional.md 存在
---uat 額外：functional.md 至少有 1 條 ✅ 已確認甲方 的需求
---list / --close：bugs.md 存在（若不存在：回報「此專案尚無 bug 記錄」）
+[ ] projects/{專案}/06-qa-testing/bugs-active.md 存在
+     （若不存在：詢問「bugs-active.md 不存在，要現在建立嗎？」）
+[ ] projects/{專案}/01-requirements/functional-index.md 存在
+--uat 額外：至少 1 個 functional/{module}.md 有 ✅ 已確認甲方 的需求
+--list / --close：bugs-active.md 存在（若不存在：回報「此專案尚無 bug 記錄」）
 ```
 
 ## 執行路由（先看 $ARGUMENTS，直接路由，不詢問）
@@ -31,10 +31,10 @@ description: 記錄 bug 或批次處理 UAT 回饋（--uat / --list / --close）
 ## 與其他指令的關係
 ```
 問題來源
-  ├─ 單一問題 / TC 失敗 → /bug [描述] → bugs.md
+  ├─ 單一問題 / TC 失敗 → /bug [描述] → bugs/{BUG-ID}.md + bugs-active.md
   ├─ UAT 甲方批次回饋 → /bug --uat
-  │   ├─ 🔧 實作缺陷 → bugs.md
-  │   ├─ 📋 需求誤解 → _pending.md
+  │   ├─ 🔧 實作缺陷 → bugs/{BUG-ID}.md + bugs-active.md
+  │   ├─ 📋 需求誤解 → _pending/{ID}.md + _pending/_index.md
   │   └─ 🆕 新需求 → /cr
-  └─ 修復後 → /bug --close BUG-N
+  └─ 修復後 → /bug --close BUG-N → 更新 bugs/{BUG-ID}.md 狀態，從 bugs-active.md 移除
 ```

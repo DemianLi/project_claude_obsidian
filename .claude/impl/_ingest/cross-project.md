@@ -48,8 +48,8 @@
 
 ```
 ✅ 跨專案文件整理完成｜來源：{文件名稱}
-  專案 A — functional.md：{N} 條 / _pending.md：{N} 條
-  專案 B — functional.md：{N} 條 / _pending.md：{N} 條
+  專案 A — functional/：{N} 條 / _pending/：{N} 條
+  專案 B — functional/：{N} 條 / _pending/：{N} 條
   共用內容 — 已寫入 {N} 個專案的 03-client-context/
 ```
 

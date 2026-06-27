@@ -24,7 +24,7 @@ description: 查詢知識庫，三段深度：quick / standard / deep
 
 | 問題類型 | 優先讀取 |
 |----------|----------|
-| 這個功能的需求是什麼？ | `01-requirements/functional.md` |
+| 這個功能的需求是什麼？ | `01-requirements/functional-index.md` → `functional/{module}.md` |
 | 甲方的系統有什麼限制？ | `03-client-context/existing-system.md` |
 | 這個術語是什麼意思？ | `03-client-context/domain-knowledge.md` |
 | 我們當初為什麼選 X？ | `04-decisions/` |

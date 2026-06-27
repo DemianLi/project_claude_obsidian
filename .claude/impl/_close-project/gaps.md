@@ -2,10 +2,10 @@
 
 讀取以下檔案，生成完成度報告：
 ```
-1. {專案}/01-requirements/functional.md → 未完成的需求
-2. {專案}/06-qa-testing/bugs.md        → 未關閉的 bug
-3. {專案}/01-requirements/_pending.md  → 未解決的待釐清項目
-4. {專案}/01-requirements/_inferred.md → 未驗證的高風險推測
+1. {專案}/01-requirements/functional-index.md → 各模組未完成的需求
+2. {專案}/06-qa-testing/bugs-active.md        → 未關閉的 bug
+3. {專案}/01-requirements/_pending/_index.md  → 未解決的待釐清項目
+4. {專案}/01-requirements/_inferred/_index.md → 未驗證的高風險推測
 ```
 
 **等待使用者確認後才繼續。**

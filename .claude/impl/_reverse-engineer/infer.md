@@ -36,6 +36,6 @@ INF-002：出貨後不能修改訂單
   需驗證：有無例外情況（例如數量錯誤的修正）？
 ```
 
-→ 以上結果將寫入 `01-requirements/_inferred.md`（推測區）
+→ 以上結果將各自建立 `01-requirements/_inferred/{ID}.md`（INF-，推測），並登記至 `_inferred/_index.md`
 
 → 完成後讀取 `_reverse-engineer/gaps.md`

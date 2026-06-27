@@ -16,10 +16,10 @@ description: 逆向分析現有系統，推測並記錄隱性需求
 | 類型 | 定義 | 寫入位置 |
 |------|------|----------|
 | 🧱 結構性事實 | 程式碼明確存在的東西（table 名、欄位、API 路由） | `02-architecture/_legacy-analysis.md` |
-| 🔍 推測業務邏輯 | Claude 從程式碼**推斷**的業務規則，**可能有誤** | `01-requirements/_inferred.md`（推測區） |
-| ❓ 邏輯缺口 | 程式碼不完整、矛盾、或有死角的地方 | `01-requirements/_inferred.md`（缺口區） |
+| 🔍 推測業務邏輯 | Claude 從程式碼**推斷**的業務規則，**可能有誤** | `01-requirements/_inferred/{ID}.md`（推測，登記至 `_inferred/_index.md`） |
+| ❓ 邏輯缺口 | 程式碼不完整、矛盾、或有死角的地方 | `01-requirements/_inferred/{ID}.md`（缺口，登記至 `_inferred/_index.md`） |
 
-**Claude 禁止將推測直接寫入 `functional.md`。**
+**Claude 禁止將推測直接寫入 `functional/{module}.md`。**
 
 ## 前置條件
 ```

@@ -16,7 +16,7 @@ description: 匯出甲方交付文件（--client / --api / --onboarding / --hand
 ## 前置條件
 ```
 [ ] projects/{專案}/00-overview.md 存在
-[ ] 若 --client：functional.md 至少有 ✅ 需求
+[ ] 若 --client：至少 1 個 functional/{module}.md 有 ✅ 需求
 [ ] 若 --handover / --onboarding：全專案知識庫已建立
 ```
 

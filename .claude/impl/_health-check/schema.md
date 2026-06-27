@@ -2,7 +2,7 @@
 
 讀取 `knowledge/_schemas/` 中的 schema 定義，驗證各檔案格式。
 
-## 2-1. functional.md — REQ 格式驗證（依據 req.md）
+## 2-1. functional/{module}.md — REQ 格式驗證（依據 req.md）
 ```
 對每條 REQ 檢查：
   [ ] 標頭格式：## REQ-F{三位數}：{標題}

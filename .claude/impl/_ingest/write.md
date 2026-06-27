@@ -11,19 +11,13 @@
 
 **對帳：清理已解決的 _pending / _inferred**
 
-```markdown
-<!-- 完全解決 → _pending.md 加狀態 -->
-### ~~PENDING-XXX：{標題}~~
-**狀態**：✅ 已解決  **解決方式**：由 REQ-FXXX 涵蓋  **日期**：{YYYY-MM-DD}
+- 完全解決 → 更新對應 `_pending/{ID}.md` 狀態為 ✅ 已解決（解決方式：由 REQ-FXXX 涵蓋，填入日期），從 `_pending/_index.md` 目錄移除該行（檔案保留）
+- 推測升格 → 更新對應 `_inferred/{ID}.md` 狀態為 ✅ 已驗證（升格為：REQ-FXXX，填入日期），從 `_inferred/_index.md`「推測與缺口目錄」移除，移入「已驗證清單」
+- 部分解決 → 原檔案標記已解決部分為 ✅，新建 `_pending/{新ID}.md` 繼承剩餘問題，並登記至 `_pending/_index.md` 目錄
 
-<!-- 推測升格 → _inferred.md 加狀態 -->
-### ~~INF-XXX：{標題}~~
-**狀態**：✅ 已驗證  **升格為**：REQ-FXXX  **日期**：{YYYY-MM-DD}
-```
+## 3-1：明確需求 → `functional/{module}.md`
 
-部分解決：原條目拆分為已解決部分（標記 ✅）+ 新 PENDING-XXX 繼承剩餘問題。
-
-## 3-1：明確需求 → `functional.md`
+先依內容判斷所屬模組：比對 `functional-index.md` 的模組目錄關鍵字；無對應模組則建立新模組檔（含 Quick Context + REQ 快速掃描表）並登記至 `functional-index.md`。
 
 ```markdown
 ## REQ-F{XXX}：{需求名稱}
@@ -43,6 +37,7 @@
 - [ ] {條件二}
 ```
 
+> 寫入後同步更新該模組檔的「📌 Quick Context」與「REQ 快速掃描表」，並更新 `functional-index.md` 的模組統計（總需求數、已確認數等）。
 > ⚠️ 寫入前確認 `scope.md`：不在原始合約範圍 → 先執行 `/cr`。
 
 ## 3-2：模糊需求 → `_pending/{PENDING-XXX}.md`（一條一檔）

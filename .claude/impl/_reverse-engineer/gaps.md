@@ -38,6 +38,6 @@ GAP-002：orders 表有 discount_code 欄位，但無 discount_codes 表
   影響：若新功能涉及折扣，需先了解此是廢棄還是未完成功能
 ```
 
-→ 以上結果將寫入 `01-requirements/_inferred.md`（缺口區）
+→ 以上結果將各自建立 `01-requirements/_inferred/{ID}.md`（GAP-，缺口），並登記至 `_inferred/_index.md`
 
 → 完成後讀取 `_reverse-engineer/write.md`

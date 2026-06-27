@@ -10,7 +10,7 @@ description: 對帳知識庫需求紀錄與現實落差
 ```
 
 ## 使用時機
-- `_pending.md` 或 `_inferred.md` 累積超過 10 條未解決項目
+- `_pending/` 或 `_inferred/` 累積超過 10 條未解決項目
 - 連續 `/ingest` 多份文件後
 - 逆向工程分析結束、第一批甲方確認資訊進來後
 
@@ -20,9 +20,9 @@ description: 對帳知識庫需求紀錄與現實落差
 
 ## 前置條件
 ```
-[ ] projects/{專案}/01-requirements/functional.md 存在
-[ ] projects/{專案}/01-requirements/_pending.md 存在
-[ ] projects/{專案}/01-requirements/_inferred.md 存在
+[ ] projects/{專案}/01-requirements/functional-index.md 存在
+[ ] projects/{專案}/01-requirements/_pending/_index.md 存在
+[ ] projects/{專案}/01-requirements/_inferred/_index.md 存在
 ```
 
 ## 執行序列（每次只讀當前 Phase 的子文件）

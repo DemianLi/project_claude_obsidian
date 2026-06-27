@@ -3,7 +3,7 @@
 ```
 🔗 對帳報告｜專案：{名稱}｜{日期}
 
-━━━ 🟢 已被 functional.md 涵蓋（建議標記解決）{N} 條 ━━━
+━━━ 🟢 已被 functional/ 涵蓋（建議標記解決）{N} 條 ━━━
 
 PENDING-003：「{描述}」
   → 涵蓋者：REQ-FXXX、REQ-FXXX

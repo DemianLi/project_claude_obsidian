@@ -15,7 +15,7 @@ description: 產生專案進度報告（markdown 或甲方可讀格式）
 ## 前置條件
 ```
 [ ] wiki/log.md 存在
-[ ] projects/{專案}/01-requirements/functional.md 存在
+[ ] projects/{專案}/01-requirements/functional-index.md 存在
 [ ] projects/{專案}/00-overview.md 存在
 ```
 

@@ -18,8 +18,8 @@ description: 分析需求或架構變更的影響範疇
 
 ## 前置條件
 ```
-[ ] projects/{專案}/02-architecture/system-design.md 存在
-[ ] projects/{專案}/01-requirements/functional.md 存在
+[ ] projects/{專案}/02-architecture/arch-index.md 存在
+[ ] projects/{專案}/01-requirements/functional-index.md 存在
 ```
 
 ## 執行序列（每次只讀當前 Phase 的子文件）

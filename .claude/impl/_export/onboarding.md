@@ -25,16 +25,16 @@
 
 ### P0：第 1 天理解（約 2 小時）
 [P0-1] 00-overview.md — 專案全貌（30 分鐘）
-[P0-2] scope.md + _pending.md — 邊界與風險（30 分鐘）
+[P0-2] scope.md + _pending/_index.md — 邊界與風險（30 分鐘）
 [P0-3] existing-system.md — 甲方環境限制（30 分鐘）
 [P0-4] 04-decisions/ 全部 ADR — 已定案的技術決策（30 分鐘）
 
 ### P1：第 1 週掌握（約 6 小時）
-[P1-1] functional.md — 完整功能需求（1 小時）
-[P1-2] system-design.md + api-contracts.md — 系統架構（2 小時）
+[P1-1] functional-index.md + 各 functional/{module}.md — 完整功能需求（1 小時）
+[P1-2] arch-index.md + system-design/ + api-contracts/ — 系統架構（2 小時）
 [P1-3] domain-knowledge.md — 甲方業務語言（1 小時）
-[P1-4] _inferred.md — 未解決技術問題（1 小時）
-[P1-5] bugs.md — 目前 Bug 狀態（30 分鐘）
+[P1-4] _inferred/_index.md — 未解決技術問題（1 小時）
+[P1-5] bugs-active.md — 目前 Bug 狀態（30 分鐘）
 
 ### P2：第 1 個月按需查閱
 05-dev-notes/ / knowledge/patterns/ / lessons-learned/ / tech-stack/

@@ -3,8 +3,8 @@
 ## Phase 1：讀取來源
 ```
 1. {專案}/00-overview.md          → 專案名稱、目標、甲方資訊
-2. {專案}/01-requirements/functional.md → 需求與完成狀態
-3. {專案}/02-architecture/api-contracts.md → API 清單
+2. {專案}/01-requirements/functional-index.md → 各 functional/{module}.md，取得需求與完成狀態
+3. {專案}/02-architecture/api-contracts/index.md → 各群組 API 清單
 4. {專案}/06-qa-testing/test-plan-*.md → 測試結果（若有）
 5. {專案}/CHANGELOG.md            → 版本紀錄
 ```

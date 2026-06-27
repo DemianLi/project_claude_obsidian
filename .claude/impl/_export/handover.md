@@ -16,14 +16,14 @@ knowledge/patterns/ 和 knowledge/lessons-learned/（與本案相關的）
 
 ## 必讀文件（依順序）
 1. 00-overview.md — 專案背景與甲方資訊
-2. 01-requirements/functional.md — 所有確認需求
+2. 01-requirements/functional-index.md → 各 functional/{module}.md — 所有確認需求
 3. 01-requirements/scope.md — 合約範疇邊界
-4. 02-architecture/system-design.md — 系統架構
+4. 02-architecture/arch-index.md → 各 system-design/{component}.md — 系統架構
 5. 03-client-context/existing-system.md — 甲方技術環境限制
 6. 03-client-context/domain-knowledge.md — 領域術語
 7. 04-decisions/ — 所有技術決策（ADR）
-8. 01-requirements/_pending.md — 待甲方確認的問題
-9. 01-requirements/_inferred.md — 未驗證的推測與缺口
+8. 01-requirements/_pending/_index.md → 各 _pending/{ID}.md — 待甲方確認的問題
+9. 01-requirements/_inferred/_index.md → 各 _inferred/{ID}.md — 未驗證的推測與缺口
 
 ## 現有系統概況
 ### 技術棧：{從 system-design 提取}
@@ -34,8 +34,8 @@ knowledge/patterns/ 和 knowledge/lessons-learned/（與本案相關的）
 {每個 ADR 一句話摘要，附連結}
 
 ## 未解決問題清單
-### 待甲方確認（_pending.md）：{列出所有未解決 PENDING}
-### 待驗證的推測（_inferred.md）：{列出高風險 INF/GAP}
+### 待甲方確認（_pending/）：{列出所有未解決 PENDING}
+### 待驗證的推測（_inferred/）：{列出高風險 INF/GAP}
 
 ## 已知地雷
 {從 lessons-learned 找與本案技術棧相關的教訓}

@@ -1,6 +1,6 @@
 # Phase 2：彙整進度資料
 
-## 2-1. 需求完成狀態統計（從 functional.md）
+## 2-1. 需求完成狀態統計（從 functional-index.md → 各 functional/{module}.md）
 ```
 合約範疇內需求：
   已完成（驗收條件全部勾選）：{N} 條
@@ -13,14 +13,14 @@
   評估中：{N} 條
 ```
 
-## 2-2. 識別 blockers（從 _pending.md）
+## 2-2. 識別 blockers（從 _pending/_index.md → 各 _pending/{ID}.md）
 找出狀態為「等待回覆」且**超過 7 天未更新**的項目：
 ```
 ⚠️ 等待甲方確認（{N} 項）：
   PENDING-{ID}：{問題摘要}（提出日：{date}，已等待 {N} 天）
 ```
 
-## 2-3. 技術風險識別（從 _inferred.md）
+## 2-3. 技術風險識別（從 _inferred/_index.md → 各 _inferred/{ID}.md）
 找出與進行中任務相關的 INF/GAP：
 ```
 🔴 高風險：未解決的邏輯缺口影響進行中功能

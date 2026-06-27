@@ -12,7 +12,7 @@
 
 將 CR 的需求描述視為已確認文件，執行完整的 `/ingest` 流程。
 
-需求寫入 `functional.md` 時**合約版本欄位**標記為 `CR-{N}`。
+需求寫入對應 `functional/{module}.md` 時**合約版本欄位**標記為 `CR-{N}`。
 
 ## Step 3：更新 CR 文件狀態
 
@@ -28,7 +28,7 @@ status: ✅ 已核准
 ✅ CR-{N} 已核准
 
 已新增至追加範疇（scope.md）
-需求已進入 functional.md（標記 CR-{N}）
+需求已進入對應 functional/{module}.md（標記 CR-{N}）
 
 受影響需求：{列出 REQ ID}
 

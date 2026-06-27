@@ -24,7 +24,7 @@ tags: []
 
 ### {功能/任務名稱}
 
-**相關需求**：[[../01-requirements/functional#REQ-FXXX]]
+**相關需求**：[[../01-requirements/functional/{module}#REQ-FXXX]]
 
 {描述做了什麼，重要的實作決策}
 

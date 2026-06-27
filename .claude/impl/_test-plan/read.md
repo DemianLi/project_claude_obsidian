@@ -1,6 +1,6 @@
 # Phase 1：讀取需求
 
-讀取 `projects/{專案}/01-requirements/functional.md`，篩選：
+讀取 `projects/{專案}/01-requirements/functional-index.md` 找到相關模組，再讀對應 `functional/{module}.md`，篩選：
 - 狀態為 `✅ 已確認甲方` 的需求
 - 若指定 REQ-ID 或 `--scope {功能名}`，只取對應的需求
 

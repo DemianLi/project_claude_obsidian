@@ -3,26 +3,24 @@
 依使用者的選擇執行以下操作：
 
 ## 標記完全解決
-在條目加上解決標記，不刪除（保留歷史紀錄）：
+更新對應 `_pending/PENDING-{N}.md`（檔案保留，不刪除）：
 ```markdown
-### ~~PENDING-003：「{描述}」~~
 **狀態**：✅ 已解決（{YYYY-MM-DD}）
 **解決方式**：由 REQ-FXXX、REQ-FXXX 涵蓋
 ```
+並從 `_pending/_index.md` 目錄移除該行。
 
 ## 拆分部分解決的條目
+更新原檔案 `_pending/PENDING-{N}.md`：
 ```markdown
-### ~~PENDING-007：「{描述}」~~（部分解決）
 **狀態**：🔶 部分解決（{YYYY-MM-DD}）
 **已解決**：{已解決部分}，見 REQ-FXXX
-**剩餘問題**：→ 見 PENDING-016（繼承自本條）
-
-### PENDING-016：{剩餘問題標題}（繼承自 PENDING-007）
-**問題**：{剩餘未解決的疑問}
+**剩餘問題**：→ 見 PENDING-{新N}（繼承自本條）
 ```
+新建 `_pending/PENDING-{新N}.md`（繼承自 PENDING-{N}），並登記至 `_pending/_index.md` 目錄。
 
 ## 合併內部重複
-保留較完整的條目，另一條標記「已合併至 PENDING-XXX」。
+保留較完整的條目檔案，另一份標記「已合併至 PENDING-{N}」，並從 `_pending/_index.md` 目錄移除。
 
 ---
 
@@ -38,8 +36,8 @@
   仍待釐清：{N} 條
 
 知識庫健康度：
-  _pending.md：{N} 條（已解決 {N} / 未解決 {N}）
-  _inferred.md：{N} 條推測 + {N} 個缺口
+  _pending/：{N} 條（已解決 {N} / 未解決 {N}）
+  _inferred/：{N} 條推測 + {N} 個缺口
 
 📌 剩餘待辦：
   - 超過 30 天未釐清：{N} 條（建議主動追問甲方）

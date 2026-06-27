@@ -4,7 +4,7 @@
 
 ## 模式一：API 文件（--api-doc）
 
-讀取 `02-architecture/api-contracts.md`，生成標準 API 文件格式。
+讀取 `02-architecture/api-contracts/index.md`，再讀各群組 `api-contracts/{module}.md`，生成標準 API 文件格式。
 
 儲存至：`projects/{專案}/api-doc-v{版本}.md`
 
@@ -38,7 +38,7 @@
 
 ## 模式二：版本紀錄（--changelog）
 
-從 `wiki/log.md` 和 `functional.md` 提取，
+從 `wiki/log.md` 和各 `functional/{module}.md` 提取，
 以使用者可選擇的版本範圍生成標準 CHANGELOG 格式。
 
 詢問：

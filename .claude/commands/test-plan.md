@@ -13,7 +13,7 @@ description: 從已確認需求自動產生測試計畫
 
 ## 前置條件
 ```
-[ ] projects/{專案}/01-requirements/functional.md 存在
+[ ] projects/{專案}/01-requirements/functional-index.md 存在
     且至少有 1 條 ✅ 已確認甲方 的需求
 [ ] projects/{專案}/06-qa-testing/ 目錄存在
 ```
