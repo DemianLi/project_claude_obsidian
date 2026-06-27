@@ -22,8 +22,8 @@
 
 | $ARGUMENTS 包含 | 讀取 | 說明 |
 |----------------|------|------|
-| `--uat` | `{KB_ROOT}/.claude/commands/_bug/uat.md` | UAT 批次回饋分流（U-1 ～ U-6） |
-| 其他（描述文字 / `TC-{ID}` / `--list` / `--close`） | `{KB_ROOT}/.claude/commands/_bug/quick.md` | 快速記錄 + 列表 + 關閉 |
+| `--uat` | `{KB_ROOT}/.claude/impl/_bug/uat.md` | UAT 批次回饋分流（U-1 ～ U-6） |
+| 其他（描述文字 / `TC-{ID}` / `--list` / `--close`） | `{KB_ROOT}/.claude/impl/_bug/quick.md` | 快速記錄 + 列表 + 關閉 |
 
 ## 與其他指令的關係
 ```

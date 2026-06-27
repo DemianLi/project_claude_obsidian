@@ -40,7 +40,7 @@
 | 🕐 待確認 / 🔄 變更中 / ❌ 廢棄 | **停止**，回報 REQ-ID 與狀態 |
 | 🔍 INF-XXX / ❓ GAP-XXX | **停止**，讀 `{KB_ROOT}/.claude/protocols/stop-report.md` 展開完整格式 |
 
-**Stage 3.5（條件）** 若 `{KB_ROOT}/projects/{名稱}/.claude/collab/` 存在 → 讀 `{KB_ROOT}/.claude/commands/_collab/check.md` 執行協作衝突偵測；有衝突 → 要求確認才繼續
+**Stage 3.5（條件）** 若 `{KB_ROOT}/projects/{名稱}/.claude/collab/` 存在 → 讀 `{KB_ROOT}/.claude/impl/_collab/check.md` 執行協作衝突偵測；有衝突 → 要求確認才繼續
 
 **Stage 4（0–2）** `{KB_ROOT}/projects/{名稱}/01-requirements/_inferred/_index.md` Quick Context → 阻塞模組與任務有交集才讀個別 `_inferred/{ID}.md`
 

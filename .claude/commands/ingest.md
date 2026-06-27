@@ -31,20 +31,20 @@
 
 | $ARGUMENTS 包含 | 動作 |
 |----------------|------|
-| `--url` 或開頭為 `https://` | 直接讀 `{KB_ROOT}/.claude/commands/_ingest/input-url.md`，**跳過 detect** |
-| `--visual` | 直接讀 `{KB_ROOT}/.claude/commands/_ingest/input-visual.md`，**跳過 detect** |
-| `--structured` | 直接讀 `{KB_ROOT}/.claude/commands/_ingest/input-structured.md`，**跳過 detect** |
-| `--multilang` | 直接讀 `{KB_ROOT}/.claude/commands/_ingest/input-multilang.md`，**跳過 detect** |
-| `--large` | 直接讀 `{KB_ROOT}/.claude/commands/_ingest/input-large.md`，**跳過 detect** |
-| `--unassigned` | 直接讀 `{KB_ROOT}/.claude/commands/_ingest/unassigned.md`，**跳過 detect** |
-| `--cross` | 直接讀 `{KB_ROOT}/.claude/commands/_ingest/cross-project.md`，**跳過 detect** |
-| 以上皆無 | 讀 `{KB_ROOT}/.claude/commands/_ingest/detect.md`（自動偵測） |
+| `--url` 或開頭為 `https://` | 直接讀 `{KB_ROOT}/.claude/impl/_ingest/input-url.md`，**跳過 detect** |
+| `--visual` | 直接讀 `{KB_ROOT}/.claude/impl/_ingest/input-visual.md`，**跳過 detect** |
+| `--structured` | 直接讀 `{KB_ROOT}/.claude/impl/_ingest/input-structured.md`，**跳過 detect** |
+| `--multilang` | 直接讀 `{KB_ROOT}/.claude/impl/_ingest/input-multilang.md`，**跳過 detect** |
+| `--large` | 直接讀 `{KB_ROOT}/.claude/impl/_ingest/input-large.md`，**跳過 detect** |
+| `--unassigned` | 直接讀 `{KB_ROOT}/.claude/impl/_ingest/unassigned.md`，**跳過 detect** |
+| `--cross` | 直接讀 `{KB_ROOT}/.claude/impl/_ingest/cross-project.md`，**跳過 detect** |
+| 以上皆無 | 讀 `{KB_ROOT}/.claude/impl/_ingest/detect.md`（自動偵測） |
 
 ### Step 1–4：標準 Phase 流程（每次只讀當前 Phase）
 
 | 步驟 | 讀取 | 說明 |
 |------|------|------|
-| 1 | `{KB_ROOT}/.claude/commands/_ingest/parse.md` | Phase 1：解析（只讀，不寫）|
-| 2 | `{KB_ROOT}/.claude/commands/_ingest/confirm.md` | Phase 2：呈現確認報告 |
-| 3 | `{KB_ROOT}/.claude/commands/_ingest/write.md` | Phase 3：寫入確認的內容 |
-| 4 | `{KB_ROOT}/.claude/commands/_ingest/report.md` | Phase 4：完成回報 |
+| 1 | `{KB_ROOT}/.claude/impl/_ingest/parse.md` | Phase 1：解析（只讀，不寫）|
+| 2 | `{KB_ROOT}/.claude/impl/_ingest/confirm.md` | Phase 2：呈現確認報告 |
+| 3 | `{KB_ROOT}/.claude/impl/_ingest/write.md` | Phase 3：寫入確認的內容 |
+| 4 | `{KB_ROOT}/.claude/impl/_ingest/report.md` | Phase 4：完成回報 |
