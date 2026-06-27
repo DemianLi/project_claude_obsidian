@@ -281,7 +281,7 @@ _inferred/{ID}.md（🔍 推測）→ 禁止實作，必須驗證後升格
 Claude Code 可以直接讀寫你電腦上的檔案，並執行 slash commands（`/ingest`、`/save` 等）。網頁版的 Claude 無法直接操作本地檔案。
 
 **Q：知識庫可以多人共用嗎？**
-可以，且是設計上就支援的。每位工程師有自己的 `wiki/hot/{縮寫}.md`，`/save` 只替換自己的檔案；專案內 `.claude/collab/{縮寫}.md` 記錄各自鎖定的 REQ，BEFORE CODING 會自動偵測鎖定衝突；bug、待澄清項目、推測/缺口都是一條一檔（`bugs/{ID}.md`、`_pending/{ID}.md`、`_inferred/{ID}.md`），多人同時新增不會互相衝突。
+可以，且是設計上就支援的。每位工程師有自己的 `wiki/hot/{縮寫}.md`，`/save` 只替換自己的檔案；bug、待釐清項目、推測/缺口都是一條一檔（`bugs/{ID}.md`、`_pending/{ID}.md`、`_inferred/{ID}.md`），多人同時新增不會互相衝突。專案內 `collab/{縮寫}.md` 記錄各自鎖定的項目，BEFORE CODING 會自動偵測鎖定衝突——不只 `functional/{module}.md` 的 REQ，`02-architecture/` 下的元件設計與 API 群組也適用同一套鎖定機制（細節見 `wiki/collab-protocol.md`）。`scope.md`、`wiki/index.md`、`03-client-context/*.md` 這類無法拆成獨立記錄的整份共用文件，靠「異動前提示確認最新版本、異動後留 log」降低衝突，不是鎖定。多工程師各自在獨立 CODE_ROOT 開發的設定見上方「團隊共用設定」。
 
 **Q：如何備份？**
 知識庫（KB_ROOT）的版控由 **Obsidian git 插件自動管理**，不需要手動 commit/push。程式碼倉庫（CODE_ROOT）則由工程師自行 git 管理。

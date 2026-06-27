@@ -11,7 +11,7 @@ projects/{專案}/
   04-decisions/  ADR-index.md⚡  ADR-{ID}.md
   05-dev-notes/  _index.md⚡
   06-qa-testing/  bugs-active.md⚡  bugs/{BUG-ID}.md
-  .claude/collab/{initials}.md    （各工程師 REQ 鎖定狀態，選配）
+  collab/{initials}.md           （各工程師鎖定狀態：REQ/元件/API群組，選配）
 
 knowledge/  patterns/index.md⚡  lessons-learned/index.md⚡  tech-stack/index.md
 

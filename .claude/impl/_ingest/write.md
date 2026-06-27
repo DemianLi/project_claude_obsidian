@@ -4,7 +4,7 @@
 
 ## 3-0：背景知識 → `03-client-context/`
 
-依類別 append 至對應檔案（`stakeholders.md` / `existing-system.md` / `domain-knowledge.md`）。
+依類別 append 至對應檔案（`stakeholders.md` / `existing-system.md` / `domain-knowledge.md`）。這些是團隊共用整份文件（見 `wiki/collab-protocol.md` 三），完成後 append `wiki/log.md`：「{日期} {縮寫} 異動了 {檔案}：{摘要}」。
 
 若同一關係人已有記錄 → **合併更新**，不新增重複條目。
 若與既有背景知識有出入 → **標記衝突**，等使用者確認，不自動覆寫。

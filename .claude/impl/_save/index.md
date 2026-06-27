@@ -2,7 +2,7 @@
 
 ## Step 4：更新 `{KB_ROOT}/wiki/hot/{engineer}.md`（完整替換自己的檔案）
 
-工程師縮寫從 `{KB_ROOT}/projects/{名稱}/.claude/collab/{initials}.md` 讀取；若無 collab 資料則詢問縮寫或預設 `default`。
+工程師縮寫從 `{KB_ROOT}/projects/{名稱}/collab/{initials}.md` 讀取；若無 collab 資料則詢問縮寫或預設 `default`。
 每位工程師只替換自己的檔案，其他人的 hot 檔案不動。
 
 ```markdown

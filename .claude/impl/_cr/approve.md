@@ -2,11 +2,15 @@
 
 讀取 `04-decisions/CR-{N}-*.md`，執行以下步驟：
 
+> `scope.md` 是團隊共用整份文件（見 `wiki/collab-protocol.md` 三），異動前先確認本機是最新版本；若內容跟讀取時不同（疑似其他人剛異動過），停止並回報差異。
+
 ## Step 1：更新 scope.md 的追加範疇表
 
 ```markdown
 | CR-{N} | {功能名稱} | {提出日期} | {提出人} | ✅ 已確認 | REQ-F{XXX} |
 ```
+
+完成後 append `wiki/log.md`：「{日期} {縮寫} 異動了 scope.md：核准 CR-{N}，新增 {功能名稱} 至追加範疇」
 
 ## Step 2：進入 /ingest 流程
 

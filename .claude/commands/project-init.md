@@ -60,15 +60,14 @@ description: 初始化新專案，建立完整知識庫結構與薄 CLAUDE.md
   bugs-active.md                  ← 薄索引（空白模板）
   bugs/                           ← 各 BUG 各自一檔（BUG-001.md, BUG-002.md...）
 CHANGELOG.md                      （初始版本）
-.claude/
-  collab/                         ← 各工程師各自一檔（DL.md, MC.md...），選配
+collab/                           ← 各工程師各自一檔（DL.md, MC.md...），選配
 ```
 
 **collab/ 建立方式**（詢問後依人數建立）：
 
 詢問：「這個專案有多位工程師協作嗎？請提供成員縮寫列表（例如：DL, MC, YJ）」
 
-每位工程師建立 `.claude/collab/{initials}.md`：
+每位工程師建立 `collab/{initials}.md`：
 ```markdown
 ---
 engineer: {initials}
@@ -79,10 +78,12 @@ updated: {YYYY-MM-DD}
 
 # 鎖定狀態 — {initials}
 
-| 鎖定 REQ | 模組 | 鎖定日期 | 備注 |
-|---------|------|---------|------|
-| （無） | — | — | — |
+| 類型 | 鎖定項目 | 位置 | 鎖定日期 | 備注 |
+|------|---------|------|---------|------|
+| （無） | — | — | — | — |
 ```
+> 類型：`REQ`（功能需求，對應 `functional/{module}.md`）／`元件`（對應 `02-architecture/system-design/{component}.md`）／`API群組`（對應 `02-architecture/api-contracts/{group}.md`）
+
 單人專案可跳過此步驟（collab/ 資料夾不存在時所有協作機制自動停用）。
 
 各薄索引在建立時為空白模板；後續由 `/ingest`、`/bug`、`/save` 指令自動維護內容。若是「擴充案」（既有系統），特別提醒：

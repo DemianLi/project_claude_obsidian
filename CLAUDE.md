@@ -2,12 +2,12 @@
 
 KB_ROOT=`~/Projects_vibecoding/claude_obsidien_setting`（知識庫，版控由 Obsidian git 插件自動管理）｜CODE_ROOT=程式碼實際所在目錄（工程師自管，父路徑不限，資料夾名對應 `projects/{名稱}/`）｜路徑除非標 `{CODE_ROOT}` 否則相對 KB_ROOT。結構總覽見 `.claude/protocols/structure-map.md`。多工程師跨專案共用本知識庫的設定見 `README.md`「團隊共用設定」。
 
-[SESSION START] 讀 `{KB_ROOT}/wiki/hot/*.md`→`wiki/index.md`（提及專案加讀 `projects/{名稱}/00-overview.md`；`.claude/collab/` 存在則顯示鎖定狀況）→一句話告知上下文。工程任務走下方漏斗；一般知識問題走 `/query`（wiki 層優先）。
+[SESSION START] 讀 `{KB_ROOT}/wiki/hot/*.md`→`wiki/index.md`（提及專案加讀 `projects/{名稱}/00-overview.md`；`collab/` 存在則顯示鎖定狀況）→一句話告知上下文。工程任務走下方漏斗；一般知識問題走 `/query`（wiki 層優先）。
 
 [BEFORE CODING]（任何實作前強制執行，不可跳過，路徑皆相對 `{KB_ROOT}/projects/{名稱}/` 除非另標）
 1. `scope.md` 不在範疇 → 停止，執行 `/cr`
 2. `functional-index.md`→module→REQ：✅繼續｜🕐/🔄/❌→停止回報狀態｜🔍INF/❓GAP→讀 `{KB_ROOT}/.claude/protocols/stop-report.md` 展開
-3.（若 `.claude/collab/` 存在）讀 `{KB_ROOT}/.claude/impl/_collab/check.md` 偵測鎖定衝突，有衝突要求確認才繼續
+3.（若 `collab/` 存在）讀 `{KB_ROOT}/.claude/impl/_collab/check.md` 偵測鎖定衝突，有衝突要求確認才繼續
 4. `_inferred/_index.md` 阻塞模組與任務交集才讀個別 `_inferred/{ID}.md`
 5. `03-client-context/`、`02-architecture/`（`arch-index`→`system-design/`/`api-contracts/`）、`04-decisions/` ADR，交集才深讀
 6.（依服務關鍵字）`{KB_ROOT}/knowledge/{patterns,lessons-learned,tech-stack}`，交集才讀
