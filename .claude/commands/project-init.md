@@ -97,7 +97,7 @@ updated: {YYYY-MM-DD}
 
 **6. 建立程式碼倉庫的薄 CLAUDE.md**
 
-詢問：「程式碼倉庫路徑？（預設：~/Projects_vibecoding/{project_name}）」
+詢問：「程式碼倉庫路徑？」（不假設特定上層目錄，直接請使用者提供完整路徑）
 
 在 `{CODE_ROOT}/CLAUDE.md` 建立以下內容：
 
@@ -122,7 +122,7 @@ SESSION START 時，先讀 `{KB_ROOT}/CLAUDE.md`，再讀 `{KB_ROOT}/wiki/hot/*.
 - 程式碼（CODE_ROOT，此目錄）→ 工程師自行 git 管理
 ```
 
-若使用者未提供路徑，預設為 `~/Projects_vibecoding/{project_name}`；若路徑不存在則提醒需先建立目錄。
+若使用者未提供路徑，停下來請使用者補充（不代為猜測路徑）；若路徑不存在則提醒需先建立目錄。多工程師團隊共用同一個 CODE_ROOT 時，這份薄 `CLAUDE.md` 會隨程式碼 repo 自動同步給全員；指令層（slash commands）的團隊共用設定見 `README.md`「團隊共用設定」。
 
 **7. 完成回報**
 ```

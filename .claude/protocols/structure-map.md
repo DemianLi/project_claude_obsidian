@@ -24,7 +24,7 @@ wiki/  hot/{initials}.md⚡  index.md⚡  log.md  overview.md
 .raw/  — 不可修改的原始文件（/ingest 的輸入來源）
 _inbox/  _unassigned/
 
-【程式碼 — CODE_ROOT = ~/Projects_vibecoding/{project_name}】（獨立 repo，工程師自行 git 管理）
+【程式碼 — CODE_ROOT = 程式碼實際所在目錄，父路徑不限】（獨立 repo，工程師自行 git 管理）
   實際 source code、設定檔、CLAUDE.md（薄版，由 /project-init 產生）
 
 Obsidian 慣例：詳見 {KB_ROOT}/.claude/protocols/wiki-layer.md
