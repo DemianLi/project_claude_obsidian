@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Knowledge Base Overview"
-updated: 2026-06-22
+updated: 2026-06-28
 ---
 
 # 知識庫總覽
@@ -29,20 +29,20 @@ wiki/questions/  → 有價值的問答歸檔
 
 - 進行中專案：見 `wiki/index.md`
 - Wiki 頁面數：0（知識層剛建立）
-- 最近重大更新：2026-06-27 — 分檔索引架構定為唯一正規（刪除舊扁平檔）、全指令系統路徑修正、CLAUDE.md 壓縮、wiki/hot 與 tech-stack 改為 per-engineer/per-item 分檔
+- 最近重大更新：2026-06-28 — 協作鎖定機制擴充至架構元件/API 群組（原 02-architecture 無偵測，現補上）、collab/ 路徑去除多餘 `.claude/` 巢狀層、CLAUDE.md 移除對 Claude 無實際用途的 README 指標
 
 ## 核心工作流
 
 ```
 收到資料   → /ingest → 解析→確認→寫入 projects/ 或 wiki/sources/
-開始實作   → BEFORE CODING 精準漏斗（8 stages）
+開始實作   → BEFORE CODING 漏斗（6 步驟，細節見 CLAUDE.md）
 知識問題   → /query [quick/standard/deep]
 累積知識   → /self-improve → patterns + lessons-learned
 結束工程   → /save → hot/{縮寫}.md + log.md + 索引更新
 ```
 
-## 最佳實踐
+## 最佳實踐（細節見對應協定文件，避免雙重維護）
 
-- 任何第三方服務的踩坑 → 同時記錄 `knowledge/tech-stack/` 和 `wiki/entities/`
-- 好的查詢答案 → 歸檔至 `wiki/questions/`（≥3 來源的整合答案）
-- Session 結束 → `/save` 更新 hot/{縮寫}.md 確保下次 session 有脈絡
+- 第三方服務踩坑的雙寫規則 → 見 `.claude/protocols/wiki-layer.md`
+- 好答案歸檔至 `wiki/questions/` 的條件 → 見 `/query` 流程（`_query/lookup.md`）
+- Session 結束更新 hot/{縮寫}.md 的邏輯 → 見 `CLAUDE.md`「SAVE SESSION」與 `_save/index.md`

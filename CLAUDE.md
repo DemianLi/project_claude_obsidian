@@ -1,6 +1,6 @@
 # 軟體工程知識庫 — Claude 協作系統
 
-KB_ROOT=`~/Projects_vibecoding/claude_obsidien_setting`（知識庫，版控由 Obsidian git 插件自動管理）｜CODE_ROOT=程式碼實際所在目錄（工程師自管，父路徑不限，資料夾名對應 `projects/{名稱}/`）｜路徑除非標 `{CODE_ROOT}` 否則相對 KB_ROOT。結構總覽見 `.claude/protocols/structure-map.md`。多工程師跨專案共用本知識庫的設定見 `README.md`「團隊共用設定」。
+KB_ROOT=`~/Projects_vibecoding/claude_obsidien_setting`（知識庫，版控由 Obsidian git 插件自動管理）｜CODE_ROOT=程式碼實際所在目錄（工程師自管，父路徑不限，資料夾名對應 `projects/{名稱}/`）｜路徑除非標 `{CODE_ROOT}` 否則相對 KB_ROOT。結構總覽見 `.claude/protocols/structure-map.md`。
 
 [SESSION START] 讀 `{KB_ROOT}/wiki/hot/*.md`→`wiki/index.md`（提及專案加讀 `projects/{名稱}/00-overview.md`；`collab/` 存在則顯示鎖定狀況）→一句話告知上下文。工程任務走下方漏斗；一般知識問題走 `/query`（wiki 層優先）。
 

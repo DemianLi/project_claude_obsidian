@@ -46,6 +46,7 @@
 | 技術 / 服務知識 | `{KB_ROOT}/wiki/entities/_index.md` + `{KB_ROOT}/knowledge/tech-stack/index.md` |
 | 概念定義 | `{KB_ROOT}/wiki/concepts/_index.md` → 對應概念頁 |
 | 過去研究 | `{KB_ROOT}/wiki/sources/_index.md` + `{KB_ROOT}/wiki/questions/_index.md` |
+| 知識庫系統本身的架構/現況 | `{KB_ROOT}/wiki/overview.md` |
 
 若問題跨多類型，列出**所有**預計讀取路徑讓使用者確認，避免遺漏或多讀。
 
