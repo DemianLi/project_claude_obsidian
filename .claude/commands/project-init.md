@@ -106,7 +106,7 @@ updated: {YYYY-MM-DD}
 # {project_name} — 開發工作區
 
 ## 路徑設定
-KB_ROOT: ~/Projects_vibecoding/claude_obsidien_setting
+KB_ROOT: {本知識庫的實際路徑，即此 CLAUDE.md 自己的 KB_ROOT 定義值，逐字代入，不要照抄範例}
 CODE_ROOT: {使用者確認的路徑}
 PROJECT_NAME: {project_name}
 

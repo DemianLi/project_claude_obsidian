@@ -48,7 +48,7 @@ projects/eshop-sunrise/
 ├── 01-requirements/
 │   ├── functional-index.md ⚡  ← 需求薄索引（L1 模組目錄）
 │   ├── functional/
-│   │   └── README.md           ← 說明三層讀取結構，各模組（M01、M02...）由 /ingest 建立
+│   │   └── README.md           ← 說明三層讀取結構，各模組（英文 slug，如 membership.md）由 /ingest 建立
 │   ├── non-functional.md       ← 非功能需求（空白模板）
 │   ├── scope.md                ← 合約範疇（含 QUICK CONTEXT 頭）
 │   ├── _pending/
@@ -112,7 +112,7 @@ projects/eshop-sunrise/
 ```
 
 **Phase 3 — 寫入**：
-- 清晰需求 → 先依關鍵字比對 `functional-index.md` 找模組，寫入對應 `functional/M01-*.md`（狀態 ✅），無對應模組則新建並登記至 `functional-index.md`
+- 清晰需求 → 先依關鍵字比對 `functional-index.md` 找模組，寫入對應 `functional/{module}.md`（狀態 ✅），無對應模組則新建並登記至 `functional-index.md`
 - 模糊需求 → 建立獨立檔案 `_pending/PENDING-{XXX}.md`（附可直接複製給甲方的問題文字），並登記至 `_pending/_index.md`
 - 若新內容與現有 ✅ REQ 矛盾 → **攔截，強制走 /cr**
 
@@ -478,7 +478,7 @@ Stage 4 — _inferred/_index.md Quick Context 掃描：
 
 ### 產出結果
 
-**REQ-F001 加版本標記**（`functional/M01-membership.md`）：
+**REQ-F001 加版本標記**（`functional/membership.md`）：
 ```markdown
 ### REQ-F001：會員分級
 合約版本：CR-002

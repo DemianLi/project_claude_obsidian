@@ -30,3 +30,5 @@ _inbox/  _unassigned/
 
 Obsidian 慣例：詳見 {KB_ROOT}/.claude/protocols/wiki-layer.md
 ```
+
+**指令子文件路徑慣例**：`.claude/commands/*.md`（dispatcher）內所有 `_xxx/file.md` 形式的路徑，皆相對於 `{KB_ROOT}/.claude/impl/`，例如 `_query/lookup.md` 實際是 `{KB_ROOT}/.claude/impl/_query/lookup.md`。這是全部 17 個指令一致採用的簡寫，不是個別檔案的疏漏。
