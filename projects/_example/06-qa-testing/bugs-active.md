@@ -29,7 +29,7 @@ updated: {YYYY-MM-DD}
 | {order} | 2 | 3 | 1 | 6 |
 | **全部** | **{N}** | **{N}** | **{N}** | **{N}** |
 
-> 最後更新：{YYYY-MM-DD}｜完整歷史（含已關閉）見 `bugs.md`
+> 最後更新：{YYYY-MM-DD}｜完整歷史（含已關閉）見 `bugs/` 目錄下各 `BUG-{ID}.md`
 
 ---
 
@@ -61,5 +61,5 @@ updated: {YYYY-MM-DD}
 ## 說明
 
 - 此檔案只含**未關閉**的 bug，確認是精簡讀取的核心
-- 關閉後的 bug 轉存至 `bugs.md`（完整歷史紀錄）
-- `/bug --close BUG-{N}` 會自動從此檔案移除並寫入 `bugs.md`
+- 關閉後的 bug 從此檔案移除，完整記錄保留在 `bugs/{BUG-ID}.md`（不刪除，僅狀態改為 ✅ 已關閉）
+- `/bug --close BUG-{N}` 會自動從此檔案移除對應條目，並更新 `bugs/{BUG-ID}.md` 的狀態欄位

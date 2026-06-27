@@ -8,7 +8,7 @@ updated: 2026-06-21
 
 > 此檔案記錄從程式碼和資料庫**直接觀察到的結構性事實**。
 > 這裡的內容是「系統現在是什麼樣子」，不是「應該是什麼樣子」。
-> 業務邏輯推測見 `01-requirements/_inferred.md`。
+> 業務邏輯推測見 `01-requirements/_inferred/_index.md`。
 >
 > ⚠️ **儲存原則：描述，不是程式碼本身**
 > 此文件儲存對程式碼的**結構化摘要**，不儲存原始程式碼、DDL、或 SQL 語句。
@@ -17,7 +17,7 @@ updated: 2026-06-21
 > - ❌ 貼入完整的 CREATE TABLE 語句
 > - ❌ 貼入完整的 controller 程式碼
 >
-> 若需要保留關鍵程式碼片段作為推測依據，寫在 `_inferred.md` 的【推測依據】欄位，且只引用最小必要的片段（一兩行），不貼整個函數。
+> 若需要保留關鍵程式碼片段作為推測依據，寫在對應 `_inferred/{ID}.md` 的【推測依據】欄位，且只引用最小必要的片段（一兩行），不貼整個函數。
 
 ---
 
@@ -40,7 +40,7 @@ updated: 2026-06-21
 
 | Table | 欄位 | 類型 | 特殊值/ENUM | 備註 |
 |-------|------|------|-------------|------|
-| orders | status | ENUM | pending, processing, shipped, completed, cancelled | 轉換規則見 _inferred.md |
+| orders | status | ENUM | pending, processing, shipped, completed, cancelled | 轉換規則見對應 _inferred/{ID}.md |
 
 ### 觀察到的資料異常
 

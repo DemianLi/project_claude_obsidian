@@ -35,6 +35,7 @@ description: 初始化新專案，建立完整知識庫結構與薄 CLAUDE.md
   functional/
     README.md                     ← 說明三層讀取結構（L1模組→L2模組Quick Context→L3 REQ掃描表）
   non-functional.md               （空白模板）
+  scope.md                         （空白模板，BEFORE CODING Stage 2 / `/cr` 依賴此檔）
   _pending/
     _index.md                     ← 薄索引（含 QUICK CONTEXT 頭）；各 PENDING 各自一檔
   _inferred/
@@ -86,7 +87,7 @@ updated: {YYYY-MM-DD}
 
 各薄索引在建立時為空白模板；後續由 `/ingest`、`/bug`、`/save` 指令自動維護內容。若是「擴充案」（既有系統），特別提醒：
 - `existing-system.md` 必填，越詳細越好
-- 建議立即執行 `/reverse-engineer` 填充 `_inferred.md`
+- 建議立即執行 `/reverse-engineer` 填充 `_inferred/_index.md`
 
 **4. 更新 `{KB_ROOT}/wiki/index.md`**
 將新專案加入「進行中的專案」表格。

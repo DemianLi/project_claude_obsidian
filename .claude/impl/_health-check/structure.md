@@ -5,18 +5,18 @@
 ```
 必要檔案（10 個，各佔 10 分）：
   [ ] 00-overview.md
-  [ ] 01-requirements/functional.md
+  [ ] 01-requirements/functional-index.md
   [ ] 01-requirements/scope.md
-  [ ] 01-requirements/_pending.md
-  [ ] 01-requirements/_inferred.md
-  [ ] 02-architecture/system-design.md
+  [ ] 01-requirements/_pending/_index.md
+  [ ] 01-requirements/_inferred/_index.md
+  [ ] 02-architecture/arch-index.md
   [ ] 03-client-context/existing-system.md
   [ ] 03-client-context/domain-knowledge.md
   [ ] 03-client-context/stakeholders.md
-  [ ] 06-qa-testing/bugs.md
+  [ ] 06-qa-testing/bugs-active.md
 
 加分項（完整度更高但非必要）：
-  [ ] 02-architecture/api-contracts.md
+  [ ] 02-architecture/api-contracts/index.md
   [ ] 02-architecture/_legacy-analysis.md
   [ ] 04-decisions/ 至少 1 份 ADR
   [ ] 05-dev-notes/ 至少 1 份 dev session

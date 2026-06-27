@@ -7,9 +7,9 @@ updated: {YYYY-MM-DD}
 # 架構元件索引
 
 <!-- ⚡ Claude 讀取規則：
-  1. 讀此索引 → 識別任務涉及的元件
-  2. 只讀 system-design.md 中對應元件的段落，不讀整份文件
-  3. api-contracts.md 只在需要確認 API 規格時才讀（任務包含「API 呼叫/端點」時）
+  1. 讀此索引 → 比對下方「系統元件地圖」任務關鍵字 → 識別相關元件
+  2. 只讀 system-design/{對應元件}.md，不讀其他元件檔案
+  3. api-contracts/index.md 只在需要確認 API 規格時才讀（任務包含「API 呼叫/端點」時），再由其路由至相關群組檔案
   4. _legacy-analysis.md 只在逆向工程 / 整合案才讀
 -->
 
@@ -42,13 +42,11 @@ updated: {YYYY-MM-DD}
 │   ├── auth.md                   ← 認證元件架構
 │   ├── order.md                  ← 訂單元件架構
 │   └── ...（其他元件）
-├── system-design.md              ← 舊格式 fallback（保留相容性）
 ├── api-contracts/
 │   ├── index.md                  ← API 薄索引（先讀）
 │   ├── auth.md                   ← 認證 API 端點
 │   ├── order.md                  ← 訂單 API 端點
 │   └── ...（其他群組）
-├── api-contracts.md              ← 舊格式 fallback（保留相容性）
 └── _legacy-analysis.md           ← 逆向工程結果（整合案才讀）
 ```
 
