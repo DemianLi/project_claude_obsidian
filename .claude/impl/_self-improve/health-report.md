@@ -37,7 +37,7 @@
 
 ## 4-C. 更新 wiki（自動執行，不需使用者確認）
 
-**wiki/hot.md**：記錄本次 self-improve 執行結果
+**wiki/hot/{自己的縮寫}.md**：記錄本次 self-improve 執行結果
 **wiki/log.md**：
 ```
 ### [{日期}] — /self-improve 執行
