@@ -29,7 +29,7 @@ wiki/questions/  → 有價值的問答歸檔
 
 - 進行中專案：見 `wiki/index.md`
 - Wiki 頁面數：0（知識層剛建立）
-- 最近重大更新：2026-06-22 — 整合 claude-obsidian wiki 知識層
+- 最近重大更新：2026-06-27 — 分檔索引架構定為唯一正規（刪除舊扁平檔）、全指令系統路徑修正、CLAUDE.md 壓縮、wiki/hot 與 tech-stack 改為 per-engineer/per-item 分檔
 
 ## 核心工作流
 
@@ -38,11 +38,11 @@ wiki/questions/  → 有價值的問答歸檔
 開始實作   → BEFORE CODING 精準漏斗（8 stages）
 知識問題   → /query [quick/standard/deep]
 累積知識   → /self-improve → patterns + lessons-learned
-結束工程   → /save → hot.md + log.md + 索引更新
+結束工程   → /save → hot/{縮寫}.md + log.md + 索引更新
 ```
 
 ## 最佳實踐
 
 - 任何第三方服務的踩坑 → 同時記錄 `knowledge/tech-stack/` 和 `wiki/entities/`
 - 好的查詢答案 → 歸檔至 `wiki/questions/`（≥3 來源的整合答案）
-- Session 結束 → `/save` 更新 hot.md 確保下次 session 有脈絡
+- Session 結束 → `/save` 更新 hot/{縮寫}.md 確保下次 session 有脈絡

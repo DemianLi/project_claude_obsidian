@@ -1,104 +1,68 @@
 ---
 type: collab-protocol
-updated: 2026-06-21
+updated: 2026-06-27
 ---
 
 # 多工程師協作協議
 
-> 當專案有 2 人以上共同維護知識庫時，依此文件的規則操作，
-> 避免相互覆寫造成資料遺失或衝突。
->
-> 工具前提：以 **Git** 作為知識庫的同步與版本控制機制。
-> 若尚未初始化 Git：`git init && git add . && git commit -m "init knowledge base"`
+> 當專案有 2 人以上共同維護知識庫時，依此文件操作。
+> 核心設計：**檔案層級零衝突**（每個知識單元各自一檔）+ **REQ 層級軟性鎖定**（自動偵測，不需人工審核）。
+> 不採用 git branch / PR 審核工作流——知識庫版控由 **Obsidian git 插件自動管理**，直接寫入即可，靠檔案拆分本身避免衝突，不靠流程把關。
 
 ---
 
 ## 一、檔案所有權矩陣
 
-不同檔案的衝突風險不同，依照以下規則操作：
-
 | 檔案 | 所有權 | 衝突風險 | 操作規則 |
 |------|--------|----------|----------|
-| `01-requirements/functional.md` | **專案主導（1人）** | 🔴 高 | 其他人以 PR/Branch 提交修改，主導人審核後合併 |
-| `01-requirements/scope.md` | **專案主導（1人）** | 🔴 高 | 同上 |
-| `01-requirements/_pending.md` | 共用，**Append-only** | 🟡 中 | 每人只新增，不修改他人的條目；新條目加上 `(作者縮寫)` 標記 |
-| `01-requirements/_inferred.md` | 共用，**Append-only** | 🟡 中 | 同 _pending.md |
-| `04-decisions/ADR-*.md` | **全體討論，主導人建立** | 🟡 中 | ADR 在 Slack/email 中討論後，才建立文件；建立者在 ADR 中記錄「參與討論者」 |
+| `01-requirements/functional/{module}.md` | 模組層級共用 | 🟡 中 | 寫入前先看 `.claude/collab/*.md` 是否有人鎖定該 REQ（見二） |
+| `01-requirements/scope.md` | 共用 | 🟡 中 | 異動前先 `git pull` 同步 |
+| `01-requirements/_pending/{ID}.md` | **各自一檔** | 🟢 低 | 新增各建新檔，零衝突；`/reconcile` 合併重複，不手動刪除 |
+| `01-requirements/_inferred/{ID}.md` | **各自一檔** | 🟢 低 | 同 `_pending/` |
+| `06-qa-testing/bugs/{BUG-ID}.md` | **各自一檔** | 🟢 低 | 同上 |
+| `04-decisions/ADR-*.md` | 全體討論，建立者記錄 | 🟡 中 | 建立前先在團隊內討論，建立者在 ADR 中記錄「參與討論者」 |
 | `05-dev-notes/YYYY-MM-DD-*.md` | **各自建立，不交叉** | 🟢 低 | 每人用自己的日期+主題命名，自然無衝突 |
-| `wiki/log.md` | 共用，**Append-only** | 🟢 低 | 只 append，Git merge 幾乎不會衝突 |
-| `wiki/hot/{縮寫}.md` | **各自所有** | 🟢 低 | 每人各自一檔，`/save` 只替換自己的檔案，不會互相覆寫 |
+| `wiki/hot/{縮寫}.md` | **各自所有** | 🟢 低 | 每人各自一檔，`/save` 只替換自己的，不會互相覆寫 |
+| `wiki/log.md` | 共用，**Append-only** | 🟢 低 | 只 append，git merge 幾乎不會衝突 |
 | `wiki/index.md` | 共用 | 🟡 中 | 狀態變更前先 `git pull` 同步 |
-| `02-architecture/*.md` | **主架構師主導** | 🔴 高 | 修改前開 branch，討論後合併 |
+| `02-architecture/*.md` | 共用 | 🔴 高 | 異動前先溝通，這塊還沒有自動衝突偵測 |
 | `03-client-context/*.md` | 共用 | 🟡 中 | 以 `/ingest` 走正式流程，不直接手動覆寫 |
-| `knowledge/**/*.md` | 共用 | 🟡 中 | 各自 append，衝突時保留雙方版本再合併 |
+| `knowledge/patterns/PAT-*.md`、`lessons-learned/LESSON-*.md`、`tech-stack/{slug}.md` | **各自一檔** | 🟢 低 | 新增各建新檔；同一條目的更新才需要互相確認 |
+| `.claude/collab/{縮寫}.md` | **各自所有** | 🟢 低 | 只寫自己的鎖定狀態，見二 |
 
 ---
 
-## 二、分支工作流程
+## 二、REQ 鎖定機制（自動，不需人工審核）
 
-### 日常開發（低風險改動）
+### 開始實作前
 
-```bash
-# 每次開始工作前
-git pull origin main
+BEFORE CODING Stage 3.5 會自動執行（`{KB_ROOT}/.claude/impl/_collab/check.md`）：
+1. 讀取 `projects/{專案}/.claude/collab/*.md`，合併所有工程師的 `active_work` 鎖定清單
+2. 比對目標 REQ，無衝突直接繼續
+3. 有衝突 → 顯示鎖定工程師/日期，要求確認是否仍要繼續（Y 繼續但建議先溝通／N 停止）
 
-# 做完 /save
-git add .
-git commit -m "[專案名] [YYYY-MM-DD] [一句話摘要]"
-git push origin main
-```
+不需要手動 `git pull` 看 `hot/*.md` 猜誰在做什麼——這一步是自動的。
 
-### 修改 functional.md 或 architecture/（高風險改動）
+### 結束工作後
 
-```bash
-# 建立 feature branch
-git checkout -b feat/REQ-F001-login-flow
+`/save` 會自動執行（`_collab/update.md`）：
+1. 讀自己的 `collab/{縮寫}.md`，詢問本次實作的 REQ 是否要鎖定／已完成的 REQ 是否要解鎖
+2. **只寫入自己的檔案**，不碰其他工程師的 `collab/{縮寫}.md`
 
-# ... 修改 functional.md ...
+### 無 collab/ 資料夾時
 
-# 提交並開 PR
-git push origin feat/REQ-F001-login-flow
-# → 在 GitHub/GitLab 開 Pull Request，指定主導工程師 review
-```
+整個機制自動跳過，視為單人專案。第二位工程師加入時執行 `/project-init` 詢問成員縮寫，建立 `collab/{initials}.md`。
 
-### 合併衝突解決規則
+---
+
+## 三、合併衝突處理（萬一還是撞到）
 
 | 衝突類型 | 解決方式 |
 |----------|----------|
-| `functional.md` 中同一條需求的衝突 | 主導工程師手動裁決，以較新日期版本為準，並記錄「為何以此版本為準」 |
-| `_pending/` 條目重複 | 執行 `/reconcile` 合併，不手動刪除（各條目本就獨立檔案，git 層級不會衝突） |
+| `functional/{module}.md` 中同一條需求的衝突 | 手動裁決，以較新日期版本為準，記錄「為何以此版本為準」 |
+| `_pending/`、`_inferred/`、`bugs/` 條目重複 | 執行 `/reconcile` 合併，不手動刪除（各自獨立檔案，本來就很少真的衝突） |
 | `wiki/log.md` 衝突 | 兩段都保留（append-only 的天然特性） |
-| `knowledge/patterns/` 或 `lessons-learned/` 衝突 | 兩版本都保留，等下次 `/self-improve` 合併 |
-
----
-
-## 三、協同工作約定
-
-### 開始工作前（必做）
-
-```bash
-git pull origin main
-```
-
-讀取 `wiki/hot/*.md` → 了解其他工程師最近的工作狀態。
-若看到其他人正在處理相同的需求，**先溝通再動**。
-
-### 需求鎖定機制
-
-當你開始實作某條 REQ 時，在 `functional.md` 的對應條目加上：
-
-```markdown
-**實作中**：🔒 {你的名字縮寫}（{YYYY-MM-DD}）
-```
-
-實作完成後移除此標記。這個軟性鎖定讓其他工程師知道「這條有人在做」。
-
-### `/save` 後的通知
-
-完成 `/save` 並 push 後，在團隊頻道簡短通報：
-```
-[專案名] 已更新 hot/{縮寫}.md — [一句話說明本次做了什麼]
-```
+| `knowledge/` 同一條目衝突 | 兩版本都保留，等下次 `/self-improve` 合併 |
 
 ---
 
@@ -108,34 +72,22 @@ git pull origin main
 
 | 情況 | Claude 的行為 |
 |------|--------------|
-| 要寫入 `functional.md` | 先確認：「此需求是否已由其他工程師鎖定（🔒）？」 |
-| 發現 `hot/*.md` 顯示多人最近有活動 | 提示：「近期有 {N} 位工程師工作記錄，建議先 `git pull` 再繼續」 |
-| 要建立 ADR | 提醒：「ADR 影響全體工程師，建議在建立前先在團隊中討論」 |
+| BEFORE CODING 命中 REQ 鎖定衝突 | 見二，自動顯示鎖定資訊並要求確認 |
+| 要建立 ADR | 提醒：「ADR 影響全體工程師，建議先在團隊中討論」 |
 | `/reconcile` 發現疑似衝突條目 | 標記「可能來自不同工程師的不同觀察，建議同步確認後再合併」 |
+| 發現 `wiki/hot/*.md` 顯示多人最近有活動 | 提示：「近期有 {N} 位工程師工作記錄，建議先 `git pull` 再繼續」 |
 
 ---
 
-## 五、角色分工建議
-
-這是建議，非強制；可根據團隊習慣調整：
-
-| 角色 | 負責 |
-|------|------|
-| **專案主導（Project Lead）** | 維護 `functional.md`、`scope.md`、`02-architecture/`；審核 PR；發起 ADR |
-| **實作工程師** | 建立 `05-dev-notes/`；更新 `_pending.md`（發現問題時）；執行 `/save` |
-| **任何人** | 執行 `/query`、`/research`、`/reverse-engineer`（唯讀操作，不影響協作） |
-
----
-
-## 六、知識庫健康維護分工
+## 五、知識庫健康維護分工
 
 | 任務 | 負責人 | 頻率 |
 |------|--------|------|
-| 執行 `/reconcile` 整理 pending/inferred | 專案主導 | 每 2 週 |
+| 執行 `/reconcile` 整理 pending/inferred | 任一工程師 | 每 2 週 |
 | 執行 `/self-improve` 提煉模式與教訓 | 任一工程師 | 每完成一個功能模組 |
-| 更新 `wiki/index.md` 專案狀態 | 專案主導 | 里程碑達成時 |
-| 審核 `knowledge/patterns/` 新增提案 | 專案主導 | 有新 pattern 提案時 |
+| 更新 `wiki/index.md` 專案狀態 | 任一工程師 | 里程碑達成時 |
+| 審核 `knowledge/patterns/` 新增提案 | 全體 | 有新 pattern 提案時 |
 
 ---
 
-*此文件應在 `/project-init` 時自動提示建立，或在第二位工程師加入專案時主動建立。*
+*此文件應在第二位工程師加入專案、執行 `/project-init` 建立 `collab/` 結構時主動提示閱讀。*

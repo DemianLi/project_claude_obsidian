@@ -21,7 +21,7 @@
 > 需確認：{建議問的問題或確認方向}
 ```
 
-**寫入規則：** `/ingest` 寫入時，若新內容與 `functional.md` 或 wiki 頁面有矛盾，
+**寫入規則：** `/ingest` 寫入時，若新內容與 `functional/{module}.md` 或 wiki 頁面有矛盾，
 在**兩個頁面**都加上此 callout，不靜默覆寫。
 
 ---
@@ -43,7 +43,7 @@
 > 建議：{如何填補——問甲方/查文件/執行 /research}
 ```
 
-**對應工程層：** `_inferred.md` 中的 ❓ GAP-XXX 條目。
+**對應工程層：** `_inferred/{ID}.md` 中的 ❓ GAP-XXX 條目。
 
 ---
 

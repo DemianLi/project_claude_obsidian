@@ -1,7 +1,7 @@
 # Stage 3.5：協作衝突偵測
 
 > 在 BEFORE CODING Stage 3 找出目標 REQ 後執行。
-> 前提：`projects/{專案名稱}/.claude/collab.md` 存在。
+> 前提：`projects/{專案名稱}/.claude/collab/` 資料夾存在。
 
 ---
 
@@ -49,5 +49,5 @@
 **使用者選 Y** → 繼續 Stage 4，並在 session 結束 `/save` 時提醒：
 ```
 💡 本次跨越鎖定繼續實作了 {REQ-FXXX}（原鎖定人：{縮寫}），
-   建議 /save 時更新 collab.md 鎖定狀態。
+   建議 /save 時更新自己的 collab/{縮寫}.md 鎖定狀態。
 ```

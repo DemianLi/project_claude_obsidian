@@ -1,7 +1,7 @@
 # /save 協作狀態更新
 
 > 在 `_save/gather.md` Step 3（ADR）之後執行。
-> 前提：`projects/{專案名稱}/.claude/collab.md` 存在。
+> 前提：`projects/{專案名稱}/.claude/collab/` 資料夾存在。
 
 ---
 
@@ -59,7 +59,7 @@
 ## Step 5：完成提示
 
 ```
-✅ collab.md 已更新
+✅ collab/{initials}.md 已更新
 
   🔒 新鎖定：{REQ 列表 或「無」}
   🔓 已解鎖：{REQ 列表 或「無」}
