@@ -18,12 +18,12 @@
 --list / --close：bugs.md 存在（若不存在：回報「此專案尚無 bug 記錄」）
 ```
 
-## 執行路由（每次只讀當前模式的子文件）
+## 執行路由（先看 $ARGUMENTS，直接路由，不詢問）
 
-| 觸發 | 讀取 | 說明 |
-|------|------|------|
-| `/bug [描述]` / `TC-{ID}` / `--list` / `--close` | `_bug/quick.md` | 快速記錄 + 列表 + 關閉 |
-| `--uat` | `_bug/uat.md` | UAT 批次回饋分流（U-1 ～ U-6） |
+| $ARGUMENTS 包含 | 讀取 | 說明 |
+|----------------|------|------|
+| `--uat` | `{KB_ROOT}/.claude/commands/_bug/uat.md` | UAT 批次回饋分流（U-1 ～ U-6） |
+| 其他（描述文字 / `TC-{ID}` / `--list` / `--close`） | `{KB_ROOT}/.claude/commands/_bug/quick.md` | 快速記錄 + 列表 + 關閉 |
 
 ## 與其他指令的關係
 ```
