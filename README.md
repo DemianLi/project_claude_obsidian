@@ -99,7 +99,7 @@ claude mcp add-json obsidian-vault '{
 
 ## 團隊共用設定（多工程師 + 獨立 CODE_ROOT）
 
-- **KB_ROOT**：知識庫路徑，全團隊統一 clone 在 `~/Projects_vibecoding/claude_obsidien_setting`
+- **KB_ROOT**：知識庫路徑，下方範例用 `~/Projects_vibecoding/claude_obsidien_setting`，這只是建議路徑——全團隊只要統一 clone 在同一個位置即可，換成別的路徑時記得同步更新 `CLAUDE.md` 開頭的 `KB_ROOT` 定義
 - **CODE_ROOT**：程式碼實際所在目錄（例：`~/Projects_dotnet/{project_name}`），由 `/project-init` 產生的薄 CLAUDE.md 隨 git 自動同步給全員
 
 每位工程師在自己機器上執行一次，讓 `/bug`、`/query` 等 17 個指令在任何目錄都能用：

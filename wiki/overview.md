@@ -29,7 +29,7 @@ wiki/questions/  → 有價值的問答歸檔
 
 - 進行中專案：見 `wiki/index.md`
 - Wiki 頁面數：0（知識層剛建立）
-- 最近重大更新：2026-06-28 — 協作鎖定機制擴充至架構元件/API 群組（原 02-architecture 無偵測，現補上）、collab/ 路徑去除多餘 `.claude/` 巢狀層、CLAUDE.md 移除對 Claude 無實際用途的 README 指標
+- 最近重大更新：（尚無，等待第一次 `/save` 後更新此處）
 
 ## 核心工作流
 
