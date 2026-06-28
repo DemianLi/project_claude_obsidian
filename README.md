@@ -120,25 +120,16 @@ mklink /J "%USERPROFILE%\.claude\commands" "%USERPROFILE%\Projects_vibecoding\cl
 
 ## 指令速查
 
-| 分類 | 指令 | 說明 |
-|------|------|------|
-| 需求管理 | `/project-init` | 建立新專案資料夾結構 |
-| | `/ingest` | 解析甲方文件，三階段確認後寫入知識庫 |
-| | `/reverse-engineer` | 逆向分析舊系統程式碼/DB，區分事實、推測、邏輯缺口 |
-| | `/query [問題]` / `--verify` | 查詢知識庫記錄 / 驗證 Claude 對術語需求的理解是否正確 |
-| | `/reconcile` | 清理已解決的待釐清項目，合併重複條目 |
-| | `/health-check` | 檢查知識庫結構完整性與索引一致性 |
-| 範疇變更 | `/cr` | 登記變更請求（超出合約範疇的新需求） |
-| | `/impact` | 分析需求/架構變更的影響範疇與工時 |
-| 開發輔助 | `/research [主題]` | 帶著專案約束條件搜索網路，驗證解方相容性 |
-| | `/test-plan` | 從已確認需求自動產生測試計畫 |
-| | `/bug` | 記錄 bug 或批次處理 UAT 回饋 |
-| 報告交付 | `/report` | 產生甲方可讀的進度報告 |
-| | `/export` | 匯出交付文件（甲方版/技術交接版/新人導覽版） |
-| 收尾 | `/close-project` | 專案收尾：快照、CHANGELOG、封存 |
-| Session | `/save` | 儲存 session，更新熱快取 |
-| | `/self-improve` | 從開發筆記提煉模式與教訓，優化知識庫 |
-| | `/migrate-kb` | 將舊格式（扁平檔）專案遷移為分檔索引格式 |
+| 分類 | 指令 |
+|------|------|
+| 需求管理 | `/project-init` `/ingest` `/reverse-engineer` `/query` `/reconcile` `/health-check` |
+| 範疇變更 | `/cr` `/impact` |
+| 開發輔助 | `/research` `/test-plan` `/bug` |
+| 報告交付 | `/report` `/export` |
+| 收尾 | `/close-project` |
+| Session | `/save` `/self-improve` `/migrate-kb` |
+
+每個指令的完整說明見對應的 `.claude/commands/{指令}.md`；常見場景的完整操作流程見 [`wiki/playbook.md`](wiki/playbook.md)。
 
 ---
 
