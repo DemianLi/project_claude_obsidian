@@ -35,4 +35,4 @@
 - blockers 清單
 - CR 清單（若有）
 
-→ 完成後讀取 `_report/generate.md`
+→ 完成後依旗標讀取：無旗標/`--format email` → `_report/generate-external.md`；`--internal` → `_report/generate-internal.md`

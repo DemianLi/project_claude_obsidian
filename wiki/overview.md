@@ -44,5 +44,5 @@ wiki/questions/  → 有價值的問答歸檔
 ## 最佳實踐（細節見對應協定文件，避免雙重維護）
 
 - 第三方服務踩坑的雙寫規則 → 見 `.claude/protocols/wiki-layer.md`
-- 好答案歸檔至 `wiki/questions/` 的條件 → 見 `/query` 流程（`_query/lookup.md`）
+- 好答案歸檔至 `wiki/questions/` 的條件 → 見 `/query` 流程（`_query/standard.md` Step 4）
 - Session 結束更新 hot/{縮寫}.md 的邏輯 → 見 `CLAUDE.md`「SAVE SESSION」與 `_save/index.md`
