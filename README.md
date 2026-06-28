@@ -99,58 +99,22 @@ claude mcp add-json obsidian-vault '{
 
 ## 團隊共用設定（多工程師 + 獨立 CODE_ROOT）
 
-> 適用情境：團隊有多位工程師，各自在自己機器上開發同一批程式碼專案（CODE_ROOT，例如 `~/Projects_dotnet/{project_name}`），希望開發時也能用上知識庫的 `CLAUDE.md` 行為邏輯與 17 個 slash commands，但不想把知識庫的 `.claude/` 複製進程式碼專案（複製會導致更新不同步）。
+- **KB_ROOT**：知識庫路徑，全團隊統一 clone 在 `~/Projects_vibecoding/claude_obsidien_setting`
+- **CODE_ROOT**：程式碼實際所在目錄（例：`~/Projects_dotnet/{project_name}`），由 `/project-init` 產生的薄 CLAUDE.md 隨 git 自動同步給全員
 
-> ⚠️ **兩個前提，缺一指令就會「打得動但讀不到內容」**：
-> 1. **路徑一致**：每位工程師的 KB clone 必須在同一個慣例路徑 `~/Projects_vibecoding/claude_obsidien_setting`——這個路徑同時被 `{CODE_ROOT}/CLAUDE.md`（git 共用、對所有人一字不差的同一份檔案）和下方指令層的 symlink 引用。任一人的 KB clone 在別的路徑，行為層會**靜默失效**（不會報錯，只是 BEFORE CODING 等邏輯沒套用）。團隊若慣用別的路徑，兩處（KB clone 路徑 + `{CODE_ROOT}/CLAUDE.md` 裡的 `KB_ROOT`）要一起改。
-> 2. **兩層都要設**：指令層只負責讓 `/bug`、`/query` 這些語法被 Claude Code 認得（觸發去讀 dispatcher 檔案）；dispatcher 內部引用的 `{KB_ROOT}/.claude/impl/...` 路徑，要靠行為層先把 `KB_ROOT` 定義載入 context 才能解析。只設指令層、沒設行為層，一樣讀不到內容。
+每位工程師在自己機器上執行一次，讓 `/bug`、`/query` 等 17 個指令在任何目錄都能用：
 
-### 行為層（BEFORE CODING 等邏輯，定義 `KB_ROOT`）—— 通常不需要額外設定
-
-只要這個專案是用 `/project-init` 建立的，`{CODE_ROOT}/CLAUDE.md` 就已經包含「先讀 `{KB_ROOT}/CLAUDE.md`」的指引。這份檔案是程式碼 repo 的一部分，工程師 clone/pull 程式碼倉庫時自動拿到，**不需要每人手動設定**——但仍受上方路徑前提約束。
-
-若專案不是這樣建立的（例如先有程式碼才導入知識庫），手動在 `{CODE_ROOT}/CLAUDE.md` 補上一段，內容比照 `/project-init` Step 6 產生的範本（見 `.claude/commands/project-init.md`）。
-
-### 指令層（`/bug`、`/query` 等 17 個指令）—— 每人本機一次性設定
-
-Slash commands 只會在「目前專案自己的 `.claude/commands/`」或「全域 `~/.claude/commands/`」被掃描到，沒有跟著 git 自動同步的機制。每位工程師在自己機器上執行一次：
-
+**macOS / Linux**
 ```bash
-# 先確認沒有已存在的個人全域指令會被蓋掉
-ls ~/.claude/commands 2>/dev/null && echo "⚠️ 已存在內容，改用下方逐檔 symlink，勿覆蓋整個資料夾"
-
-# 確認沒有衝突後，整資料夾 symlink：
 ln -s ~/Projects_vibecoding/claude_obsidien_setting/.claude/commands ~/.claude/commands
 ```
 
-若 `~/.claude/commands` 已有個人指令，改成逐檔 symlink：
-```bash
-for f in ~/Projects_vibecoding/claude_obsidien_setting/.claude/commands/*.md; do
-  ln -s "$f" ~/.claude/commands/
-done
-```
-
-設好之後：
-- 在任何目錄（包含 `~/Projects_dotnet/{project_name}`）都能直接打 `/bug`、`/query`、`/save` 等全部 17 個指令，且能正確解析到 KB 內容（前提是行為層也已生效，見上方）
-- KB 的 commands 或 `.claude/impl/` 之後任何更新，因為是 symlink + 絕對路徑讀取，**即時生效**，不需要重新設定
-
-### 跨平台差異
-
-上方指令在 macOS / Linux 已實測通過（`claude -p` 在完全隔離的測試目錄下驗證過指令層與行為層都正確運作）。Windows 工程師依環境不同，做法不一樣：
-
-**Windows 原生（PowerShell/CMD，不透過 WSL）**
-
-用 **junction** 取代 symlink：
+**Windows（PowerShell/CMD）**
 ```cmd
 mklink /J "%USERPROFILE%\.claude\commands" "%USERPROFILE%\Projects_vibecoding\claude_obsidien_setting\.claude\commands"
 ```
-Junction 是目錄層級連結，不需要系統管理員權限或 Developer Mode（一般 symlink `mklink /D` 才需要）。
-⚠️ 未實機測試過，建議第一位 Windows 工程師先驗證一次再讓其他人照做。
 
-**WSL（Windows 上用 Linux 子系統跑 Claude Code）**
-
-跟 macOS/Linux 相同，用 `ln -s`。
-⚠️ 知識庫 clone 必須跟 Claude Code 執行環境在**同一個檔案系統**內（同樣在 WSL 裡，不要混用 Windows 原生路徑），否則 symlink 會直接失效。
+**WSL**：跟 macOS/Linux 相同，用 `ln -s`。
 
 ---
 
