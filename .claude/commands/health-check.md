@@ -30,7 +30,7 @@ description: 檢查知識庫結構完整性與索引一致性
 | 文件 | 內容 |
 |------|------|
 | `_health-check/structure.md` | Phase 1：必要檔案存在性檢查 |
-| `_health-check/schema.md` | Phase 2：REQ / ADR / PAT / LESSON 格式驗證 |
+| `_health-check/schema.md` | Phase 2：REQ / ADR / PAT / LESSON / PENDING / INF·GAP / BUG / COLLAB 格式驗證 |
 | `_health-check/stale.md` | Phase 3：_pending 年齡、INF 風險、ADR 孤立、Bug 老化 |
 | `_health-check/knowledge.md` | Phase 4：跨專案 knowledge/ 健康度 |
 | `_health-check/report.md` | Phase 5：健康度報告 + 快速修復建議 |

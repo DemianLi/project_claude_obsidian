@@ -36,6 +36,29 @@
 
 ---
 
+## 舊格式殘留偵測（與上方正向 checklist 互補）
+
+上方檢查的是「新格式該有的檔案是否存在」，這裡反向檢查「舊格式扁平檔案是否還殘留、尚未遷移」——這正是 `/migrate-kb` 判斷可否執行的同一組條件，提前在 health-check 主動暴露：
+
+```
+[ ] functional.md 存在 且 functional-index.md 不存在
+      → ⚠️ 偵測到舊格式殘留，建議 /migrate-kb {專案} --target=reqs
+[ ] system-design.md 存在 且 system-design/ 目錄不存在
+      → ⚠️ 偵測到舊格式殘留，建議 /migrate-kb {專案} --target=arch
+[ ] api-contracts.md 存在 且 api-contracts/ 目錄不存在
+      → ⚠️ 偵測到舊格式殘留，建議 /migrate-kb {專案} --target=api
+```
+
+輸出格式：
+```
+{專案名}：⚠️ 偵測到舊格式殘留
+  - functional.md 仍存在但未遷移 → 建議執行 /migrate-kb {專案} --target=reqs
+```
+
+三項皆未命中 → 不輸出此區塊。
+
+---
+
 ## Wiki 知識層結構驗證（若 wiki/ 存在）
 
 確認以下 wiki 層基礎架構存在：

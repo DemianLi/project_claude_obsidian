@@ -8,7 +8,7 @@
 | 模糊需求 | 不寫入 `functional/{module}.md`，只存 `_pending/{ID}.md` |
 | 需求衝突 | 不自動覆寫，等待使用者裁決 |
 | ADR | 只記錄已做出的決策，不記錄「考慮中」的選項為決策 |
-| 格式驗證 | 寫入任何 REQ / ADR / PAT / LESSON 前，先確認符合 `knowledge/_schemas/` 對應 schema 的必填欄位 |
+| 格式驗證 | 寫入任何 REQ / ADR / PAT / LESSON / PENDING / INF·GAP / BUG / COLLAB 前，先確認符合 `knowledge/_schemas/` 對應 schema 的必填欄位 |
 
 ## 衝突優先序
 

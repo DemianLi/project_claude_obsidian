@@ -47,11 +47,11 @@
 
 ## Phase U-4：寫入與路由
 
-確認後依類型分別處理：
-- 🔧 實作缺陷 → `bugs/{BUG-ID}.md` + `bugs-active.md`（發現方式填「UAT 甲方回饋」）
-- 📋 需求誤解 → `_pending/{ID}.md` + `_pending/_index.md`；對應 `functional/{module}.md` 需求加 ⚠️ UAT 標注
+確認後依類型分別處理（格式依據 `knowledge/_schemas/bug.md`／`pending.md`，與 `/bug`、`/ingest` 寫入的格式一致，不要自創精簡版）：
+- 🔧 實作缺陷 → `bugs/{BUG-ID}.md`（依 `bug.md` 完整欄位） + `bugs-active.md`（發現方式填「UAT 甲方回饋」）
+- 📋 需求誤解 → `_pending/{ID}.md`（依 `pending.md` 完整欄位，含優先級/阻塞性） + `_pending/_index.md`；對應 `functional/{module}.md` 需求加 ⚠️ UAT 標注
 - 🆕 新需求 → 逐條提議執行 /cr（不直接寫入）
-- 🔍 環境問題 → `bugs/{BUG-ID}.md` + `bugs-active.md`（根因標記 🔍 環境問題）
+- 🔍 環境問題 → `bugs/{BUG-ID}.md`（依 `bug.md` 完整欄位） + `bugs-active.md`（根因標記 🔍 環境問題）
 - ❓ 待確認 → 彙整澄清問題清單
 
 ## Phase U-5：生成甲方回覆草稿

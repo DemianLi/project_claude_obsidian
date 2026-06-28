@@ -11,10 +11,14 @@
 
 | 檔案 | 對應的條目類型 | 使用它的指令 |
 |------|--------------|-------------|
-| `req.md` | REQ（功能需求） | `/ingest`, `/health-check`, `/reconcile` |
+| `req.md` | REQ（功能需求） | `/ingest`, `/health-check`, `/save`, `/reconcile` |
 | `pat.md` | PAT（設計模式） | `/self-improve`, `/save`, BEFORE CODING 步驟 7 |
 | `lesson.md` | LESSON（教訓） | `/self-improve`, `/save`, BEFORE CODING 步驟 7 |
 | `adr.md` | ADR（架構決策） | `/save`, BEFORE CODING 步驟 6 |
+| `pending.md` | PENDING（待澄清需求） | `/ingest`, `/health-check` |
+| `inferred.md` | INF/GAP（推測/邏輯缺口） | `/reverse-engineer`, `/health-check` |
+| `bug.md` | BUG（缺陷記錄） | `/bug`, `/health-check` |
+| `collab.md` | COLLAB（工程師鎖定狀態） | `/project-init`, `/save`, BEFORE CODING Stage 3.5, `/health-check` |
 
 ---
 
