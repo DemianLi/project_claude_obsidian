@@ -28,8 +28,8 @@ description: 提交或審核範疇變更請求（CR）
 |------|------|------|
 | `/cr [描述]` | `_cr/new.md` | 登記 CR + 建立草稿 |
 | `--approve` | `_cr/approve.md` | 核准：更新 scope + /ingest + 更新 CR 狀態 |
-| `--reject` | `_cr/reject-list.md` → reject 節 | 拒絕：更新 scope + 記錄原因 |
-| `--list` | `_cr/reject-list.md` → list 節 | 列出所有 CR 清單 |
+| `--reject` | `_cr/reject.md` | 拒絕：更新 scope + 記錄原因 |
+| `--list` | `_cr/list.md` | 列出所有 CR 清單 |
 
 ## 與其他指令的關係
 ```

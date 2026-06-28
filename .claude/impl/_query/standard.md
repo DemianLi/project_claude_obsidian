@@ -1,26 +1,6 @@
-# /query [問題] — 查詢模式
+# /query [問題] — Standard 模式（預設）
 
-## 查詢深度路由
-
-| 觸發 | 模式 | Token 預算 | 適用 |
-|------|------|-----------|------|
-| `/query quick: [問題]` | Quick | ~1,500 | 快速事實、日期、簡單定義 |
-| `/query [問題]`（預設） | Standard | ~3,500 | 大多數查詢 |
-| `/query deep: [問題]` | Deep | ~8,000+ | 跨多來源綜合分析、比較 |
-
----
-
-## Quick 模式
-
-1. 讀 `wiki/hot/*.md` → 若有答案，直接回覆，**停止**
-2. 讀 `wiki/index.md` → 掃描描述，若找到答案，回覆，**停止**
-3. 若均無 → 回覆「Quick 快取沒有此資訊，要切換為 Standard 查詢嗎？」
-
-不開啟任何個別頁面。
-
----
-
-## Standard 模式（預設）
+Token 預算：~3,500。
 
 ### Step 1：宣告 Routing 決策（不讀任何檔案）
 
@@ -90,14 +70,3 @@ sources:
 {答案完整內容}
 ```
 更新 `wiki/questions/_index.md` 和 `wiki/index.md`。
-
----
-
-## Deep 模式
-
-1. 讀 `wiki/hot/*.md` + `wiki/index.md`（建立全局視圖）
-2. 識別所有相關節點（concepts/entities/sources/questions + projects/knowledge/）
-3. 開啟所有相關頁面，深讀，不設上限
-4. 若 wiki 覆蓋薄 → 詢問「要補充 web search 嗎？」（可銜接 `/research`）
-5. 輸出綜合分析 + 完整引用
-6. **一定**歸檔至 `wiki/questions/`（Deep 答案太有價值不能只留在 chat）

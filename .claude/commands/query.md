@@ -15,14 +15,16 @@ description: 查詢知識庫，三段深度：quick / standard / deep
 > 若需要查詢 + 網路搜索，請改用 `/research`。
 > `/query` 只查知識庫內的記錄；`/research` 才會上網找新資料。
 
-## 執行路由（每次只讀當前模式的子文件）
+## 執行路由（三段深度各自獨立成檔，互不載入）
 
-| 觸發 | 讀取 | 說明 |
-|------|------|------|
-| `/query [問題]` | `_query/lookup.md` | 解析問題層次 → 讀對應檔案 → 合成回答 |
-| `--verify` / `--verify [主題]` | `_query/verify.md` | 主動暴露 Claude 的理解，請使用者確認或糾正 |
+| 觸發 | 讀取 | Token 預算 | 說明 |
+|------|------|-----------|------|
+| `/query quick: [問題]` | `_query/quick.md` | ~1,500 | 只讀熱快取，不開個別頁面 |
+| `/query [問題]`（預設） | `_query/standard.md` | ~3,500 | 解析問題層次 → 讀對應檔案 → 合成回答 |
+| `/query deep: [問題]` | `_query/deep.md` | ~8,000+ | 全庫掃描 + 可補 web search，answer 強制歸檔 |
+| `--verify` / `--verify [主題]` | `_query/verify.md` | — | 主動暴露 Claude 的理解，請使用者確認或糾正 |
 
-## 問題層次對照（lookup 模式快速參考）
+## 問題層次對照（standard 模式快速參考）
 
 | 問題類型 | 優先讀取 |
 |----------|----------|

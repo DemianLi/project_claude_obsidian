@@ -27,8 +27,8 @@ description: 匯出甲方交付文件（--client / --api / --onboarding / --hand
 | `--client` | `_export/client.md` | `06-qa-testing/delivery-doc-v{版本}.md` |
 | `--handover` | `_export/handover.md` | `handover-doc-{YYYY-MM-DD}.md` |
 | `--onboarding` | `_export/onboarding.md` | `onboarding-{YYYY-MM-DD}.md` |
-| `--api-doc` | `_export/api-changelog.md` → api-doc 節 | `api-doc-v{版本}.md` |
-| `--changelog` | `_export/api-changelog.md` → changelog 節 | `CHANGELOG.md` |
+| `--api-doc` | `_export/api-doc.md` | `api-doc-v{版本}.md` |
+| `--changelog` | `_export/changelog.md` | `CHANGELOG.md` |
 | 無旗標 | 詢問用途後路由至對應模式 | — |
 
 ## 原則

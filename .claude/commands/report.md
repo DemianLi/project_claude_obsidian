@@ -25,7 +25,7 @@ description: 產生專案進度報告（markdown 或甲方可讀格式）
 |-------|------|------|
 | 1 | `_report/read.md` | 讀取資料來源（6 個文件） |
 | 2 | `_report/summarize.md` | 彙整：完成度 + blockers + 技術風險 |
-| 3 | `_report/generate.md` | 產生對外或內部格式報告 |
+| 3 | 無旗標/`--format email` → `_report/generate-external.md`；`--internal` → `_report/generate-internal.md` | 產生報告（兩種格式互不載入） |
 | 4 | `_report/output.md` | 輸出：email 格式 / 存檔 / log 記錄 |
 
 ## 路由規則
