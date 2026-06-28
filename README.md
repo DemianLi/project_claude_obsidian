@@ -184,48 +184,16 @@ Claude 會自動查閱知識庫，確認需求狀態後再開始實作。
 
 ## 知識庫結構
 
-知識庫（KB_ROOT）和程式碼是分開的兩個 repo：知識庫放需求/架構/決策，程式碼放在各專案自己的資料夾（路徑不限，例如 `~/Projects_dotnet/{project_name}`），執行 `/project-init` 時會問你程式碼路徑並自動產生薄版 `CLAUDE.md` 連接兩者；多工程師各自在自己機器開發同一批程式碼的設定見下方「團隊共用設定」。
+知識庫（KB_ROOT）和程式碼是分開的兩個 repo：知識庫放需求/架構/決策，程式碼放在各專案自己的資料夾（路徑不限，例如 `~/Projects_dotnet/{project_name}`），執行 `/project-init` 時會問你程式碼路徑並自動產生薄版 `CLAUDE.md` 連接兩者；多工程師各自在自己機器開發同一批程式碼的設定見上方「團隊共用設定」。
 
 ```
 claude_obsidien_setting/          ← KB_ROOT
-├── CLAUDE.md                    # Claude 自動讀取的協作指引（核心）
-├── README.md                    # 本文件
-├── _inbox/                      # 甲方文件丟放區
-│   └── _unassigned/             # 尚未確認歸屬的文件暫存
-├── _templates/                  # Obsidian 筆記模板
-├── wiki/
-│   ├── hot/{工程師縮寫}.md      # 各工程師最近工作脈絡（/save 自動更新）
-│   ├── index.md                 # 所有專案目錄與狀態
-│   └── log.md                   # Append-only 操作日誌
-├── projects/
-│   └── {專案名}/
-│       ├── 00-overview.md       # 專案總覽
-│       ├── 01-requirements/
-│       │   ├── functional-index.md  # ⚡ 需求薄索引 → functional/{module}.md（各模組詳細需求，✅ 才可實作）
-│       │   ├── scope.md             # 合約範疇邊界
-│       │   ├── _pending/_index.md   # ⚡ 🕐 待甲方澄清（各條一檔）
-│       │   └── _inferred/_index.md  # ⚡ 🔍 推測 + ❓ 邏輯缺口（各條一檔，禁止作為實作依據）
-│       ├── 02-architecture/
-│       │   ├── arch-index.md        # ⚡ 元件地圖 → system-design/{component}.md
-│       │   ├── api-contracts/index.md  # ⚡ → api-contracts/{group}.md
-│       │   └── _legacy-analysis.md  # 逆向工程結構性事實（選配）
-│       ├── 03-client-context/
-│       │   ├── stakeholders.md
-│       │   ├── existing-system.md
-│       │   └── domain-knowledge.md  # 產業術語、業務流程
-│       ├── 04-decisions/        # Architecture Decision Records
-│       ├── 05-dev-notes/        # 每次 session 的開發筆記
-│       ├── 06-qa-testing/
-│       │   ├── bugs-active.md   # ⚡ 未關閉 bug 薄索引 → bugs/{BUG-ID}.md
-│       │   └── bugs/
-│       └── CHANGELOG.md
-└── knowledge/
-    ├── patterns/index.md        # 跨專案可複用的設計模式
-    ├── tech-stack/index.md      # 技術棧心得與踩坑記錄
-    └── lessons-learned/index.md # 教訓清單
+├── projects/{專案名}/            # 各甲方專案：需求 / 架構 / 決策 / 測試
+├── knowledge/                    # 跨專案沉澱：patterns / lessons-learned / tech-stack
+└── wiki/                         # 個人知識層：hot/{縮寫}.md / index.md / log.md / concepts / entities / sources / questions
 ```
 
-> ⚡ 標記的是「薄索引」——Claude 永遠先讀這些，再依交集深讀對應的個別檔案，避免整份知識庫被讀進 context。
+完整目錄結構（每份檔案的用途、⚡ 薄索引標記）見 [`.claude/protocols/structure-map.md`](.claude/protocols/structure-map.md)，不在這裡重複維護一份。
 
 ---
 
