@@ -8,7 +8,7 @@ updated: 2026-06-21
 # Schema：REQ（功能需求）
 
 > 這是所有指令的唯一格式參考。
-> `/ingest` 寫入時、`/health-check` 驗證時、`/reconcile` 對帳時，均以此為準。
+> `/ingest` 寫入時、`/health-check` 驗證時、`/save` 收尾輕量自檢時、`/reconcile` 對帳時，均以此為準。
 
 ---
 

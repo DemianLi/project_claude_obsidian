@@ -7,7 +7,7 @@ updated: 2026-06-21
 
 # Schema：ADR（架構決策記錄）
 
-> `/save` 步驟 3、`/architecture` 指令以此為格式參考。
+> `/save` 步驟 3、`/architecture` 指令以此為格式參考；`/save` Step 9 收尾輕量自檢時亦以此驗證。
 > BEFORE CODING 步驟 6 讀取 `04-decisions/` 時，以此 schema 驗證格式。
 
 ---
