@@ -118,46 +118,6 @@ mklink /J "%USERPROFILE%\.claude\commands" "%USERPROFILE%\Projects_vibecoding\cl
 
 ---
 
-## 第一次使用
-
-### 1. 建立你的第一個專案
-
-在 Claude Code 中輸入：
-```
-/project-init
-```
-
-Claude 會詢問專案名稱和基本資訊，然後建立完整的資料夾結構。
-
-### 2. 匯入甲方文件
-
-將甲方提供的文件（PDF、Word、email 文字）放入 `_inbox/` 資料夾，然後：
-```
-/ingest
-```
-
-或直接把文字貼給 Claude：
-```
-/ingest [貼上甲方文件內容]
-```
-
-### 3. 開始開發
-
-直接告訴 Claude 你要做什麼，例如：
-```
-幫我實作用戶登入功能
-```
-
-Claude 會自動查閱知識庫，確認需求狀態後再開始實作。
-
-### 4. 結束 Session
-
-```
-/save
-```
-
----
-
 ## 指令速查
 
 | 分類 | 指令 | 說明 |
