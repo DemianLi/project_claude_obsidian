@@ -52,7 +52,7 @@ cd {repo名稱}
 ### Step 3：在 Claude Code 開啟
 
 ```bash
-cd /path/to/claude_obsidien_setting
+cd /path/to/{你的知識庫資料夾}
 claude
 ```
 
@@ -99,19 +99,19 @@ claude mcp add-json obsidian-vault '{
 
 ## 團隊共用設定（多工程師 + 獨立 CODE_ROOT）
 
-- **KB_ROOT**：知識庫路徑，下方範例用 `~/Projects_vibecoding/claude_obsidien_setting`，這只是建議路徑——全團隊只要統一 clone 在同一個位置即可，換成別的路徑時記得同步更新 `CLAUDE.md` 開頭的 `KB_ROOT` 定義
+- **KB_ROOT**：知識庫路徑，即 CLAUDE.md 所在目錄——全團隊只要統一 clone 在同一個位置即可，路徑本身不需要寫死在任何設定裡（下方範例用 `~/{你的知識庫資料夾}` 代稱實際路徑）
 - **CODE_ROOT**：程式碼實際所在目錄（例：`~/Projects_dotnet/{project_name}`），由 `/project-init` 產生的薄 CLAUDE.md 隨 git 自動同步給全員
 
 每位工程師在自己機器上執行一次，讓 `/bug`、`/query` 等 17 個指令在任何目錄都能用：
 
 **macOS / Linux**
 ```bash
-ln -s ~/Projects_vibecoding/claude_obsidien_setting/.claude/commands ~/.claude/commands
+ln -s ~/{你的知識庫資料夾}/.claude/commands ~/.claude/commands
 ```
 
 **Windows（PowerShell/CMD）**
 ```cmd
-mklink /J "%USERPROFILE%\.claude\commands" "%USERPROFILE%\Projects_vibecoding\claude_obsidien_setting\.claude\commands"
+mklink /J "%USERPROFILE%\.claude\commands" "%USERPROFILE%\{你的知識庫資料夾}\.claude\commands"
 ```
 
 **WSL**：跟 macOS/Linux 相同，用 `ln -s`。
@@ -138,7 +138,7 @@ mklink /J "%USERPROFILE%\.claude\commands" "%USERPROFILE%\Projects_vibecoding\cl
 知識庫（KB_ROOT）和程式碼是分開的兩個 repo：知識庫放需求/架構/決策，程式碼放在各專案自己的資料夾（路徑不限，例如 `~/Projects_dotnet/{project_name}`），執行 `/project-init` 時會問你程式碼路徑並自動產生薄版 `CLAUDE.md` 連接兩者；多工程師各自在自己機器開發同一批程式碼的設定見上方「團隊共用設定」。
 
 ```
-claude_obsidien_setting/          ← KB_ROOT
+{你的知識庫資料夾}/                ← KB_ROOT
 ├── projects/{專案名}/            # 各甲方專案：需求 / 架構 / 決策 / 測試
 ├── knowledge/                    # 跨專案沉澱：patterns / lessons-learned / tech-stack
 └── wiki/                         # 個人知識層：hot/{縮寫}.md / index.md / log.md / concepts / entities / sources / questions

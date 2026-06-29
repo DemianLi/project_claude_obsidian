@@ -1,7 +1,7 @@
 # 結構總覽（⚡ = 薄索引，永遠先讀）
 
 ```
-【知識庫 — KB_ROOT，預設建議路徑 = ~/Projects_vibecoding/claude_obsidien_setting，以 CLAUDE.md 開頭的實際定義為準】
+【知識庫 — KB_ROOT = CLAUDE.md 所在目錄（clone 到哪裡都自動成立，見 CLAUDE.md 開頭定義）】
 
 projects/{專案}/
   00-overview.md
