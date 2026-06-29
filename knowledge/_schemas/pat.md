@@ -13,30 +13,32 @@ updated: 2026-06-21
 
 ## 完整格式
 
-```markdown
-### PAT-{CATEGORY}-{NNN}：{模式名稱}
+一條 PAT 一個獨立檔案（`knowledge/patterns/PAT-{ID}.md`），frontmatter 在檔案最前面：
 
+```markdown
 ---
 tags: [{tag1}, {tag2}, {tag3}]
 status: validated | experimental | conditional | deprecated
 projects: [{專案名}, {專案名}]
 ---
 
+# PAT-{CATEGORY}-{NNN}：{模式名稱}
+
 **驗證次數**：{N} 次（跨 {M} 個專案）
 **適用情境**：{一句話描述什麼情況用這個模式}
 **不適用情境**：{一句話描述什麼情況不要用}
 **參考工時**：初次實作約 {X-Y} 小時；複用約 {A-B} 小時
 
-#### 實作要點
+## 實作要點
 
 {核心實作方式，用技術術語描述，2-5 個要點}
 
-#### 注意事項
+## 注意事項
 
 - {陷阱或限制一}
 - {陷阱或限制二}
 
-#### 相關資源
+## 相關資源
 
 - **相關教訓**：{LESSON-XXX（若有對應踩坑記錄）}
 - **相關 ADR**：{ADR-XXX（若有對應決策記錄）}

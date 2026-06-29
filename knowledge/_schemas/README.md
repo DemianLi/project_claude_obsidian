@@ -18,7 +18,8 @@
 | `pending.md` | PENDING（待澄清需求） | `/ingest`, `/health-check` |
 | `inferred.md` | INF/GAP（推測/邏輯缺口） | `/reverse-engineer`, `/health-check` |
 | `bug.md` | BUG（缺陷記錄） | `/bug`, `/health-check` |
-| `collab.md` | COLLAB（工程師鎖定狀態） | `/project-init`, `/save`, BEFORE CODING Stage 3.5, `/health-check` |
+| `collab.md` | COLLAB（工程師鎖定狀態） | `/project-init`, `/save`, BEFORE CODING Stage 3, `/health-check` |
+| `callouts.md` | Obsidian Callout（`[!contradiction]` 等四種） | `/ingest`（矛盾標記）, `/health-check`（wiki 層未解決矛盾掃描） |
 
 ---
 
@@ -33,5 +34,6 @@
 
 ## 版本說明
 
-所有 schema 目前為 v1.0。若未來格式需要變更，在 schema 文件的 frontmatter 中更新 `version`，
+各 schema 獨立維護版本號（目前 `pending.md`、`inferred.md` 為 v1.1，其餘為 v1.0）。
+若格式需要變更，在 schema 文件的 frontmatter 中更新 `version`，
 並在文件末尾加入「版本變更記錄」section，說明從哪個版本改了什麼。

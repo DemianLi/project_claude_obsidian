@@ -1,4 +1,4 @@
-# Stage 3.5：協作衝突偵測
+# Stage 3：協作衝突偵測
 
 > 在 BEFORE CODING Stage 3 執行。不依賴 Stage 2 是否找到 REQ——純架構任務（沒有對應 REQ）一樣要檢查元件/API 群組鎖定。
 > 前提：`projects/{專案名稱}/collab/` 資料夾存在。

@@ -35,7 +35,7 @@ description: 初始化新專案，建立完整知識庫結構與薄 CLAUDE.md
   functional/
     README.md                     ← 說明三層讀取結構（L1模組→L2模組Quick Context→L3 REQ掃描表）
   non-functional.md               （空白模板）
-  scope.md                         （空白模板，BEFORE CODING Stage 2 / `/cr` 依賴此檔）
+  scope.md                         （空白模板，BEFORE CODING Stage 1 / `/cr` 依賴此檔）
   _pending/
     _index.md                     ← 薄索引（含 QUICK CONTEXT 頭）；各 PENDING 各自一檔
   _inferred/
@@ -123,7 +123,7 @@ SESSION START 時，先讀 `{KB_ROOT}/CLAUDE.md`，再讀 `{KB_ROOT}/wiki/hot/*.
 - 程式碼（CODE_ROOT，此目錄）→ 工程師自行 git 管理
 ```
 
-若使用者未提供路徑，停下來請使用者補充（不代為猜測路徑）；若路徑不存在則提醒需先建立目錄。多工程師團隊共用同一個 CODE_ROOT 時，這份薄 `CLAUDE.md` 會隨程式碼 repo 自動同步給全員；指令層（slash commands）的團隊共用設定見 `README.md`「團隊共用設定」。
+若使用者未提供路徑，停下來請使用者補充（不靜默猜測路徑）；若路徑不存在則提醒需先建立目錄。多工程師團隊共用同一個 CODE_ROOT 時，這份薄 `CLAUDE.md` 會隨程式碼 repo 自動同步給全員；指令層（slash commands）的團隊共用設定見 `README.md`「團隊共用設定」。
 
 **7. 完成回報**
 ```

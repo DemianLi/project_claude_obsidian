@@ -17,6 +17,7 @@
 
 ## 2-2. 04-decisions/*.md — ADR 格式驗證（依據 adr.md）
 ```
+排除 ADR-index.md（薄索引，非個別決策）與 ADR-000-template.md（建立新 ADR 時複製的空白範本，非實際決策）。
 對每份 ADR 檢查：
   [ ] frontmatter 存在（有 id, status, date）
   [ ] status 在有效值列表中
@@ -28,6 +29,7 @@
 
 ## 2-3. knowledge/patterns/*.md — PAT 格式驗證（依據 pat.md）
 ```
+排除 index.md（薄索引，非個別條目，格式完全不同）。
 對每個 PAT 條目檢查：
   [ ] tags 欄位存在（至少 1 個）
   [ ] status 欄位存在且值有效
@@ -38,6 +40,7 @@
 
 ## 2-4. knowledge/lessons-learned/*.md — LESSON 格式驗證（依據 lesson.md）
 ```
+排除 index.md（薄索引，非個別條目，格式完全不同）。
 對每條 LESSON 檢查：
   [ ] tags 欄位存在
   [ ] phase 欄位存在且值有效

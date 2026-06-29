@@ -1,5 +1,5 @@
 ---
-description: 檢查知識庫結構完整性與索引一致性
+description: 檢查知識庫結構完整性、格式合規性與過期/孤立項目（--schemas / --stale）
 ---
 # /health-check — 知識庫健康度診斷
 
@@ -9,6 +9,7 @@ description: 檢查知識庫結構完整性與索引一致性
 /health-check {專案名稱}       （只掃描指定專案）
 /health-check --schemas        （只驗證格式合規性）
 /health-check --stale          （只報告過期與孤立項目）
+/health-check --dashboard      （搭配完整診斷，額外輸出可貼入 wiki/meta/dashboard.md 的看板區塊）
 ```
 
 ## 前置條件

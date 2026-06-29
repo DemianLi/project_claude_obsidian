@@ -1,5 +1,5 @@
 ---
-description: 查詢知識庫，三段深度：quick / standard / deep
+description: 查詢知識庫，三段深度（quick / standard / deep）+ 理解驗證（--verify）
 ---
 # /query — 查詢知識庫
 

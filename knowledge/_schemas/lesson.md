@@ -13,9 +13,9 @@ updated: 2026-06-21
 
 ## 完整格式
 
-```markdown
-### LESSON-{NNN}：{簡短標題（動詞+名詞，描述問題）}
+一條 LESSON 一個獨立檔案（`knowledge/lessons-learned/LESSON-{NNN}.md`），frontmatter 在檔案最前面：
 
+```markdown
 ---
 tags: [{tag1}, {tag2}]
 phase: requirements | development | testing | delivery | communication
@@ -23,6 +23,8 @@ root_cause: misunderstanding | technical | process | communication | estimation
 severity: 🔴 高（直接影響交付）| 🟡 中（影響品質或效率）| 🟢 低（輕微影響）
 status: active | superseded | context-specific
 ---
+
+# LESSON-{NNN}：{簡短標題（動詞+名詞，描述問題）}
 
 **來源專案**：{專案名}（若通用則填「通用」）
 **發生情境**：{什麼情況下發生——場景描述，1-2 句）
@@ -32,13 +34,13 @@ status: active | superseded | context-specific
 **偵測信號**：{早期跡象——讓你能在問題爆發前發現它}
 **實際工時損失**：{N} 小時（因此問題導致的額外工時；若不確定填「未記錄」）
 
-#### 是否已納入系統守衛？
+## 是否已納入系統守衛？
 
 - [ ] 尚未納入自動檢查
 - [ ] 已納入 BEFORE CODING 步驟 {N}
 - [ ] 已納入 `/ingest` 的衝突偵測
 
-#### 相關資源
+## 相關資源
 
 - **相關 Pattern**：{PAT-XXX（若有對應的正向解法）}
 - **相關需求守衛**：{說明這個教訓如何體現在 CLAUDE.md 的哪條規則中}

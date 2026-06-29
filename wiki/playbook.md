@@ -138,15 +138,15 @@ projects/eshop-sunrise/
 ```
 
 ### 系統行為
-**Stage 2 — scope.md 掃描**：
+**Stage 1 — scope.md 掃描**：
 
 ```
-✅ 「VIP 折扣」→ 在範疇（會員管理模組），繼續 Stage 3
+✅ 「VIP 折扣」→ 在範疇（會員管理模組），繼續 Stage 2
 ❌ 「LINE Pay」→ 明確排除（scope.md 第二期項目）
    → 停止，建議執行 /cr 若甲方堅持
 ```
 
-**Stage 3 — functional-index.md 掃描**（通過 Stage 2 後）：
+**Stage 2 — functional-index.md 掃描**（通過 Stage 1 後）：
 ```
 「訂單取消」→ 在範疇 ✅，但 functional-index.md 無對應 REQ
 → 停止，建議先 /ingest 確認需求再實作
@@ -399,24 +399,29 @@ Stage 4 — _inferred/_index.md Quick Context 掃描：
 4. 確認待辦清單是否有遺漏
 
 ### 產出結果
-**`05-dev-notes/2026-06-23-初始需求解析與折扣模組調查.md`**：
+**`05-dev-notes/2026-06-23-初始需求解析與折扣模組調查.md`**（套用 `_templates/dev-session.md`）：
 ```markdown
-# Dev Session：初始需求解析與折扣模組調查
+**工作時間**：3h（共 3 小時）
+**實作需求**：REQ-F001, REQ-F002
 
-日期：2026-06-23｜工時：3h｜關聯：REQ-F001, REQ-F002
+## 完成的事項
 
-## 完成事項
+### 初始需求解析
 - /ingest 解析甲方 email → REQ-F001（VIP 9折）、REQ-F002（PO 必填）
 - CR-001 建立（iOS App，CEO 提出）
 - /impact CR-001 四維度分析（後端工時 62~82h）
 
-## 發現的問題
-- BUG-001：VIP 折扣未套用（初步懷疑 OrderController 未調用折扣 Service）
+## 遇到的問題與解法
 
-## 阻塞點
-- GAP-001 未解決：多折扣優先序，等甲方回覆後繼續
+### 問題：VIP 折扣未套用
+**原因**：初步懷疑 OrderController 未調用折扣 Service
+**解法**：待修復，已建立 BUG-001
 
-## 待辦（下次繼續）
+### 問題：多折扣優先序未定義（GAP-001）
+**原因**：折扣計算 Service 架構阻塞，等甲方回覆
+**解法**：暫緩實作，待回覆後繼續
+
+## 明日待續
 - [ ] 寄送甲方問題 email（GAP-001 確認）
 - [ ] 修復 BUG-001
 ```

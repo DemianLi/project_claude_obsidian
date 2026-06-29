@@ -6,11 +6,11 @@
         "hooks": [
           {
             "type": "command",
-            "command": "[ -f wiki/hot.md ] && cat wiki/hot.md || true"
+            "command": "cat wiki/hot/*.md 2>/dev/null || true"
           },
           {
             "type": "prompt",
-            "prompt": "若 wiki/hot.md 存在，靜默讀取以恢復最近工作脈絡（工程任務 + wiki 知識層）。若不存在，略過。不要宣告此動作，只是讓脈絡可用。"
+            "prompt": "若 wiki/hot/*.md 存在，靜默讀取以恢復最近工作脈絡（工程任務 + wiki 知識層）。若不存在，略過。不要宣告此動作，只是讓脈絡可用。"
           }
         ]
       }
@@ -21,18 +21,7 @@
         "hooks": [
           {
             "type": "prompt",
-            "prompt": "Context compaction 已發生，hook 注入的脈絡不會保留。若當前目錄有 wiki/hot.md，立即靜默重讀以恢復熱快取。不要宣告此動作。"
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "Write|Edit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "[ -d .git ] && git add wiki/ projects/ knowledge/ .claude/ 2>/dev/null && (git diff --cached --quiet || git commit -m \"kb: auto-commit $(date '+%Y-%m-%d %H:%M')\" 2>/dev/null) || true"
+            "prompt": "Context compaction 已發生，hook 注入的脈絡不會保留。若當前目錄有 wiki/hot/*.md，立即靜默重讀以恢復熱快取。不要宣告此動作。"
           }
         ]
       }
@@ -43,7 +32,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "cd \"$PWD\" && WIKI_CHANGED=$([ -d .git ] && git diff --name-only HEAD 2>/dev/null | grep -E '^(wiki/|projects/|knowledge/)' | wc -l | tr -d ' ') && [ \"$WIKI_CHANGED\" -gt 0 ] && echo \"SESSION_CHANGED: 本次 session 修改了 $WIKI_CHANGED 個知識庫檔案。請更新 wiki/hot.md（≤500 字）。格式：## 🔄 最近工作（日期）/ 本次完成 / 進行中 / 待辦 / 重要決策 / 注意事項。完整替換，不是 append。\" || true"
+            "command": "cd \"$PWD\" && WIKI_CHANGED=$([ -d .git ] && git diff --name-only HEAD 2>/dev/null | grep -E '^(wiki/|projects/|knowledge/)' | wc -l | tr -d ' ') && [ \"$WIKI_CHANGED\" -gt 0 ] && echo \"SESSION_CHANGED: 本次 session 修改了 $WIKI_CHANGED 個知識庫檔案。請更新你自己的 wiki/hot/{你的縮寫}.md（≤500 字，不要動其他工程師的檔案）。格式：## 🔄 最近工作（日期）/ 本次完成 / 進行中 / 待辦 / 重要決策 / 注意事項。完整替換自己的檔案，不是 append。\" || true"
           }
         ]
       }

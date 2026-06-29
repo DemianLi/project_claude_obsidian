@@ -1,5 +1,5 @@
 ---
-description: 從 session 模式學習，更新 patterns 與 lessons-learned
+description: 從 session 模式學習，更新 patterns / lessons-learned，並產出健康檢查改善報告
 ---
 # /self-improve — 知識庫自我優化迴圈
 

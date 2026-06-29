@@ -39,7 +39,7 @@ updated: 2026-06-27
 
 ### 開始實作前
 
-BEFORE CODING Stage 3.5 會自動執行（`{KB_ROOT}/.claude/impl/_collab/check.md`）：
+BEFORE CODING Stage 3 會自動執行（`{KB_ROOT}/.claude/impl/_collab/check.md`）：
 1. 讀取 `projects/{專案}/collab/*.md`，合併所有工程師的 `active_work` 鎖定清單
 2. 識別本次任務涉及的目標——REQ（可能沒有，例如純架構任務）、元件、API 群組，三類任一命中即比對
 3. 無衝突直接繼續

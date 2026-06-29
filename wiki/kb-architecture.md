@@ -222,5 +222,5 @@ _pending.md 的條目只有「等待回覆」一種狀態，缺乏：
 - [x] 更新 `projects/_example/01-requirements/_pending.md` 格式（加生命週期欄位）
 - [x] 更新 `projects/_example/01-requirements/_inferred.md` 格式（加 impact 欄位）
 - [x] `/ingest.md`、`/bug.md`、`/close-project.md` 加入前置條件
-- [ ] （下次）functional.md 加 Quick Context 錨點機制
-- [ ] （下次）hot.md 格式加 YAML frontmatter + version
+- [x] functional.md 加 Quick Context 錨點機制（實際做法：拆分為 `functional/{module}.md` 模組檔，各自含 Quick Context，見後續 session）
+- [x] hot.md 格式加 YAML frontmatter + version（實際做法：拆分為 per-engineer `wiki/hot/{縮寫}.md`，含 engineer/updated frontmatter）

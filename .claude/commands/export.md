@@ -1,5 +1,5 @@
 ---
-description: 匯出甲方交付文件（--client / --api / --onboarding / --handover）
+description: 匯出甲方交付文件（--client / --handover / --onboarding / --api-doc / --changelog）
 ---
 # /export — 交付文件生成
 

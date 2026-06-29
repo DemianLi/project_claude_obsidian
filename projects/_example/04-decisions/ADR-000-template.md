@@ -1,16 +1,14 @@
 ---
 type: adr
-project: _example
-adr-id: ADR-000
-status: template
-date: 2026-06-21
+id: ADR-000
+status: proposed
+date: {YYYY-MM-DD}
 ---
 
-# ADR-000：{技術決策標題}
+# ADR-000：{決策標題（動詞 + 名詞，例：選用 JWT 而非 Session）}
 
-**狀態**：草稿 / 提案 / 採納 / 棄用 / 取代  
-**日期**：{YYYY-MM-DD}  
-**取代**：（無）/ ADR-XXX  
+> 建立新 ADR 時複製此檔案；欄位定義見 `knowledge/_schemas/adr.md`（唯一格式參考）。
+> `status` 有效值：`proposed`（討論中）/ `accepted`（已定案）/ `deprecated`（已過期）/ `superseded`（已被取代，須填 `superseded_by: ADR-{NNN}`）。
 
 ---
 
@@ -18,11 +16,11 @@ date: 2026-06-21
 
 {描述為什麼需要做這個決策。遇到什麼問題？有什麼限制條件？}
 
-**相關需求**：[[../01-requirements/functional#REQ-FXXX]]
+**相關需求**：[[../01-requirements/functional/{module}#REQ-FXXX]]
 
 ---
 
-## 考慮的選項
+## 考慮過的選項
 
 ### 選項一：{名稱}
 
