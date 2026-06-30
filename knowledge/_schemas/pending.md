@@ -1,8 +1,8 @@
 ---
 type: schema
 entity: PENDING
-version: 1.1
-updated: 2026-06-28
+version: 1.2
+updated: 2026-06-30
 ---
 
 # Schema：PENDING（待澄清需求）
@@ -83,9 +83,12 @@ updated: 2026-06-28
 - 阻塞性填「是」但沒有附說明文字
 - 建立日期格式不是 YYYY-MM-DD
 - 標頭 ID 與同目錄其他 PENDING 重複
+- 標頭 ID 格式不是 `PENDING-{三位數字}`
+- 同一檔案含超過一個 `# PENDING-` 標頭（違反一檔一條目，`_index.md` 不適用此項）
 
 ---
 
 ## 版本變更記錄
 
 - v1.1（2026-06-28）：補上標頭格式（`/ingest` 實際寫入時一直都有，原 schema 漏列）；同步修正 `_ingest/write.md` 範本補上「優先級」「阻塞性」欄位，修復 `/health-check --stale` 阻塞警示從未生效的問題。
+- v1.2（2026-06-30）：補上 ID 格式與一檔一條目檢查。

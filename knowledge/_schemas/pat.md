@@ -1,8 +1,8 @@
 ---
 type: schema
 entity: PAT
-version: 1.0
-updated: 2026-06-21
+version: 1.1
+updated: 2026-06-30
 ---
 
 # Schema：PAT（設計模式）
@@ -103,3 +103,11 @@ testability, error-handling, logging, performance
 - `validated` 或 `experimental` 狀態但 `projects` 是空陣列
 - 缺少「適用情境」說明
 - 缺少「注意事項」（至少 1 條）
+- ID 格式不符合 `PAT-{CATEGORY}-{三位數字}`，或 CATEGORY 不在上方分類列表中
+- 同一檔案含超過一個 `# PAT-` 標頭（違反「一條 PAT 一個獨立檔案」，`index.md` 不適用此項）
+
+---
+
+## 版本變更記錄
+
+- v1.1（2026-06-30）：補上 ID 格式與一檔一條目檢查。

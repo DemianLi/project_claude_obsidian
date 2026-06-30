@@ -1,8 +1,8 @@
 ---
 type: schema
 entity: LESSON
-version: 1.0
-updated: 2026-06-21
+version: 1.1
+updated: 2026-06-30
 ---
 
 # Schema：LESSON（教訓）
@@ -88,3 +88,11 @@ status: active | superseded | context-specific
 - 缺少「預防方式」（這是最重要的欄位）
 - 缺少「偵測信號」
 - 「是否已納入系統守衛」未填
+- ID 格式不是 `LESSON-{三位數字}`
+- 同一檔案含超過一個 `# LESSON-` 標頭（違反「一條 LESSON 一個獨立檔案」，`index.md` 不適用此項）
+
+---
+
+## 版本變更記錄
+
+- v1.1（2026-06-30）：補上 ID 格式與一檔一條目檢查。

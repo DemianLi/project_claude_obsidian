@@ -30,6 +30,13 @@
 - 在 wiki/index.md 列為「進行中」但 projects/ 下不存在的專案：{N} 個
 ```
 
+## 檔案歸屬一致性（誤放偵測）
+```
+knowledge/patterns/ 下非 index.md 的檔案，標頭應為 PAT- 開頭；
+knowledge/lessons-learned/ 下非 index.md 的檔案，標頭應為 LESSON- 開頭。
+不符 → 🟡 警告：「{檔案路徑} 的內容類型（{實際 ID}）與所在目錄不符，疑似誤放」
+```
+
 輸出格式：
 ```
 ━━━ 知識庫健康統計 ━━━

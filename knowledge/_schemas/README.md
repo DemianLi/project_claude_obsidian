@@ -34,6 +34,6 @@
 
 ## 版本說明
 
-各 schema 獨立維護版本號（目前 `pending.md`、`inferred.md` 為 v1.1，其餘為 v1.0）。
+各 schema 獨立維護版本號（目前 `pending.md`、`inferred.md` 為 v1.2；`adr.md`、`pat.md`、`lesson.md`、`bug.md` 為 v1.1；`req.md`、`collab.md` 為 v1.0）。
 若格式需要變更，在 schema 文件的 frontmatter 中更新 `version`，
 並在文件末尾加入「版本變更記錄」section，說明從哪個版本改了什麼。

@@ -1,8 +1,8 @@
 ---
 type: schema
 entity: ADR
-version: 1.0
-updated: 2026-06-21
+version: 1.1
+updated: 2026-06-30
 ---
 
 # Schema：ADR（架構決策記錄）
@@ -103,3 +103,11 @@ affects_reqs: [REQ-F{XXX}, REQ-F{YYY}]  # 此決策影響哪些需求
 - 缺少 `## 決策`（沒有明確決策的 ADR 沒有意義）
 - 缺少 `## 後果`（沒有後果分析的決策可能被輕易推翻）
 - `status: superseded` 但沒有 `superseded_by` 欄位
+- `id` 格式不是 `ADR-{三位數字}`
+- 同一檔案含超過一個 `# ADR-` 標頭（違反一檔一條目，`ADR-index.md`、`ADR-000-template.md` 不適用此項）
+
+---
+
+## 版本變更記錄
+
+- v1.1（2026-06-30）：補上 ID 格式與一檔一條目檢查（原本只查 frontmatter 必填欄位，未驗證 ID 格式本身、也未檢測同檔多條目）。

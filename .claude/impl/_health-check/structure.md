@@ -59,6 +59,62 @@
 
 ---
 
+## 檔案歸屬一致性檢查（內容類型與所在路徑是否相符）
+
+掃描以下專案目錄，確認檔案的標頭 ID 前綴與其所在目錄相符（偵測誤放檔案）。排除清單與 `schema.md` 2-2/2-5/2-6/2-7 的排除規則一致：
+
+| 目錄 | 預期 ID 前綴 | 排除檔案 |
+|------|------------|----------|
+| `01-requirements/_pending/` | `PENDING-` | `_index.md` |
+| `01-requirements/_inferred/` | `INF-` 或 `GAP-` | `_index.md` |
+| `04-decisions/` | `ADR-` | `ADR-index.md`、`ADR-000-template.md` |
+| `06-qa-testing/bugs/` | `BUG-` | （無） |
+
+對每個非排除檔案：
+```
+[ ] 檔案標頭的 ID 前綴與所在目錄的預期前綴相符
+```
+不符 → 🟡 警告：「{檔案路徑} 的內容類型（{實際 ID}）與所在目錄不符，疑似誤放，建議移至正確目錄」
+
+輸出格式：
+```
+{專案名}：⚠️ 發現 {N} 個疑似誤放檔案
+  - {路徑}：標頭為 {實際ID}，但目錄預期為 {預期前綴}
+```
+
+未命中 → 不輸出此區塊。
+
+---
+
+## 非預期檔案掃描（白名單比對，僅供提醒，非健康度扣分項）
+
+專案目錄下的檔案分三類，皆屬合法，**不算「未分類」**：
+1. `/project-init` 建立的固定檔案（見 `.claude/commands/project-init.md` 步驟 3 全列表，含各 `README.md`/`index.md`）
+2. 已知 ID 前綴命名慣例：`PENDING-` / `INF-` / `GAP-` / `BUG-` / `ADR-`
+3. **依名稱動態建立、檔名本身就不固定**的合法慣例：
+   - `01-requirements/functional/{module}.md`
+   - `02-architecture/system-design/{component}.md`
+   - `02-architecture/api-contracts/{group}.md`
+   - `05-dev-notes/{YYYY-MM-DD}-*.md`
+   - `collab/{engineer}.md`
+   - `02-architecture/_legacy-analysis.md`
+
+```
+[ ] 列出專案目錄下，三類皆不符的額外檔案或資料夾
+```
+
+只有三類都不符的項目才視為「未分類」，這類項目可能是合理的擴充（例如工程師自行補充的筆記），不代表錯誤，因此**不計入健康度評分**，僅供確認。
+
+輸出格式：
+```
+ℹ️ {專案名} 發現 {N} 個未分類項目（僅供確認，非錯誤）：
+  - {路徑}
+```
+
+完全比對標準結構 → 不輸出此區塊。
+
+---
+
 ## Wiki 知識層結構驗證（若 wiki/ 存在）
 
 確認以下 wiki 層基礎架構存在：
