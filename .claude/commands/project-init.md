@@ -26,63 +26,28 @@ description: 初始化新專案，建立完整知識庫結構與薄 CLAUDE.md
 ```
 
 **3. 建立資料夾結構（含所有薄索引）**
-在 `projects/{專案名稱}/` 下建立：
+
+套用 `{KB_ROOT}/_templates/project/` 底下的骨架，在 `projects/{專案名稱}/` 下依相同相對路徑建立每一份檔案，並將 `{project_name}`、`{YYYY-MM-DD}` 等佔位符換成本次收集的實際資訊：
 
 ```
-00-overview.md                    （填入收集的資訊）
-01-requirements/
-  functional-index.md             ← 薄索引 L1（模組目錄）
-  functional/
-    README.md                     ← 說明三層讀取結構（L1模組→L2模組Quick Context→L3 REQ掃描表）
-  non-functional.md               （空白模板）
-  scope.md                         （空白模板，BEFORE CODING Stage 1 / `/cr` 依賴此檔）
-  _pending/
-    _index.md                     ← 薄索引（含 QUICK CONTEXT 頭）；各 PENDING 各自一檔
-  _inferred/
-    _index.md                     ← 薄索引（含 QUICK CONTEXT 頭）；各 INF/GAP 各自一檔
-02-architecture/
-  arch-index.md                   ← 薄索引（元件地圖）
-  system-design/
-    README.md                     ← 說明元件分檔結構
-  api-contracts/
-    index.md                      ← 薄索引（端點群組目錄）
-    README.md                     ← 說明端點群組結構
-03-client-context/
-  stakeholders.md                 （含 Quick Context 決策者摘要頭）
-  existing-system.md              （含 Quick Context 關鍵限制頭）
-  domain-knowledge.md             （含 Quick Context 關鍵字頭）
-04-decisions/
-  ADR-index.md                    ← 薄索引（空白模板）
-  ADR-000-template.md             （建立新 ADR 時複製）
-05-dev-notes/
-  _index.md                       ← 薄索引（空白模板）
-06-qa-testing/
-  bugs-active.md                  ← 薄索引（空白模板）
-  bugs/                           ← 各 BUG 各自一檔（BUG-001.md, BUG-002.md...）
-CHANGELOG.md                      （初始版本）
-collab/                           ← 各工程師各自一檔（DL.md, MC.md...），選配
+00-overview.md
+01-requirements/functional-index.md ｜ functional/README.md ｜ non-functional.md ｜ scope.md
+01-requirements/_pending/_index.md ｜ _inferred/_index.md
+02-architecture/arch-index.md ｜ system-design/README.md ｜ api-contracts/index.md ｜ api-contracts/README.md
+03-client-context/stakeholders.md ｜ existing-system.md ｜ domain-knowledge.md
+04-decisions/ADR-index.md ｜ ADR-000-template.md
+05-dev-notes/_index.md
+06-qa-testing/bugs-active.md（bugs/ 資料夾留空，各 BUG 建立時各自一檔）
+CHANGELOG.md
 ```
+
+`scope.md` 依 BEFORE CODING Stage 1 / `/cr` 的依賴需求填入初始合約版本。骨架的完整定義（含各檔案為何長這樣）見 `_templates/README.md`。
 
 **collab/ 建立方式**（詢問後依人數建立）：
 
 詢問：「這個專案有多位工程師協作嗎？請提供成員縮寫列表（例如：DL, MC, YJ）」
 
-每位工程師建立 `collab/{initials}.md`：
-```markdown
----
-engineer: {initials}
-name: {姓名}
-role: {角色}
-updated: {YYYY-MM-DD}
----
-
-# 鎖定狀態 — {initials}
-
-| 類型 | 鎖定項目 | 位置 | 鎖定日期 | 備注 |
-|------|---------|------|---------|------|
-| （無） | — | — | — | — |
-```
-> 有效類型值與對應檔案見 `knowledge/_schemas/collab.md`「有效類型值」表
+每位工程師依 `_templates/project/collab-entry.md` 建立 `collab/{initials}.md`（有效類型值見 `knowledge/_schemas/collab.md`）。
 
 單人專案可跳過此步驟（collab/ 資料夾不存在時所有協作機制自動停用）。
 
@@ -100,28 +65,7 @@ updated: {YYYY-MM-DD}
 
 詢問：「程式碼倉庫路徑？」（不假設特定上層目錄，直接請使用者提供完整路徑）
 
-在 `{CODE_ROOT}/CLAUDE.md` 建立以下內容：
-
-```markdown
-# {project_name} — 開發工作區
-
-## 路徑設定
-KB_ROOT: {填入實際絕對路徑，不是文字描述——這份薄 CLAUDE.md 會放到 CODE_ROOT，與 KB_ROOT 通常不同目錄，寫死絕對路徑才能讓 CODE_ROOT 端找到 KB_ROOT}
-CODE_ROOT: {使用者確認的路徑}
-PROJECT_NAME: {project_name}
-
-## 使用說明
-完整系統規則（BEFORE CODING、/save、所有指令）在 KB_ROOT 的 CLAUDE.md。
-SESSION START 時，先讀 `{KB_ROOT}/CLAUDE.md`，再讀 `{KB_ROOT}/wiki/hot/*.md`。
-
-## 本專案知識庫路徑
-需求 / 架構 / 決策：`{KB_ROOT}/projects/{project_name}/`
-程式碼（此目錄）：`{CODE_ROOT}/`
-
-## 版控說明
-- 知識庫（KB_ROOT）→ Obsidian git 插件自動管理，無需手動操作
-- 程式碼（CODE_ROOT，此目錄）→ 工程師自行 git 管理
-```
+套用 `_templates/project/code-root-CLAUDE.md`，將佔位符換成實際資訊後，在 `{CODE_ROOT}/CLAUDE.md` 建立。
 
 若使用者未提供路徑，停下來請使用者補充（不靜默猜測路徑）；若路徑不存在則提醒需先建立目錄。多工程師團隊共用同一個 CODE_ROOT 時，這份薄 `CLAUDE.md` 會隨程式碼 repo 自動同步給全員；指令層（slash commands）的團隊共用設定見 `README.md`「團隊共用設定」。
 

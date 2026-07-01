@@ -17,25 +17,9 @@
 
 ## 3-1：明確需求 → `functional/{module}.md`
 
-先依內容判斷所屬模組：比對 `functional-index.md` 的模組目錄關鍵字；無對應模組則建立新模組檔（含 Quick Context + REQ 快速掃描表）並登記至 `functional-index.md`。
+先依內容判斷所屬模組：比對 `functional-index.md` 的模組目錄關鍵字；無對應模組則依 `_templates/project/01-requirements/functional/README.md`「模組檔案結構」建立新模組檔，並登記至 `functional-index.md`。
 
-```markdown
-## REQ-F{XXX}：{需求名稱}
-
-**狀態**：✅ 已確認甲方
-**確認日期**：{YYYY-MM-DD}
-**來源文件**：{文件名稱} 第 {X} 頁
-**提出人**：{甲方姓名/角色}（若已知）
-**合約版本**：原始合約 v1.0
-**清晰度**：🟢 明確
-
-### 描述
-{需求描述}
-
-### 驗收條件
-- [ ] {條件一}
-- [ ] {條件二}
-```
+單條 REQ 的欄位格式依 `knowledge/_schemas/req.md`（唯一格式參考）。
 
 > 寫入後同步更新該模組檔的「📌 Quick Context」與「REQ 快速掃描表」，並更新 `functional-index.md` 的模組統計（總需求數、已確認數等）。
 > ⚠️ 寫入前確認 `scope.md`：不在原始合約範圍 → 先執行 `/cr`。

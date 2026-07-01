@@ -24,6 +24,7 @@ wiki/  hot/{initials}.md⚡  index.md⚡  log.md  overview.md
 
 .raw/  — 不可修改的原始文件（/ingest 的輸入來源）
 _inbox/  _unassigned/
+_templates/  dev-session.md  project/{同上 projects/{專案} 骨架}（唯一模板來源，詳見 _templates/README.md）
 
 【程式碼 — CODE_ROOT = 程式碼實際所在目錄，父路徑不限】（獨立 repo，工程師自行 git 管理）
   實際 source code、設定檔、CLAUDE.md（薄版，由 /project-init 產生）

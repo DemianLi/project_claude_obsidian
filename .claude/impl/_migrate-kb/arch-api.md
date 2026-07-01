@@ -6,9 +6,9 @@
 
 使用者確認元件分組後執行：
 
-1. 建立 `system-design/README.md`（說明元件分檔結構）
-2. 對每個元件，建立 `system-design/{slug}.md`，含 Quick Context 頭
-3. 更新 `arch-index.md` 的元件地圖（取代原來的 §段落）
+1. 依 `_templates/project/02-architecture/system-design/README.md` 建立同名 README.md（說明元件分檔結構）
+2. 對每個元件，依該 README「元件檔案結構」建立 `system-design/{slug}.md`
+3. 依 `_templates/project/02-architecture/arch-index.md` 更新 `arch-index.md` 的元件地圖（取代原來的 §段落）
 4. 在原 `system-design.md` 頂部加遷移說明：
    ```markdown
    > ⚠️ 此文件已遷移至 system-design/ 目錄
@@ -21,15 +21,9 @@
 
 使用者確認群組分組後執行：
 
-1. 建立 `api-contracts/README.md`（說明群組結構）
-2. 建立 `api-contracts/index.md`（薄索引，列出群組目錄）
-3. 對每個群組，建立 `api-contracts/{module}.md`，含端點快速查詢表：
-   ```markdown
-   ## 端點快速查詢
-   | Method | 路徑 | 說明 |
-   |--------|------|------|
-   | GET | /api/{路徑} | {功能} |
-   ```
+1. 依 `_templates/project/02-architecture/api-contracts/README.md` 建立同名 README.md（說明群組結構）
+2. 依 `_templates/project/02-architecture/api-contracts/index.md` 建立 `api-contracts/index.md`（薄索引，列出群組目錄）
+3. 對每個群組，依該 README「群組檔案結構」建立 `api-contracts/{module}.md`
 4. **驗證端點數量核對**：遷移前後總數必須一致
    - 若有差異 → **停止**，列出遺漏項目請使用者確認分配
 5. 在原 `api-contracts.md` 頂部加遷移說明
