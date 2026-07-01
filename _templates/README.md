@@ -22,6 +22,7 @@
 | `project/02-architecture/system-design/README.md`「元件檔案結構」 | 新建 `system-design/{component}.md` 時的骨架 | `/migrate-kb --target=arch` |
 | `project/02-architecture/api-contracts/README.md`「群組檔案結構」 | 新建 `api-contracts/{group}.md` 時的骨架 | `/migrate-kb --target=api` |
 | `project/04-decisions/ADR-000-template.md` | 新建 ADR 時複製 | `/save`、BEFORE CODING 步驟 6 |
+| `project/02-architecture/_legacy-analysis.md` | 擴充案首次逆向工程時，若檔案不存在則依此建立 | `/reverse-engineer` |
 | `dev-session.md` | 新建 dev-notes 時套用 | `/save`（`_save/gather.md`） |
 
 ## 使用規則

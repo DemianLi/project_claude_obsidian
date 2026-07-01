@@ -30,7 +30,7 @@
 
 ## 使用者確認後的寫入規則
 
-- 結構性事實 → `02-architecture/_legacy-analysis.md`（若不存在則建立）
+- 結構性事實 → `02-architecture/_legacy-analysis.md`（若不存在則依 `_templates/project/02-architecture/_legacy-analysis.md` 建立）
 - 推測 + 缺口 → 各自建立 `01-requirements/_inferred/{ID}.md`（INF-/GAP- 各自一檔），並登記至 `_inferred/_index.md`
 - **絕不混用**，尤其不得寫入 `functional/{module}.md`
 

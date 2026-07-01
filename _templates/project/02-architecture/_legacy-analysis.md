@@ -1,7 +1,7 @@
 ---
 type: legacy-analysis
-project: _example
-updated: 2026-06-21
+project: {project_name}
+updated: {YYYY-MM-DD}
 ---
 
 # 現有系統逆向分析
@@ -40,7 +40,7 @@ updated: 2026-06-21
 
 | Table | 欄位 | 類型 | 特殊值/ENUM | 備註 |
 |-------|------|------|-------------|------|
-| orders | status | ENUM | pending, processing, shipped, completed, cancelled | 轉換規則見對應 _inferred/{ID}.md |
+| {table_name} | {欄位名} | {ENUM/其他} | {列出可能值} | {轉換規則見對應 _inferred/{ID}.md} |
 
 ### 觀察到的資料異常
 
@@ -54,8 +54,7 @@ updated: 2026-06-21
 
 | Method | Path | Controller | 說明 | 狀態 |
 |--------|------|------------|------|------|
-| POST | /api/orders | OrderController@store | 建立訂單 | 正常 |
-| — | — | — | — | — |
+| {METHOD} | {路徑} | {Controller@method} | {說明} | {正常/待確認} |
 
 **未見端點（可能缺失）：**
 - {預期存在但找不到的端點}
@@ -69,8 +68,8 @@ updated: 2026-06-21
               ↓
            {狀態D}
 
-已確認轉換：A→B（觸發：xxx）、B→D（觸發：xxx）
-缺口：B→C 的觸發條件未知（見 GAP-001）
+已確認轉換：{說明觸發條件}
+缺口：{未知的轉換條件，見對應 GAP}
 ```
 
 ---
@@ -87,4 +86,4 @@ updated: 2026-06-21
 
 | 日期 | 分析範圍 | 執行者 | 備註 |
 |------|---------|--------|------|
-| 2026-06-21 | 建立模板 | 系統初始化 | — |
+| {YYYY-MM-DD} | 建立初始分析 | /reverse-engineer | — |
