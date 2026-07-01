@@ -106,7 +106,7 @@ updated: {YYYY-MM-DD}
 # {project_name} — 開發工作區
 
 ## 路徑設定
-KB_ROOT: {此知識庫 repo 根目錄的實際絕對路徑——即 KB_ROOT 的 CLAUDE.md 所在目錄，不是去抄那份 CLAUDE.md 裡 KB_ROOT 那段文字說明；因為這份薄 CLAUDE.md 會被放到 CODE_ROOT，CODE_ROOT 跟 KB_ROOT 通常不是同一個目錄，必須寫死絕對路徑才能讓 CODE_ROOT 端正確找到 KB_ROOT}
+KB_ROOT: {填入實際絕對路徑，不是文字描述——這份薄 CLAUDE.md 會放到 CODE_ROOT，與 KB_ROOT 通常不同目錄，寫死絕對路徑才能讓 CODE_ROOT 端找到 KB_ROOT}
 CODE_ROOT: {使用者確認的路徑}
 PROJECT_NAME: {project_name}
 

@@ -34,14 +34,16 @@ description: 解析甲方文件入庫（文字/URL/圖片/Excel，支援 --url -
 
 | $ARGUMENTS 包含 | 動作 |
 |----------------|------|
-| `--url` 或開頭為 `https://` | 直接讀 `{KB_ROOT}/.claude/impl/_ingest/input-url.md`，**跳過 detect** |
-| `--visual` | 直接讀 `{KB_ROOT}/.claude/impl/_ingest/input-visual.md`，**跳過 detect** |
-| `--structured` | 直接讀 `{KB_ROOT}/.claude/impl/_ingest/input-structured.md`，**跳過 detect** |
-| `--multilang` | 直接讀 `{KB_ROOT}/.claude/impl/_ingest/input-multilang.md`，**跳過 detect** |
-| `--large` | 直接讀 `{KB_ROOT}/.claude/impl/_ingest/input-large.md`，**跳過 detect** |
-| `--unassigned` | 直接讀 `{KB_ROOT}/.claude/impl/_ingest/unassigned.md`，**跳過 detect** |
-| `--cross` | 直接讀 `{KB_ROOT}/.claude/impl/_ingest/cross-project.md`，**跳過 detect** |
+| `--url` 或開頭為 `https://` | 直接讀 `{KB_ROOT}/.claude/impl/_ingest/input-url.md` |
+| `--visual` | 直接讀 `{KB_ROOT}/.claude/impl/_ingest/input-visual.md` |
+| `--structured` | 直接讀 `{KB_ROOT}/.claude/impl/_ingest/input-structured.md` |
+| `--multilang` | 直接讀 `{KB_ROOT}/.claude/impl/_ingest/input-multilang.md` |
+| `--large` | 直接讀 `{KB_ROOT}/.claude/impl/_ingest/input-large.md` |
+| `--unassigned` | 直接讀 `{KB_ROOT}/.claude/impl/_ingest/unassigned.md` |
+| `--cross` | 直接讀 `{KB_ROOT}/.claude/impl/_ingest/cross-project.md` |
 | 以上皆無 | 讀 `{KB_ROOT}/.claude/impl/_ingest/detect.md`（自動偵測） |
+
+上方 7 個旗標皆**跳過 detect**，直接進入對應 Phase 1。
 
 ### Step 1–4：標準 Phase 流程（每次只讀當前 Phase）
 
