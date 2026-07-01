@@ -108,7 +108,7 @@
 對每份 collab 檔案檢查：
   [ ] frontmatter engineer / updated 欄位存在
   [ ] frontmatter engineer 與檔名一致
-  [ ] active_work 表格每列「類型」值在有效列表中（REQ/元件/API群組；「（無）」佔位列不檢查）
+  [ ] active_work 表格每列「類型」值在 `collab.md`「有效類型值」列表中（「（無）」佔位列不檢查）
   [ ] active_work 表格每列「鎖定日期」格式為 YYYY-MM-DD（佔位列不檢查）
 ```
 

@@ -50,14 +50,7 @@
 | `{KB_ROOT}/projects/{名稱}/01-requirements/_inferred/_index.md` | 更新 QUICK CONTEXT 頭（高風險數/GAP 數） | 本次有新增或升格 INF/GAP |
 | 各文件的 `## 📌 Quick Context` | 更新本次修改過文件的 Quick Context 區塊 | 文件內容有異動 |
 
-Quick Context 更新格式：
-```
-## 📌 Quick Context
-| 欄位 | 內容 |
-|------|------|
-| **[關鍵欄位]** | {本次 session 後的最新狀態} |
-| **最後更新** | {今日日期} |
-```
+Quick Context 沒有統一範本，各檔案類型欄位不同（依內容性質而定，例如 functional module 摘要已確認/待確認數，system-design 摘要職責/邊界）：直接沿用該檔案現有的 Quick Context 欄位結構，覆寫為本次 session 後的最新數值，不套用固定欄位名稱。
 
 ## Step 9：輕量 schema 自檢（只查本次異動的 REQ/ADR 檔案）
 

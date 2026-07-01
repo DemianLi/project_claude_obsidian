@@ -91,13 +91,7 @@
 專案目錄下的檔案分三類，皆屬合法，**不算「未分類」**：
 1. `/project-init` 建立的固定檔案（見 `.claude/commands/project-init.md` 步驟 3 全列表，含各 `README.md`/`index.md`）
 2. 已知 ID 前綴命名慣例：`PENDING-` / `INF-` / `GAP-` / `BUG-` / `ADR-`
-3. **依名稱動態建立、檔名本身就不固定**的合法慣例：
-   - `01-requirements/functional/{module}.md`
-   - `02-architecture/system-design/{component}.md`
-   - `02-architecture/api-contracts/{group}.md`
-   - `05-dev-notes/{YYYY-MM-DD}-*.md`
-   - `collab/{engineer}.md`
-   - `02-architecture/_legacy-analysis.md`
+3. **依名稱動態建立、檔名本身就不固定**的合法慣例：見 `{KB_ROOT}/.claude/protocols/structure-map.md` 結構總覽中列出的動態命名項目（`functional/{m}.md`、`system-design/{c}.md`、`api-contracts/{g}.md`、`_legacy-analysis.md`、`collab/{initials}.md` 等）；新增慣例時只在 structure-map.md 增改，此處不重複列舉
 
 ```
 [ ] 列出專案目錄下，三類皆不符的額外檔案或資料夾

@@ -19,10 +19,11 @@
 - 缺少「預防方式」的：{N} 條
 ```
 
-## tech-stack/index.md
+## tech-stack/index.md（格式依 `knowledge/_schemas/tech-stack.md`）
 ```
 - 第三方服務條目數：{N}
 - 記錄完整度 ⬜ 空白的服務：{N} 個（列出服務名稱）
+- 格式違規（依 tech-stack.md 健康檢查規則）：{N} 個
 ```
 
 ## wiki/index.md 一致性

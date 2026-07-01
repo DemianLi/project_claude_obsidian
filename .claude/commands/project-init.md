@@ -82,7 +82,7 @@ updated: {YYYY-MM-DD}
 |------|---------|------|---------|------|
 | （無） | — | — | — | — |
 ```
-> 類型：`REQ`（功能需求，對應 `functional/{module}.md`）／`元件`（對應 `02-architecture/system-design/{component}.md`）／`API群組`（對應 `02-architecture/api-contracts/{group}.md`）
+> 有效類型值與對應檔案見 `knowledge/_schemas/collab.md`「有效類型值」表
 
 單人專案可跳過此步驟（collab/ 資料夾不存在時所有協作機制自動停用）。
 

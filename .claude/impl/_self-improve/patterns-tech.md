@@ -18,6 +18,8 @@
 
 ## 2-B. 提取第三方服務踩坑（更新 knowledge/tech-stack/）
 
+格式依 `knowledge/_schemas/tech-stack.md`（新服務先確認分類，決定用精簡格式或第三方服務完整格式）。
+
 對每個識別到的服務，提案建立或更新對應的 `knowledge/tech-stack/{slug}.md`：
 
 ```

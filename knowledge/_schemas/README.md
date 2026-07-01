@@ -20,6 +20,7 @@
 | `bug.md` | BUG（缺陷記錄） | `/bug`, `/health-check` |
 | `collab.md` | COLLAB（工程師鎖定狀態） | `/project-init`, `/save`, BEFORE CODING Stage 3, `/health-check` |
 | `callouts.md` | Obsidian Callout（`[!contradiction]` 等四種） | `/ingest`（矛盾標記）, `/health-check`（wiki 層未解決矛盾掃描） |
+| `tech-stack.md` | TECH-STACK（技術棧筆記） | `/self-improve`, `/health-check`, `/research`, `/query`, `/export`, `/save` |
 
 ---
 
@@ -34,6 +35,6 @@
 
 ## 版本說明
 
-各 schema 獨立維護版本號（目前 `pending.md`、`inferred.md` 為 v1.2；`adr.md`、`pat.md`、`lesson.md`、`bug.md` 為 v1.1；`req.md`、`collab.md` 為 v1.0）。
+各 schema 獨立維護版本號（目前 `pending.md`、`inferred.md` 為 v1.2；`adr.md`、`pat.md`、`lesson.md`、`bug.md` 為 v1.1；`req.md`、`collab.md`、`tech-stack.md` 為 v1.0）。
 若格式需要變更，在 schema 文件的 frontmatter 中更新 `version`，
 並在文件末尾加入「版本變更記錄」section，說明從哪個版本改了什麼。
